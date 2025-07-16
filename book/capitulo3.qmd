@@ -1,0 +1,37 @@
+# Contando Historias Claras con Gráficos
+
+Imagina que entras a una librería y tomas un libro por curiosidad. Lo abres en una página al azar y notas que algo llama inmediatamente tu atención: un gráfico con colores vibrantes, líneas claras y un mensaje sencillo de entender. ¿Qué hizo que te fijaras primero en ese gráfico? Vamos a descubrirlo.
+
+## ¿Qué es una buena gráfica?
+
+Una gráfica efectiva no solo muestra números o barras. Es una herramienta poderosa que cuenta historias, explica conceptos y revela información de manera clara y sencilla. Algunas claves importantes para una buena gráfica son:
+
+* **Claridad en la rotulación:** Todos los elementos del gráfico deben estar claramente identificados.
+* **Sin ornamentación innecesaria:** Menos es más. No necesitas adornos que distraigan del mensaje principal.
+* **Uso juicioso del color:** Elige colores que ayuden a resaltar lo más importante.
+* **Una historia simple y clara:** El gráfico debe ser fácil de entender a simple vista.
+
+## Cómo leemos gráficos: principios clave
+
+Existen cinco principios que describen cómo observamos y entendemos las gráficas:
+
+1. **No vamos en orden:** Nuestra vista puede empezar por cualquier parte del gráfico. Es posible que no leas el título hasta mucho después.
+2. **Primero vemos lo que se destaca:** Automáticamente nuestros ojos buscan picos, colores intensos, intersecciones o valores atípicos.
+3. **Vemos solo unas pocas cosas a la vez:** Demasiada información puede confundir. Concéntrate en pocos puntos clave.
+4. **Buscamos significado y conexiones:** Al ver algo llamativo, inmediatamente intentamos entender qué significa.
+5. **Nos basamos en convenciones y metáforas:** Interpretamos gráficos usando lo que ya conocemos y lo que hemos aprendido antes.
+
+## El uso inteligente del color
+
+Supongamos que quieres mostrar cómo han evolucionado las ventas de productos electrónicos en una tienda durante el último año. Tienes información de varias categorías como televisores, teléfonos y audífonos. ¿Cómo resaltas lo más importante?
+
+* Primero, piensa cuál es la pregunta más importante que debería responder tu gráfico. ¿Quizás mostrar que los teléfonos han superado ampliamente las ventas de los otros productos?
+
+* Usa un color vibrante como el azul intenso para la categoría principal (teléfonos) y usa tonos grises o menos saturados para el resto (televisores y audífonos). El contraste inmediatamente enfocará la atención hacia los teléfonos, destacando claramente tu punto.
+
+**Consejo práctico:** Haz todo gris excepto lo más importante. El gris es tu aliado, resaltando por contraste el mensaje central del gráfico.
+
+
+## Conclusión
+
+La próxima vez que diseñes un gráfico, recuerda que estás contando una historia. Decide qué quieres destacar, usa colores sabiamente y mantén la claridad y simplicidad. Así, tus lectores no solo verán un gráfico, sino que comprenderán y recordarán tu mensaje.

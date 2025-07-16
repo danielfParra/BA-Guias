@@ -1,0 +1,132 @@
+# Explorando tus Datos con Estadísticos Descriptivos
+
+Imagina que estás a punto de mudarte a una nueva ciudad y buscas comprar una casa. Ves una lista de precios y quieres entender mejor esos valores. ¿Qué precio es típico? ¿Cuánto varían las casas en precio? Vamos a explorar cómo responder estas preguntas usando herramientas estadísticas básicas.
+
+## Estadísticos Descriptivos
+
+
+
+
+
+
+
+
+
+Los estadísticos descriptivos nos ayudan a entender nuestros datos. Podemos agruparlos en varias categorías:
+
+* **Tendencia central**: Nos indican el valor alrededor del cual giran los datos.
+* **Variación**: Muestran qué tan dispersos están los datos.
+* **Forma**: Nos dice cómo están distribuidos los valores.
+* **Relación**: Indican la conexión lineal entre dos variables.
+
+## Medidas de Tendencia Central
+
+Estas medidas indican cuál es el valor "típico" en un conjunto de datos:
+
+### Media (Promedio)
+
+```{r}
+#| label: fig-media-1
+#| echo: false
+#| fig-cap: "Ejemplo de cálculo de la media."
+#| fig-alt: "Ilustración del cálculo de la media."
+#| out.width: '350px'
+knitr::include_graphics("img/media_1.png", dpi = 270)
+```
+
+
+
+```{r}
+#| label: fig-media-2
+#| echo: false
+#| fig-cap: "Ejemplo visual de la media."
+#| fig-alt: "Ilustración visual de la media."
+#| out.width: '350px'
+knitr::include_graphics("img/media_2.png", dpi = 270)
+```
+```{r}
+#| label: fig-media-3
+#| echo: false
+#| fig-cap: "Otra visualización de la media."
+#| fig-alt: "Otra ilustración de la media."
+#| out.width: '350px'
+knitr::include_graphics("img/media_3.png", dpi = 270)
+```
+
+Es el promedio de los datos. Si tienes los precios de casas ($100,000, $200,000 y $300,000), la media es:
+
+$\text{Media} = \frac{100,000 + 200,000 + 300,000}{3} = 200,000$
+
+La media puede ser afectada fuertemente por valores extremos (casas extremadamente caras o baratas).
+
+### Mediana
+
+Es el valor medio cuando ordenas los datos de menor a mayor. Usando los mismos precios de casas, la mediana sería $200,000. Si añades una casa de $1,000,000, la mediana sigue siendo $250,000, más resistente a extremos.
+
+### Moda
+
+Es el valor que más se repite. Si en nuestro ejemplo dos casas cuestan exactamente $200,000, entonces la moda es $200,000.
+
+## Medidas de Variación
+
+Nos dicen qué tan separados están los datos entre sí:
+
+### Rango
+
+Es la diferencia entre el valor máximo y el mínimo. Para las casas:
+
+$\text{Rango} = 300,000 - 100,000 = 200,000$
+
+Pero cuidado: el rango no toma en cuenta cómo están distribuidos los datos y puede ser muy sensible a valores extremos.
+
+### Varianza y Desviación Estándar
+
+La varianza es el promedio de las desviaciones de los datos respecto a la media, al cuadrado. La desviación estándar es la raíz cuadrada de la varianza y es más fácil de interpretar:
+
+* Una desviación estándar baja significa que los datos están cerca del promedio.
+* Una alta desviación estándar indica mucha dispersión.
+
+### Coeficiente de Variación
+
+Se expresa en porcentaje y compara la desviación estándar con la media, útil para comparar datos con diferentes escalas.
+
+## Forma de la Distribución
+
+La distribución de los datos puede ser:
+
+* **Simétrica**: Cuando los datos se distribuyen igual a ambos lados del centro.
+* **Sesgada**: Cuando más datos están hacia un lado.
+
+Podemos identificar esto usando **cuartiles**, que dividen los datos en cuatro partes iguales. El rango intercuartílico (RIC) es resistente a valores extremos y mide la dispersión del 50% central de los datos.
+
+### Diagrama de Caja y Brazos
+
+Este gráfico visualiza claramente la distribución de los datos mostrando:
+
+* Valor mínimo
+* Primer cuartil (Q1)
+* Mediana (Q2)
+* Tercer cuartil (Q3)
+* Valor máximo
+
+## Medidas de Relación Lineal
+
+Estas nos dicen si dos variables están relacionadas entre sí:
+
+### Covarianza
+
+Indica la dirección de la relación:
+
+* Positiva: ambas variables aumentan o disminuyen juntas.
+* Negativa: una aumenta mientras la otra disminuye.
+
+Sin embargo, no indica qué tan fuerte es la relación.
+
+### Coeficiente de Correlación
+
+Este estadístico va desde -1 a 1:
+
+* **Cercano a 1**: relación lineal positiva fuerte.
+* **Cercano a -1**: relación lineal negativa fuerte.
+* **Cercano a 0**: relación débil o inexistente.
+

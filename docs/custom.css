@@ -1,0 +1,7 @@
+/* Usar Montserrat para los títulos y aumentar tamaño y espaciado */
+/* Usar Lato para los títulos y reducir el espacio inferior */
+.title, .quarto-title-banner .title {
+  font-family: 'Lato', sans-serif !important;
+  margin-bottom: 0.5rem !important;
+  font-size: calc(2em + 2pt) !important;
+}

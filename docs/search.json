@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Notas de clase Business Analytics",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books. quarto render book",
+    "text": "Prefacio\nEstas notas de clase han sido escritas con ayuda de inteligencia artificial (ChatGPT), combinando apuntes propios de clase y referencias de diversos libros. Las ilustraciones han sido generadas también con inteligencia artificial, inspiradas en el libro “Math with Bad Drawings” de Ben Orlin.",
     "crumbs": [
-      "Preface"
+      "Prefacio"
     ]
   },
   {
@@ -37,6 +37,146 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "capitulo3.html",
+    "href": "capitulo3.html",
+    "title": "3  Contando Historias Claras con Gráficos",
+    "section": "",
+    "text": "3.1 ¿Qué es una buena gráfica?\nImagina que entras a una librería y tomas un libro por curiosidad. Lo abres en una página al azar y notas que algo llama inmediatamente tu atención: un gráfico con colores vibrantes, líneas claras y un mensaje sencillo de entender. ¿Qué hizo que te fijaras primero en ese gráfico? Vamos a descubrirlo.\nUna gráfica efectiva no solo muestra números o barras. Es una herramienta poderosa que cuenta historias, explica conceptos y revela información de manera clara y sencilla. Algunas claves importantes para una buena gráfica son:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo3.html#qué-es-una-buena-gráfica",
+    "href": "capitulo3.html#qué-es-una-buena-gráfica",
+    "title": "3  Contando Historias Claras con Gráficos",
+    "section": "",
+    "text": "Claridad en la rotulación: Todos los elementos del gráfico deben estar claramente identificados.\nSin ornamentación innecesaria: Menos es más. No necesitas adornos que distraigan del mensaje principal.\nUso juicioso del color: Elige colores que ayuden a resaltar lo más importante.\nUna historia simple y clara: El gráfico debe ser fácil de entender a simple vista.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo3.html#cómo-leemos-gráficos-principios-clave",
+    "href": "capitulo3.html#cómo-leemos-gráficos-principios-clave",
+    "title": "3  Contando Historias Claras con Gráficos",
+    "section": "3.2 Cómo leemos gráficos: principios clave",
+    "text": "3.2 Cómo leemos gráficos: principios clave\nExisten cinco principios que describen cómo observamos y entendemos las gráficas:\n\nNo vamos en orden: Nuestra vista puede empezar por cualquier parte del gráfico. Es posible que no leas el título hasta mucho después.\nPrimero vemos lo que se destaca: Automáticamente nuestros ojos buscan picos, colores intensos, intersecciones o valores atípicos.\nVemos solo unas pocas cosas a la vez: Demasiada información puede confundir. Concéntrate en pocos puntos clave.\nBuscamos significado y conexiones: Al ver algo llamativo, inmediatamente intentamos entender qué significa.\nNos basamos en convenciones y metáforas: Interpretamos gráficos usando lo que ya conocemos y lo que hemos aprendido antes.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo3.html#el-uso-inteligente-del-color",
+    "href": "capitulo3.html#el-uso-inteligente-del-color",
+    "title": "3  Contando Historias Claras con Gráficos",
+    "section": "3.3 El uso inteligente del color",
+    "text": "3.3 El uso inteligente del color\nSupongamos que quieres mostrar cómo han evolucionado las ventas de productos electrónicos en una tienda durante el último año. Tienes información de varias categorías como televisores, teléfonos y audífonos. ¿Cómo resaltas lo más importante?\n\nPrimero, piensa cuál es la pregunta más importante que debería responder tu gráfico. ¿Quizás mostrar que los teléfonos han superado ampliamente las ventas de los otros productos?\nUsa un color vibrante como el azul intenso para la categoría principal (teléfonos) y usa tonos grises o menos saturados para el resto (televisores y audífonos). El contraste inmediatamente enfocará la atención hacia los teléfonos, destacando claramente tu punto.\n\nConsejo práctico: Haz todo gris excepto lo más importante. El gris es tu aliado, resaltando por contraste el mensaje central del gráfico.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo3.html#ejemplo-aplicado-pequeños-regalos-y-grandes-ventas",
+    "href": "capitulo3.html#ejemplo-aplicado-pequeños-regalos-y-grandes-ventas",
+    "title": "3  Contando Historias Claras con Gráficos",
+    "section": "3.4 Ejemplo aplicado: Pequeños regalos y grandes ventas",
+    "text": "3.4 Ejemplo aplicado: Pequeños regalos y grandes ventas\nImagina que eres parte de un equipo de ventas en una empresa de belleza y salud. Visitas farmacias regularmente para ofrecer promociones. Un día decides probar algo nuevo: dar un pequeño regalo (unas muestras de pasta dental) antes de empezar la negociación.\nEn este ejemplo práctico, se realizó un experimento para medir si regalar algo pequeño, antes de negociar, incrementaba las ventas:\n\nGrupo control: no recibieron regalo.\nGrupo tratamiento: recibieron un regalo pequeño (pasta dental) antes de la negociación.\n\n\n3.4.1 Resultados sorprendentes:\n\nLas ventas aumentaron significativamente cuando quien recibía el regalo era un gerente.\nSe observó un efecto inmediato y claro del regalo en las ventas, aunque queda por explorar si este efecto se mantiene en el largo plazo.\n\n¿Qué nos enseña esto para nuestras gráficas?\n\nCuando presentemos estos resultados, lo más relevante es el efecto del regalo en los gerentes. Debemos destacarlo con un color fuerte y saturado, usando tonos más grises o desaturados para el resto de información.\nEsto hace que la audiencia comprenda rápidamente cuál es el mensaje central del estudio.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo3.html#conclusión",
+    "href": "capitulo3.html#conclusión",
+    "title": "3  Contando Historias Claras con Gráficos",
+    "section": "3.4 Conclusión",
+    "text": "3.4 Conclusión\nLa próxima vez que diseñes un gráfico, recuerda que estás contando una historia. Decide qué quieres destacar, usa colores sabiamente y mantén la claridad y simplicidad. Así, tus lectores no solo verán un gráfico, sino que comprenderán y recordarán tu mensaje.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html",
+    "href": "capitulo2.html",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "",
+    "text": "2.1 Estadísticos Descriptivos\nImagina que estás a punto de mudarte a una nueva ciudad y buscas comprar una casa. Ves una lista de precios y quieres entender mejor esos valores. ¿Qué precio es típico? ¿Cuánto varían las casas en precio? Vamos a explorar cómo responder estas preguntas usando herramientas estadísticas básicas.\nLos estadísticos descriptivos nos ayudan a entender nuestros datos. Podemos agruparlos en varias categorías:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#estadísticos-descriptivos",
+    "href": "capitulo2.html#estadísticos-descriptivos",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "",
+    "text": "Tendencia central: Nos indican el valor alrededor del cual giran los datos.\nVariación: Muestran qué tan dispersos están los datos.\nForma: Nos dice cómo están distribuidos los valores.\nRelación: Indican la conexión lineal entre dos variables.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#medidas-de-tendencia-central",
+    "href": "capitulo2.html#medidas-de-tendencia-central",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "2.2 Medidas de Tendencia Central",
+    "text": "2.2 Medidas de Tendencia Central\nEstas medidas indican cuál es el valor “típico” en un conjunto de datos:\n\n2.2.1 Media (Promedio)\n\n\n\n\n\n\n\n\nFigure 2.1: Ejemplo de cálculo de la media.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.2: Ejemplo visual de la media.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.3: Otra visualización de la media.\n\n\n\n\n\nEs el promedio de los datos. Si tienes los precios de casas ($100,000, $200,000 y $300,000), la media es:\n\\(\\text{Media} = \\frac{100,000 + 200,000 + 300,000}{3} = 200,000\\)\nLa media puede ser afectada fuertemente por valores extremos (casas extremadamente caras o baratas).\n\n\n2.2.2 Mediana\nEs el valor medio cuando ordenas los datos de menor a mayor. Usando los mismos precios de casas, la mediana sería $200,000. Si añades una casa de $1,000,000, la mediana sigue siendo $250,000, más resistente a extremos.\n\n\n2.2.3 Moda\nEs el valor que más se repite. Si en nuestro ejemplo dos casas cuestan exactamente $200,000, entonces la moda es $200,000.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#medidas-de-variación",
+    "href": "capitulo2.html#medidas-de-variación",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "2.3 Medidas de Variación",
+    "text": "2.3 Medidas de Variación\nNos dicen qué tan separados están los datos entre sí:\n\n2.3.1 Rango\nEs la diferencia entre el valor máximo y el mínimo. Para las casas:\n\\(\\text{Rango} = 300,000 - 100,000 = 200,000\\)\nPero cuidado: el rango no toma en cuenta cómo están distribuidos los datos y puede ser muy sensible a valores extremos.\n\n\n2.3.2 Varianza y Desviación Estándar\nLa varianza es el promedio de las desviaciones de los datos respecto a la media, al cuadrado. La desviación estándar es la raíz cuadrada de la varianza y es más fácil de interpretar:\n\nUna desviación estándar baja significa que los datos están cerca del promedio.\nUna alta desviación estándar indica mucha dispersión.\n\n\n\n2.3.3 Coeficiente de Variación\nSe expresa en porcentaje y compara la desviación estándar con la media, útil para comparar datos con diferentes escalas.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#forma-de-la-distribución",
+    "href": "capitulo2.html#forma-de-la-distribución",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "2.4 Forma de la Distribución",
+    "text": "2.4 Forma de la Distribución\nLa distribución de los datos puede ser:\n\nSimétrica: Cuando los datos se distribuyen igual a ambos lados del centro.\nSesgada: Cuando más datos están hacia un lado.\n\nPodemos identificar esto usando cuartiles, que dividen los datos en cuatro partes iguales. El rango intercuartílico (RIC) es resistente a valores extremos y mide la dispersión del 50% central de los datos.\n\n2.4.1 Diagrama de Caja y Brazos\nEste gráfico visualiza claramente la distribución de los datos mostrando:\n\nValor mínimo\nPrimer cuartil (Q1)\nMediana (Q2)\nTercer cuartil (Q3)\nValor máximo",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#medidas-de-relación-lineal",
+    "href": "capitulo2.html#medidas-de-relación-lineal",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "2.5 Medidas de Relación Lineal",
+    "text": "2.5 Medidas de Relación Lineal\nEstas nos dicen si dos variables están relacionadas entre sí:\n\n2.5.1 Covarianza\nIndica la dirección de la relación:\n\nPositiva: ambas variables aumentan o disminuyen juntas.\nNegativa: una aumenta mientras la otra disminuye.\n\nSin embargo, no indica qué tan fuerte es la relación.\n\n\n2.5.2 Coeficiente de Correlación\nEste estadístico va desde -1 a 1:\n\nCercano a 1: relación lineal positiva fuerte.\nCercano a -1: relación lineal negativa fuerte.\nCercano a 0: relación débil o inexistente.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#ejemplo-aplicado-una-multa-como-precio",
+    "href": "capitulo2.html#ejemplo-aplicado-una-multa-como-precio",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "2.6 Ejemplo aplicado: Una Multa Como Precio",
+    "text": "2.6 Ejemplo aplicado: Una Multa Como Precio\nEn un estudio en guarderías se introdujo una multa por llegar tarde pensando que esto reduciría la tardanza. ¿Qué ocurrió?\n\nSorprendentemente, más padres llegaron tarde tras imponer la multa.\nAl eliminar la multa, la tardanza no volvió a la situación inicial.\n\nConclusión: los incentivos monetarios pueden modificar la motivación intrínseca, generando efectos inesperados.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo2.html#resumen",
+    "href": "capitulo2.html#resumen",
+    "title": "2  Explorando tus Datos con Estadísticos Descriptivos",
+    "section": "2.7 Resumen",
+    "text": "2.7 Resumen\nLos estadísticos descriptivos son fundamentales para conocer tus datos. Al usarlos correctamente, puedes tomar mejores decisiones en cualquier contexto, desde comprar una casa hasta implementar políticas en una guardería.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span>"
     ]
   }
 ]

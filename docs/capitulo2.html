@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Parra">
 
-<title>Notas de clase Business Analytics</title>
+<title>2&nbsp; Explorando tus Datos con Estadísticos Descriptivos – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./capitulo3.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -83,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Prefacio</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
@@ -122,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./capitulo2.html" class="sidebar-item-text sidebar-link">
+  <a href="./capitulo2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span></a>
   </div>
 </li>
@@ -154,7 +183,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#prefacio" id="toc-prefacio" class="nav-link active" data-scroll-target="#prefacio">Prefacio</a></li>
+  <li><a href="#estadísticos-descriptivos" id="toc-estadísticos-descriptivos" class="nav-link active" data-scroll-target="#estadísticos-descriptivos"><span class="header-section-number">2.1</span> Estadísticos Descriptivos</a></li>
+  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central"><span class="header-section-number">2.2</span> Medidas de Tendencia Central</a>
+  <ul class="collapse">
+  <li><a href="#media-promedio" id="toc-media-promedio" class="nav-link" data-scroll-target="#media-promedio"><span class="header-section-number">2.2.1</span> Media (Promedio)</a></li>
+  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana"><span class="header-section-number">2.2.2</span> Mediana</a></li>
+  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda"><span class="header-section-number">2.2.3</span> Moda</a></li>
+  </ul></li>
+  <li><a href="#medidas-de-variación" id="toc-medidas-de-variación" class="nav-link" data-scroll-target="#medidas-de-variación"><span class="header-section-number">2.3</span> Medidas de Variación</a>
+  <ul class="collapse">
+  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango"><span class="header-section-number">2.3.1</span> Rango</a></li>
+  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar"><span class="header-section-number">2.3.2</span> Varianza y Desviación Estándar</a></li>
+  <li><a href="#coeficiente-de-variación" id="toc-coeficiente-de-variación" class="nav-link" data-scroll-target="#coeficiente-de-variación"><span class="header-section-number">2.3.3</span> Coeficiente de Variación</a></li>
+  </ul></li>
+  <li><a href="#forma-de-la-distribución" id="toc-forma-de-la-distribución" class="nav-link" data-scroll-target="#forma-de-la-distribución"><span class="header-section-number">2.4</span> Forma de la Distribución</a>
+  <ul class="collapse">
+  <li><a href="#diagrama-de-caja-y-brazos" id="toc-diagrama-de-caja-y-brazos" class="nav-link" data-scroll-target="#diagrama-de-caja-y-brazos"><span class="header-section-number">2.4.1</span> Diagrama de Caja y Brazos</a></li>
+  </ul></li>
+  <li><a href="#medidas-de-relación-lineal" id="toc-medidas-de-relación-lineal" class="nav-link" data-scroll-target="#medidas-de-relación-lineal"><span class="header-section-number">2.5</span> Medidas de Relación Lineal</a>
+  <ul class="collapse">
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">2.5.1</span> Covarianza</a></li>
+  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">2.5.2</span> Coeficiente de Correlación</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -163,26 +213,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notas de clase Business Analytics</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Daniel Parra </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
-    </div>
-  </div>
   
     
   </div>
@@ -192,14 +230,142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div style="text-align: right;">
-<p><img src="img/logo_javeriana.png" width="180px"></p>
+<p>Imagina que estás a punto de mudarte a una nueva ciudad y buscas comprar una casa. Ves una lista de precios y quieres entender mejor esos valores. ¿Qué precio es típico? ¿Cuánto varían las casas en precio? Vamos a explorar cómo responder estas preguntas usando herramientas estadísticas básicas.</p>
+<section id="estadísticos-descriptivos" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="estadísticos-descriptivos"><span class="header-section-number">2.1</span> Estadísticos Descriptivos</h2>
+<p>Los estadísticos descriptivos nos ayudan a entender nuestros datos. Podemos agruparlos en varias categorías:</p>
+<ul>
+<li><strong>Tendencia central</strong>: Nos indican el valor alrededor del cual giran los datos.</li>
+<li><strong>Variación</strong>: Muestran qué tan dispersos están los datos.</li>
+<li><strong>Forma</strong>: Nos dice cómo están distribuidos los valores.</li>
+<li><strong>Relación</strong>: Indican la conexión lineal entre dos variables.</li>
+</ul>
+</section>
+<section id="medidas-de-tendencia-central" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">2.2</span> Medidas de Tendencia Central</h2>
+<p>Estas medidas indican cuál es el valor “típico” en un conjunto de datos:</p>
+<section id="media-promedio" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="media-promedio"><span class="header-section-number">2.2.1</span> Media (Promedio)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-media-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Ilustración del cálculo de la media.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-media-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/media_1.png" class="img-fluid figure-img" alt="Ilustración del cálculo de la media." width="350">
 </div>
-<section id="prefacio" class="level1 unnumbered">
-<h1 class="unnumbered">Prefacio</h1>
-<p>Estas notas de clase han sido escritas con ayuda de inteligencia artificial (ChatGPT), combinando apuntes propios de clase y referencias de diversos libros. Las ilustraciones han sido generadas también con inteligencia artificial, inspiradas en el libro “Math with Bad Drawings” de Ben Orlin.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-media-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Ejemplo de cálculo de la media.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-media-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Ilustración visual de la media.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-media-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/media_2.png" class="img-fluid figure-img" alt="Ilustración visual de la media." width="350">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-media-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Ejemplo visual de la media.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-media-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Otra ilustración de la media.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-media-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/media_3.png" class="img-fluid figure-img" alt="Otra ilustración de la media." width="350">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-media-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Otra visualización de la media.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Es el promedio de los datos. Si tienes los precios de casas ($100,000, $200,000 y $300,000), la media es:</p>
+<p><span class="math inline">\(\text{Media} = \frac{100,000 + 200,000 + 300,000}{3} = 200,000\)</span></p>
+<p>La media puede ser afectada fuertemente por valores extremos (casas extremadamente caras o baratas).</p>
+</section>
+<section id="mediana" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="mediana"><span class="header-section-number">2.2.2</span> Mediana</h3>
+<p>Es el valor medio cuando ordenas los datos de menor a mayor. Usando los mismos precios de casas, la mediana sería $200,000. Si añades una casa de $1,000,000, la mediana sigue siendo $250,000, más resistente a extremos.</p>
+</section>
+<section id="moda" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="moda"><span class="header-section-number">2.2.3</span> Moda</h3>
+<p>Es el valor que más se repite. Si en nuestro ejemplo dos casas cuestan exactamente $200,000, entonces la moda es $200,000.</p>
+</section>
+</section>
+<section id="medidas-de-variación" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="medidas-de-variación"><span class="header-section-number">2.3</span> Medidas de Variación</h2>
+<p>Nos dicen qué tan separados están los datos entre sí:</p>
+<section id="rango" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="rango"><span class="header-section-number">2.3.1</span> Rango</h3>
+<p>Es la diferencia entre el valor máximo y el mínimo. Para las casas:</p>
+<p><span class="math inline">\(\text{Rango} = 300,000 - 100,000 = 200,000\)</span></p>
+<p>Pero cuidado: el rango no toma en cuenta cómo están distribuidos los datos y puede ser muy sensible a valores extremos.</p>
+</section>
+<section id="varianza-y-desviación-estándar" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="varianza-y-desviación-estándar"><span class="header-section-number">2.3.2</span> Varianza y Desviación Estándar</h3>
+<p>La varianza es el promedio de las desviaciones de los datos respecto a la media, al cuadrado. La desviación estándar es la raíz cuadrada de la varianza y es más fácil de interpretar:</p>
+<ul>
+<li>Una desviación estándar baja significa que los datos están cerca del promedio.</li>
+<li>Una alta desviación estándar indica mucha dispersión.</li>
+</ul>
+</section>
+<section id="coeficiente-de-variación" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="coeficiente-de-variación"><span class="header-section-number">2.3.3</span> Coeficiente de Variación</h3>
+<p>Se expresa en porcentaje y compara la desviación estándar con la media, útil para comparar datos con diferentes escalas.</p>
+</section>
+</section>
+<section id="forma-de-la-distribución" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="forma-de-la-distribución"><span class="header-section-number">2.4</span> Forma de la Distribución</h2>
+<p>La distribución de los datos puede ser:</p>
+<ul>
+<li><strong>Simétrica</strong>: Cuando los datos se distribuyen igual a ambos lados del centro.</li>
+<li><strong>Sesgada</strong>: Cuando más datos están hacia un lado.</li>
+</ul>
+<p>Podemos identificar esto usando <strong>cuartiles</strong>, que dividen los datos en cuatro partes iguales. El rango intercuartílico (RIC) es resistente a valores extremos y mide la dispersión del 50% central de los datos.</p>
+<section id="diagrama-de-caja-y-brazos" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="diagrama-de-caja-y-brazos"><span class="header-section-number">2.4.1</span> Diagrama de Caja y Brazos</h3>
+<p>Este gráfico visualiza claramente la distribución de los datos mostrando:</p>
+<ul>
+<li>Valor mínimo</li>
+<li>Primer cuartil (Q1)</li>
+<li>Mediana (Q2)</li>
+<li>Tercer cuartil (Q3)</li>
+<li>Valor máximo</li>
+</ul>
+</section>
+</section>
+<section id="medidas-de-relación-lineal" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="medidas-de-relación-lineal"><span class="header-section-number">2.5</span> Medidas de Relación Lineal</h2>
+<p>Estas nos dicen si dos variables están relacionadas entre sí:</p>
+<section id="covarianza" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">2.5.1</span> Covarianza</h3>
+<p>Indica la dirección de la relación:</p>
+<ul>
+<li>Positiva: ambas variables aumentan o disminuyen juntas.</li>
+<li>Negativa: una aumenta mientras la otra disminuye.</li>
+</ul>
+<p>Sin embargo, no indica qué tan fuerte es la relación.</p>
+</section>
+<section id="coeficiente-de-correlación" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">2.5.2</span> Coeficiente de Correlación</h3>
+<p>Este estadístico va desde -1 a 1:</p>
+<ul>
+<li><strong>Cercano a 1</strong>: relación lineal positiva fuerte.</li>
+<li><strong>Cercano a -1</strong>: relación lineal negativa fuerte.</li>
+<li><strong>Cercano a 0</strong>: relación débil o inexistente.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -604,10 +770,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./capitulo3.html" class="pagination-link" aria-label="Contando Historias Claras con Gráficos">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Contando Historias Claras con Gráficos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

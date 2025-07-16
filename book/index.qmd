@@ -1,6 +1,9 @@
-# Preface {.unnumbered}
 
-This is a Quarto book.
+<div style="text-align: right;">
+  <img src="img/logo_javeriana.png" width="180px" />
+</div>
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-quarto render book
+# Prefacio {.unnumbered}
+
+Estas notas de clase han sido escritas con ayuda de inteligencia artificial (ChatGPT), combinando apuntes propios de clase y referencias de diversos libros. Las ilustraciones han sido generadas también con inteligencia artificial, inspiradas en el libro "Math with Bad Drawings" de Ben Orlin.
+
