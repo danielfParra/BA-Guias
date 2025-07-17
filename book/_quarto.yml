@@ -1,3 +1,15 @@
+lang: es
+language:
+  toc-title: "Tabla de contenidos"
+  section-title: "Sección"
+  chapter-title: "Capítulo"
+  appendix-title: "Apéndice"
+  references-title: "Referencias"
+  search-placeholder: "Buscar"
+  nav-next: "Siguiente"
+  nav-prev: "Anterior"
+  nav-top: "Inicio"
+  nav-title: "Navegación"
 project:
   type: book
   output-dir: ../docs

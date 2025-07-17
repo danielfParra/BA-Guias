@@ -61,7 +61,37 @@ La media puede ser afectada fuertemente por valores extremos (casas extremadamen
 
 ### Mediana
 
+```{r}
+#| label: fig-mediana-1
+#| echo: false
+#| #| fig-cap: "Ejemplo de cálculo de la mediana."
+#| fig-alt: "Ilustración del cálculo de la mediana."
+#| out.width: '350px'
+knitr::include_graphics("img/mediana_1.png", dpi = 270)
+```
+
+
+
+```{r}
+#| label: fig-mediana-2
+#| echo: false
+#| fig-cap: "Ejemplo visual de la mediana."
+#| fig-alt: "Ilustración visual de la mediana."
+#| out.width: '350px'
+knitr::include_graphics("img/mediana_2.png", dpi = 270)
+```
+```{r}
+#| label: fig-mediana-3
+#| echo: false
+#| fig-cap: "Otra visualización de la mediana."
+#| fig-alt: "Otra ilustración de la mediana."
+#| out.width: '350px'
+knitr::include_graphics("img/mediana_3.png", dpi = 270)
+```
+
 Es el valor medio cuando ordenas los datos de menor a mayor. Usando los mismos precios de casas, la mediana sería $200,000. Si añades una casa de $1,000,000, la mediana sigue siendo $250,000, más resistente a extremos.
+
+
 
 ### Moda
 

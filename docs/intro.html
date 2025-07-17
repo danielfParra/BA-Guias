@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Notas de clase Business Analytics</title>
+<title>1&nbsp; Introducción: Descubriendo la Analítica de Datos – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -103,7 +83,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -137,7 +117,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -169,15 +149,35 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#qué-es-la-analítica-de-datos-para-negocios" id="toc-qué-es-la-analítica-de-datos-para-negocios" class="nav-link active" data-scroll-target="#qué-es-la-analítica-de-datos-para-negocios"><span class="header-section-number">1.1</span> ¿Qué es la Analítica de Datos para Negocios?</a></li>
+  <li><a href="#qué-tipo-de-preguntas-podemos-responder-con-la-analítica" id="toc-qué-tipo-de-preguntas-podemos-responder-con-la-analítica" class="nav-link" data-scroll-target="#qué-tipo-de-preguntas-podemos-responder-con-la-analítica"><span class="header-section-number">1.2</span> ¿Qué tipo de preguntas podemos responder con la analítica?</a></li>
+  <li><a href="#tipos-de-analítica" id="toc-tipos-de-analítica" class="nav-link" data-scroll-target="#tipos-de-analítica"><span class="header-section-number">1.3</span> Tipos de Analítica</a>
+  <ul class="collapse">
+  <li><a href="#analítica-descriptiva" id="toc-analítica-descriptiva" class="nav-link" data-scroll-target="#analítica-descriptiva"><span class="header-section-number">1.3.1</span> Analítica Descriptiva</a></li>
+  <li><a href="#analítica-predictiva" id="toc-analítica-predictiva" class="nav-link" data-scroll-target="#analítica-predictiva"><span class="header-section-number">1.3.2</span> Analítica Predictiva</a></li>
+  <li><a href="#analítica-prescriptiva" id="toc-analítica-prescriptiva" class="nav-link" data-scroll-target="#analítica-prescriptiva"><span class="header-section-number">1.3.3</span> Analítica Prescriptiva</a></li>
+  </ul></li>
+  <li><a href="#herramientas-y-estructura-del-curso" id="toc-herramientas-y-estructura-del-curso" class="nav-link" data-scroll-target="#herramientas-y-estructura-del-curso"><span class="header-section-number">1.4</span> Herramientas y estructura del curso</a></li>
+  <li><a href="#la-cadena-de-valor-en-business-analytics" id="toc-la-cadena-de-valor-en-business-analytics" class="nav-link" data-scroll-target="#la-cadena-de-valor-en-business-analytics"><span class="header-section-number">1.5</span> La cadena de valor en Business Analytics</a></li>
+  <li><a href="#introducción-básica-a-r" id="toc-introducción-básica-a-r" class="nav-link" data-scroll-target="#introducción-básica-a-r"><span class="header-section-number">1.6</span> Introducción básica a R</a></li>
+  <li><a href="#cómo-obtener-ayuda-en-r" id="toc-cómo-obtener-ayuda-en-r" class="nav-link" data-scroll-target="#cómo-obtener-ayuda-en-r"><span class="header-section-number">1.7</span> Cómo obtener ayuda en R</a></li>
+  <li><a href="#consejos-prácticos" id="toc-consejos-prácticos" class="nav-link" data-scroll-target="#consejos-prácticos"><span class="header-section-number">1.8</span> Consejos prácticos:</a></li>
+  <li><a href="#evaluación-del-curso" id="toc-evaluación-del-curso" class="nav-link" data-scroll-target="#evaluación-del-curso"><span class="header-section-number">1.9</span> Evaluación del Curso</a></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">1.10</span> Conclusión</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></h1>
 </div>
 
 
@@ -194,15 +194,129 @@ div.csl-indent {
 </header>
 
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<p>Imagina que trabajas en una empresa que debe decidir qué producto lanzar o qué precio poner a sus artículos. ¿Cómo tomas estas decisiones? Antiguamente, las decisiones se tomaban según la intuición del jefe (HiPPO, la persona mejor pagada en la organización), pero actualmente contamos con algo mejor: la analítica de datos.</p>
+<section id="qué-es-la-analítica-de-datos-para-negocios" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="qué-es-la-analítica-de-datos-para-negocios"><span class="header-section-number">1.1</span> ¿Qué es la Analítica de Datos para Negocios?</h2>
+<p>La analítica de datos es la aplicación de herramientas tecnológicas y estadísticas para analizar información relevante y apoyar la toma de decisiones en una organización.</p>
+<p>Los datos, sin embargo, no son suficientes por sí solos. Necesitamos interpretarlos de manera efectiva para contar historias convincentes que permitan tomar decisiones informadas.</p>
+</section>
+<section id="qué-tipo-de-preguntas-podemos-responder-con-la-analítica" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="qué-tipo-de-preguntas-podemos-responder-con-la-analítica"><span class="header-section-number">1.2</span> ¿Qué tipo de preguntas podemos responder con la analítica?</h2>
+<p>La analítica de negocios nos permite responder preguntas prácticas, como:</p>
+<ul>
+<li>¿Quiénes son mis clientes?</li>
+<li>¿Qué campaña de marketing es más efectiva?</li>
+<li>¿Cuál sería el efecto de cambiar los precios?</li>
+<li>¿Cómo predecir la demanda de un producto?</li>
+</ul>
+</section>
+<section id="tipos-de-analítica" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="tipos-de-analítica"><span class="header-section-number">1.3</span> Tipos de Analítica</h2>
+<p>Hay tres tipos principales de analítica:</p>
+<section id="analítica-descriptiva" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="analítica-descriptiva"><span class="header-section-number">1.3.1</span> Analítica Descriptiva</h3>
+<p>Describe la situación actual mediante visualizaciones y estadísticas básicas.</p>
+<p><strong>Ejemplos:</strong></p>
+<ul>
+<li>¿Han crecido las ventas este año?</li>
+<li>¿Qué región vende menos?</li>
+</ul>
+</section>
+<section id="analítica-predictiva" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="analítica-predictiva"><span class="header-section-number">1.3.2</span> Analítica Predictiva</h3>
+<p>Predice qué sucederá, aprovechando correlaciones entre variables. Aquí no es necesaria la causalidad, sino una relación estadística sólida.</p>
+<p><strong>Ejemplos:</strong></p>
+<ul>
+<li>¿Cuál es la probabilidad de que un cliente deje de comprar?</li>
+<li>¿Qué tan probable es que una transacción sea fraudulenta?</li>
+</ul>
+</section>
+<section id="analítica-prescriptiva" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="analítica-prescriptiva"><span class="header-section-number">1.3.3</span> Analítica Prescriptiva</h3>
+<p>Sugiere decisiones óptimas, enfocándose en relaciones causales y, frecuentemente, utilizando experimentos.</p>
+<p><strong>Ejemplos:</strong></p>
+<ul>
+<li>¿Subir el precio incrementará las ganancias?</li>
+<li>¿Qué diseño de página web aumentará las ventas?</li>
+</ul>
+</section>
+</section>
+<section id="herramientas-y-estructura-del-curso" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="herramientas-y-estructura-del-curso"><span class="header-section-number">1.4</span> Herramientas y estructura del curso</h2>
+<p>Durante este curso:</p>
+<ul>
+<li>Aprenderás a usar R para visualizar y resumir datos.</li>
+<li>Realizarás intervalos de confianza para entender qué tan precisos son tus promedios.</li>
+<li>Aplicarás pruebas de hipótesis para saber si hay diferencias reales entre grupos.</li>
+<li>Construirás modelos de regresión para predecir resultados y apoyar decisiones empresariales.</li>
+</ul>
+<p>No temas a la estadística o programación. Este curso es introductorio y presenta conceptos fundamentales de manera clara, evitando complicaciones matemáticas innecesarias.</p>
+</section>
+<section id="la-cadena-de-valor-en-business-analytics" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="la-cadena-de-valor-en-business-analytics"><span class="header-section-number">1.5</span> La cadena de valor en Business Analytics</h2>
+<p>La analítica de negocios incluye:</p>
+<ul>
+<li><strong>Recolección y organización de datos:</strong> Crear bases de datos (SQL, Power BI).</li>
+<li><strong>Análisis de datos:</strong> Usar herramientas como R, Excel o Python para análisis estratégicos.</li>
+<li><strong>Comunicación de resultados:</strong> Presentar hallazgos en reportes y visualizaciones (PowerPoint, Tableau).</li>
+</ul>
+</section>
+<section id="introducción-básica-a-r" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="introducción-básica-a-r"><span class="header-section-number">1.6</span> Introducción básica a R</h2>
+<p>R es un lenguaje de programación estadística gratuito y de código abierto.</p>
+<p><strong>¿Por qué usar R?</strong></p>
+<ul>
+<li>Gratis y robusto.</li>
+<li>Disponible en múltiples plataformas.</li>
+<li>Gran comunidad de usuarios y desarrolladores.</li>
+</ul>
+<p><strong>Instalar R y RStudio:</strong></p>
+<ol type="1">
+<li>Descarga RStudio Desktop (versión gratuita).</li>
+<li>Instala siguiendo las instrucciones según tu sistema operativo.</li>
+</ol>
+<p><strong>Consejos básicos para usar R:</strong></p>
+<ul>
+<li>Usa la consola interactiva para ejecutar comandos.</li>
+<li>Recuerda que R distingue entre mayúsculas y minúsculas.</li>
+<li>Los espacios en el código no afectan su ejecución, pero mejoran la legibilidad.</li>
+</ul>
+<p><strong>Paquetes útiles en R:</strong></p>
+<ul>
+<li><code>tidyverse</code>: para manipulación de datos.</li>
+<li><code>swirl</code>: tutoriales interactivos para aprender R.</li>
+</ul>
+</section>
+<section id="cómo-obtener-ayuda-en-r" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="cómo-obtener-ayuda-en-r"><span class="header-section-number">1.7</span> Cómo obtener ayuda en R</h2>
+<p>Puedes obtener ayuda directamente desde R usando:</p>
+<ul>
+<li><code>help(&lt;función&gt;)</code> o <code>?función</code></li>
+<li><code>example(&lt;función&gt;)</code></li>
+</ul>
+</section>
+<section id="consejos-prácticos" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="consejos-prácticos"><span class="header-section-number">1.8</span> Consejos prácticos:</h2>
+<ul>
+<li>Define claramente tu directorio de trabajo (<code>getwd()</code>, <code>setwd()</code>).</li>
+<li>Evita espacios y caracteres especiales en nombres de archivos.</li>
+<li>Siempre comenta tu código para entenderlo mejor posteriormente.</li>
+</ul>
+</section>
+<section id="evaluación-del-curso" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="evaluación-del-curso"><span class="header-section-number">1.9</span> Evaluación del Curso</h2>
+<ul>
+<li><strong>Quizzes (30%)</strong></li>
+<li><strong>Tareas (30%)</strong></li>
+<li><strong>Proyecto final en equipos (40%)</strong></li>
+</ul>
+</section>
+<section id="conclusión" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">1.10</span> Conclusión</h2>
+<p>La analítica de datos es una herramienta poderosa para mejorar la toma de decisiones en cualquier organización. Al entender sus principios básicos y aprender a usar herramientas como R, podrás responder preguntas relevantes con mayor confianza y precisión. ¡Comienza tu viaje en la analítica con curiosidad y sin temor!</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
-</div>
-</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

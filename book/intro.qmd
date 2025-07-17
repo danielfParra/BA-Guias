@@ -1,5 +1,58 @@
-# Introduction
+# Introducción: Descubriendo la Analítica de Datos
 
-This is a book created from markdown and executable code.
+Imagina que trabajas en una empresa que debe decidir qué producto lanzar o qué precio poner a sus artículos. ¿Cómo tomas estas decisiones? Antiguamente, las decisiones se tomaban según la intuición del jefe (**HiPPO**, la persona mejor pagada en la organización), pero actualmente contamos con algo mejor: la analítica de datos.
 
-See @knuth84 for additional discussion of literate programming.
+## ¿Qué es la Analítica de Datos para Negocios?
+
+La analítica de datos es la aplicación de herramientas tecnológicas y estadísticas para analizar información relevante y apoyar la toma de decisiones en una organización.
+
+Los datos, sin embargo, no son suficientes por sí solos. Necesitamos interpretarlos de manera efectiva para contar historias convincentes que permitan tomar decisiones informadas.
+
+## ¿Qué tipo de preguntas podemos responder con la analítica?
+
+La analítica de negocios nos permite responder preguntas prácticas, como:
+
+* ¿Quiénes son mis clientes?
+* ¿Qué campaña de marketing es más efectiva?
+* ¿Cuál sería el efecto de cambiar los precios?
+* ¿Cómo predecir la demanda de un producto?
+
+## Tipos de Analítica
+
+Hay tres tipos principales de analítica:
+
+### Analítica Descriptiva
+
+Describe la situación actual mediante visualizaciones y estadísticas básicas.
+
+**Ejemplos:**
+
+* ¿Han crecido las ventas este año?
+* ¿Qué región vende menos?
+
+### Analítica Predictiva
+
+Predice qué sucederá, aprovechando correlaciones entre variables. Aquí no es necesaria la causalidad, sino una relación estadística sólida.
+
+**Ejemplos:**
+
+* ¿Cuál es la probabilidad de que un cliente deje de comprar?
+* ¿Qué tan probable es que una transacción sea fraudulenta?
+
+### Analítica Prescriptiva
+
+Sugiere decisiones óptimas, enfocándose en relaciones causales y, frecuentemente, utilizando experimentos.
+
+**Ejemplos:**
+
+* ¿Subir el precio incrementará las ganancias?
+* ¿Qué diseño de página web aumentará las ventas?
+
+
+## La cadena de valor en Business Analytics
+
+La analítica de negocios incluye:
+
+* **Recolección y organización de datos:** Crear bases de datos (SQL, Power BI).
+* **Análisis de datos:** Usar herramientas como R, Excel o Python para análisis estratégicos.
+* **Comunicación de resultados:** Presentar hallazgos en reportes y visualizaciones (PowerPoint, Tableau, Quarto).

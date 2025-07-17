@@ -1,7 +1,76 @@
+
+
+/* Variables de color para enlaces */
+:root {
+  --bs-link-color: #52aa8a;
+  --bs-link-hover-color: #52aa8a;
+  --quarto-link-color: #52aa8a;
+  --quarto-link-active-color: #52aa8a;
+}
+
+/* Forzar color #52aa8a en el TOC activo, sobrescribiendo cualquier tema */
+.toc .nav-link.active,
+.toc .active > .nav-link,
+.toc .active > a,
+.toc .nav-link[aria-current="page"],
+.toc .nav-link:active,
+.toc .toc-active,
+.toc .toc-active a,
+.toc .toc-entry.active > a,
+.toc .active.toc-entry > a,
+.toc .nav-link.active:visited,
+.toc .nav-link.active:focus,
+.toc .nav-link.active:hover {
+  color: #52aa8a !important;
+  border-color: #52aa8a !important;
+  background: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Color para enlaces activos en barra lateral y encabezado */
+.sidebar-item-container .active, .sidebar-item-container .active a,
+.nav-link.active, .nav-link:active, .nav-link[aria-current="page"],
+.quarto-title-banner .nav-link.active {
+  color: #52aa8a !important;
+  border-color: #52aa8a !important;
+}
+
+h1 .chapter-number, h2 .section-number, h3 .section-number, h4 .section-number, h5 .section-number, h6 .section-number {
+  color: #09814a !important;
+}
+
+/* Usar Lato para los títulos y reducir el espacio inferior */
+.title, .quarto-title-banner .title {
+  font-family: 'Lato', sans-serif !important;
+  margin-bottom: 0.5rem !important;
+  font-size: calc(2em + 2pt) !important;
+  color: #09814a !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #09814a !important;
+}
+
+/* Color para enlaces activos en barra lateral y encabezado */
+.sidebar-item-container .active, .sidebar-item-container .active a,
+.nav-link.active, .nav-link:active, .nav-link[aria-current="page"],
+.quarto-title-banner .nav-link.active {
+  color: #52aa8a !important;
+  border-color: #52aa8a !important;
+}
+h1 .chapter-number, h2 .section-number, h3 .section-number, h4 .section-number, h5 .section-number, h6 .section-number {
+  color: #09814a !important;
+}
 /* Usar Montserrat para los títulos y aumentar tamaño y espaciado */
 /* Usar Lato para los títulos y reducir el espacio inferior */
 .title, .quarto-title-banner .title {
   font-family: 'Lato', sans-serif !important;
   margin-bottom: 0.5rem !important;
   font-size: calc(2em + 2pt) !important;
+  color: #09814a !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #09814a !important;
 }
