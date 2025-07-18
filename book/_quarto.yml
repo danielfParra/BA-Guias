@@ -10,6 +10,7 @@ language:
   nav-prev: "Anterior"
   nav-top: "Inicio"
   nav-title: "Navegación"
+
 project:
   type: book
   output-dir: ../docs
@@ -18,26 +19,32 @@ book:
   title: "Notas de clase Business Analytics"
   author: "Daniel Parra"
   date: "21/7/2025"
+  search: true
+  downloads: [pdf, epub]
+  page-navigation: true
 
   chapters:
     - index.qmd
     - intro.qmd
     - capitulo2.qmd
-    - capitulo3.qmd
-    - summary.qmd
-    - references.qmd
 
 bibliography: references.bib
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: flatly
+      dark: darkly
     font:
       main: Lato
     css: custom.css
     dpi: 270
-
-
-
+    # CAMBIO CLAVE: split-level debe ser 2 o más para dividir secciones
+    split-level: 2  # Divide cada sección (##) en páginas separadas
+    # split-level: 1 solo divide capítulos (#), no secciones
+    
+  pdf:
+    documentclass: scrreprt
+    
+  epub:
+    cover-image: cover.png
