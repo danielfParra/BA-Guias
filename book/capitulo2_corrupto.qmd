@@ -1,0 +1,146 @@
+# Fundamentos de Variables y Visualización de Datos
+
+## Introducción a A continua::: table
+: caption: "Calificaciones por Hora del Día"
+
+| Calificación | Mañana (n, %)  | Tarde (n, %)   | Noche (n, %)   | Madrugada (n, %) |
+|:-------------|:--------------:|:--------------:|:--------------:|:----------------:|
+| Excelente    |   10 (40%)     |   15 (50%)     |  10 (33.3%)    |    5 (62.5%)     |
+| Buena        |    8 (32%)     |  10 (33.3%)    |   8 (26.7%)    |     2 (25%)      |
+| Regular      |    4 (16%)     |    3 (10%)     |   7 (23.3%)    |    1 (12.5%)     |
+| Mala         |    3 (12%)     |   2 (6.7%)     |   5 (16.7%)    |      0 (0%)      |
+| **Total**    | **25 (100%)**  | **30 (100%)**  | **30 (100%)**  |  **8 (100%)**    |
+
+: Calificaciones por Hora del Día {#tbl-contingencia}uimos la categoría "tipo de cliente" por la "hora del día en que se hizo la reseña" (Mañana, Tarde, Noche, Madrugada) para ver si existen patrones distintos de calificación según el momento del día:
+
+| Calificación | Mañana (n, %)  | Tarde (n, %)   | Noche (n, %)   | Madrugada (n, %) |
+|:-------------|:--------------:|:--------------:|:--------------:|:----------------:|
+| Excelente    |   10 (40%)     |   15 (50%)     |  10 (33.3%)    |    5 (62.5%)     |
+| Buena        |    8 (32%)     |  10 (33.3%)    |   8 (26.7%)    |     2 (25%)      |
+| Regular      |    4 (16%)     |    3 (10%)     |   7 (23.3%)    |    1 (12.5%)     |
+| Mala         |    3 (12%)     |   2 (6.7%)     |   5 (16.7%)    |      0 (0%)      |
+| **Total**    | **25 (100%)**  | **30 (100%)**  | **30 (100%)**  |  **8 (100%)**    |
+
+: Calificaciones por Hora del Día {#tbl-contingencia}atos
+
+Antes de manipular o graficar, es importante entender qué son los datos y las variables.
+
+::: {.callout-note}
+## Definiciones clave
+
+- **Variable:** Característica que puede cambiar entre observaciones (ej. género, ventas, PIB).  
+- **Datos:** Conjunto de observaciones (filas) con valores para esas variables (columnas).
+:::
+
+### Tipos de variables
+
+Antes de trabajar con datos, es fundamental reconocer qué tipo de variable tienes en tus manos. Una **variable** es una característica que puede adquirir distintos valores según la observación. Conocer su naturaleza te ayuda a elegir las técnicas de análisis y visualización más apropiadas. El siguiente diagrama muestra los principales tipos de variables:
+
+
+```{mermaid}
+%%| fig-cap: "Clasificación de Variables"
+%%| fig-align: center
+
+flowchart TD
+  A[Variables]
+  A --> B["Categoría (cualitativa)"]
+  A --> C["Numérica (cuantitativa)"]
+
+  B --> D["Nominal (clasificación)"]
+  B --> E["Ordinal (orden jerárquico)"]
+
+  C --> F[Discreta]
+  C --> G[Continua]
+
+  D --> H["Ej: Estado civil, Afiliación política, Color de ojos"]
+  E --> I["Ej: Rankings, Bajo-Medio-Alto"]
+  F --> J["Ej: Número de hijos, Defectos por hora"]
+  G --> K["Ej: Peso, Voltaje"]
+```
+
+
+Entender el tipo de variable es clave porque:
+
+- **Define el resumen estadístico adecuado:** No calculamos una media de colores de ojos.  
+- **Determina el gráfico apropiado:** Un histograma para variables numéricas, un gráfico de barras para categorías.  
+- **Evita errores de interpretación:** Un ordinal tratado como numérico puede dar conclusiones equivocadas.
+
+Ejemplos de tipos de variables:
+
+| Pregunta                                                        | Respuesta                                 | Tipo de Variable       |
+|-----------------------------------------------------------------|-------------------------------------------|------------------------|
+| ¿Tiene perfil de Facebook?                                      | Sí / No                                   | Categórica Nominal     |
+| ¿Cuántos mensajes de texto ha enviado en los últimos dos días?  | ________ (número entero)                 | Numérica Discreta      |
+| ¿Cuánto tiempo le tomó bajar la aplicación?                     | ________ (minutos o segundos)             | Numérica Continua      |
+| ¿Cómo evaluaría su experiencia en Facebook?                     | Muy mala, Mala, Regular, Buena, Muy buena | Categórica Ordinal     |
+
+
+## Organización de Datos Categóricos
+
+### Tablas para Datos Categóricos
+
+- **Tabla resumen:** Muestra frecuencias o porcentajes para cada categoría de la variable. A continuación mostramos cómo se distribuyen las calificaciones de nuestro restaurante en Google Maps, basadas en 100 reseñas. Esta tabla te permite ver rápidamente la proporción de opiniones excelentes, buenas, regulares y malas.
+
+| Calificación | Frecuencia | % sobre 100 reseñas |
+|:-------------|:----------:|:-------------------:|
+| Excelente    |     40     |         40%         |
+| Buena        |     35     |         35%         |
+| Regular      |     20     |         20%         |
+| Mala         |      5     |          5%         |
+
+: Resumen de Calificaciones en Google Maps {#tbl-calificaciones}
+
+**Tabla de contingencia:** Relaciona dos o más variables categóricas. Particularmente, muestra la frecuencia con la que ocurren dos (o más) variables categóricas al mismo tiempo. Nos ayuda a identificar patrones o relaciones entre estas variables. Por ejemplo, podemos ver cómo cambian las calificaciones de nuestro restaurante según la hora del día en que se hicieron las reseñas.
+
+::: table
+: caption: "Calificaciones por Hora del Día"
+
+| Calificación | Mañana (n, %)     | Tarde (n, %)      | Noche (n, %)       | Madrugada (n, %)   |
+|-------------:|------------------:|------------------:|-------------------:|-------------------:|
+| Excelente    | 10 (40 %)         | 15 (50 %)         | 10 (33.3 %)        | 5 (62.5 %)         |
+| Buena        | 8 (32 %)          | 10 (33.3 %)       | 8 (26.7 %)         | 2 (25 %)           |
+| Regular      | 4 (16 %)          | 3 (10 %)          | 7 (23.3 %)         | 1 (12.5 %)         |
+| Mala         | 3 (12 %)          | 2 (6.7 %)         | 5 (16.7 %)         | 0 (0 %)            |
+| **Total**    | **25 (100 %)**    | **30 (100 %)**    | **30 (100 %)**     | **8 (100 %)**      |
+:::
+
+
+Para visualizar y resumir datos categóricos, utilizamos dos tipos de tablas según el número de variables involucradas:
+
+```{mermaid}
+flowchart LR
+  A[Datos Categóricos]
+  A --> B[Una variable]
+  A --> C[Dos o más variables]
+  B --> D[Tabla Resumen]
+  C --> E[Tabla de Contingencia]
+
+### Visualizaciones para Datos Categóricos
+
+- **Gráfico de barras:** Barras que muestran frecuencia o porcentaje por categoría.  
+- **Gráfico de torta:** Círculo dividido en rebanadas proporcionales.  
+- **Gráfico de Pareto:** Barras ordenadas con porcentaje acumulado.
+
+## Organización y Visualización de Datos Numéricos
+
+### Distribución de Frecuencias
+
+Para organizar datos numéricos:
+
+1. Calcula el rango (máximo - mínimo).  
+2. Define número de categorías (normalmente 5-15).  
+3. Calcula ancho de categorías (rango ÷ número de clases).  
+4. Cuenta observaciones en cada categoría.
+
+Se pueden calcular frecuencias relativas y acumuladas para análisis.
+
+### Visualizaciones para Datos Numéricos
+
+- **Histograma:** Barras verticales contiguas mostrando frecuencias.  
+- **Polígono de frecuencias:** Línea que conecta puntos medios de cada barra.
+
+## Visualización de Dos Variables Numéricas
+
+- **Gráfico de dispersión:** Cada punto representa un par de valores para explorar relaciones.  
+- **Gráfico de series de tiempo:** Muestra evolución de una variable en función del tiempo.
+

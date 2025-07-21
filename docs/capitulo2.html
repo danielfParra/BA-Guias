@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Explorando tus Datos con Estadísticos Descriptivos – Notas de clase Business Analytics</title>
+<title>2&nbsp; Fundamentos de Variables y Visualización de Datos – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,6 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./capitulo3.html" rel="next">
 <link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -107,6 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Buscar"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -312,7 +281,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Variables y Datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -372,7 +341,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./capitulo2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Variables y Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contando Historias Claras con Gráficos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">capitulo5.html</span></span></a>
   </div>
 </li>
     </ul>
@@ -385,25 +372,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#estadísticos-descriptivos" id="toc-estadísticos-descriptivos" class="nav-link active" data-scroll-target="#estadísticos-descriptivos"><span class="header-section-number">2.1</span> Estadísticos Descriptivos</a></li>
-  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central"><span class="header-section-number">2.2</span> Medidas de Tendencia Central</a>
+  <li><a href="#introducción-a-variables-y-datos" id="toc-introducción-a-variables-y-datos" class="nav-link active" data-scroll-target="#introducción-a-variables-y-datos"><span class="header-section-number">2.1</span> Introducción a Variables y Datos</a>
   <ul class="collapse">
-  <li><a href="#media-promedio" id="toc-media-promedio" class="nav-link" data-scroll-target="#media-promedio"><span class="header-section-number">2.2.1</span> Media (Promedio)</a></li>
-  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana"><span class="header-section-number">2.2.2</span> Mediana</a></li>
-  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda"><span class="header-section-number">2.2.3</span> Moda</a></li>
+  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables"><span class="header-section-number">2.1.1</span> Tipos de variables</a></li>
   </ul></li>
-  <li><a href="#medidas-de-variación" id="toc-medidas-de-variación" class="nav-link" data-scroll-target="#medidas-de-variación"><span class="header-section-number">2.3</span> Medidas de Variación</a>
+  <li><a href="#organización-de-datos-categóricos" id="toc-organización-de-datos-categóricos" class="nav-link" data-scroll-target="#organización-de-datos-categóricos"><span class="header-section-number">2.2</span> Organización de Datos Categóricos</a>
   <ul class="collapse">
-  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango"><span class="header-section-number">2.3.1</span> Rango</a></li>
-  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar"><span class="header-section-number">2.3.2</span> Varianza y Desviación Estándar</a></li>
-  <li><a href="#percentil-cuartiles" id="toc-percentil-cuartiles" class="nav-link" data-scroll-target="#percentil-cuartiles"><span class="header-section-number">2.3.3</span> Percentil, Cuartiles</a></li>
-  <li><a href="#rango-intercuartílico-ric" id="toc-rango-intercuartílico-ric" class="nav-link" data-scroll-target="#rango-intercuartílico-ric"><span class="header-section-number">2.3.4</span> Rango Intercuartílico (RIC)</a></li>
-  <li><a href="#diagrama-de-caja-y-brazos-boxplot" id="toc-diagrama-de-caja-y-brazos-boxplot" class="nav-link" data-scroll-target="#diagrama-de-caja-y-brazos-boxplot"><span class="header-section-number">2.3.5</span> Diagrama de Caja y Brazos (Boxplot)</a></li>
-  </ul></li>
-  <li><a href="#medidas-de-relación-lineal" id="toc-medidas-de-relación-lineal" class="nav-link" data-scroll-target="#medidas-de-relación-lineal"><span class="header-section-number">2.4</span> Medidas de Relación Lineal</a>
-  <ul class="collapse">
-  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">2.4.1</span> Covarianza</a></li>
-  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">2.4.2</span> Coeficiente de Correlación</a></li>
+  <li><a href="#tablas-para-datos-categóricos" id="toc-tablas-para-datos-categóricos" class="nav-link" data-scroll-target="#tablas-para-datos-categóricos"><span class="header-section-number">2.2.1</span> Tablas para Datos Categóricos</a></li>
+  <li><a href="#visualizando-datos-categóricos" id="toc-visualizando-datos-categóricos" class="nav-link" data-scroll-target="#visualizando-datos-categóricos"><span class="header-section-number">2.2.2</span> Visualizando datos categóricos</a></li>
+  <li><a href="#visualizando-datos-categóricos-gráfico-de-barras-emparejadas" id="toc-visualizando-datos-categóricos-gráfico-de-barras-emparejadas" class="nav-link" data-scroll-target="#visualizando-datos-categóricos-gráfico-de-barras-emparejadas"><span class="header-section-number">2.2.3</span> Visualizando datos categóricos: Gráfico de Barras Emparejadas</a></li>
+  <li><a href="#visualizando-datos-numéricos" id="toc-visualizando-datos-numéricos" class="nav-link" data-scroll-target="#visualizando-datos-numéricos"><span class="header-section-number">2.2.4</span> Visualizando datos numéricos</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -414,7 +392,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Fundamentos de Variables y Visualización de Datos</span></h1>
 </div>
 
 
@@ -431,485 +409,686 @@ window.Quarto = {
 </header>
 
 
-<p>Imagina que eres gerente de un restaurante que acaba de lanzar un nuevo menú y quieres evaluar la satisfacción de tus clientes a partir de las calificaciones que te han dado. Tienes cientos de puntuaciones y necesitas entender rápidamente cuál es la opinión general, qué tan variadas son las experiencias y si hay patrones o valores atípicos que merecen atención.</p>
-<p>¿Cómo puedes resumir y comprender toda esa información de forma clara y sencilla? Para eso utilizamos los estadísticos descriptivos, herramientas fundamentales que nos permiten condensar grandes cantidades de datos en medidas simples y significativas.</p>
-<p>Estas medidas serán esenciales para tomar decisiones informadas que mejoren tu decisiones.</p>
-<section id="estadísticos-descriptivos" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="estadísticos-descriptivos"><span class="header-section-number">2.1</span> Estadísticos Descriptivos</h2>
-<p>Los estadísticos descriptivos son herramientas clave que nos permiten resumir y comprender mejor la información contenida en nuestros datos. Para facilitar su estudio, los podemos clasificar en cuatro categorías principales:</p>
+<section id="introducción-a-variables-y-datos" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introducción-a-variables-y-datos"><span class="header-section-number">2.1</span> Introducción a Variables y Datos</h2>
+<p>Antes de manipular o graficar, es importante entender qué son los datos y las variables.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definiciones clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><strong>Medidas de tendencia central</strong>: Estas nos muestran el valor típico o representativo en un conjunto de datos, es decir, alrededor de qué número se agrupan la mayoría de las observaciones.</li>
-<li><strong>Medidas de variación</strong>: Nos indican qué tan dispersos o concentrados están los datos respecto a esa tendencia central, ayudándonos a entender la consistencia o diversidad dentro de la información.</li>
-<li><strong>Medidas de forma</strong>: Describen la distribución general de los datos, revelando si están simétricos, sesgados hacia un lado o presentan picos o colas particulares.</li>
-<li><strong>Medidas de relación</strong>: Evalúan cómo dos variables numéricas se relacionan entre sí, especialmente si existe una conexión lineal que pueda ser útil para análisis más avanzados.</li>
+<li><strong>Variable:</strong> Característica que puede cambiar entre observaciones (ej. género, ventas, PIB).<br>
+</li>
+<li><strong>Datos:</strong> Conjunto de observaciones (filas) con valores para esas variables (columnas).</li>
+</ul>
+</div>
+</div>
+<section id="tipos-de-variables" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="tipos-de-variables"><span class="header-section-number">2.1.1</span> Tipos de variables</h3>
+<p>Las variables se clasifican en dos grandes categorías según su naturaleza:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[Variables]
+  A --&gt; B["Categoría (cualitativa)"]
+  A --&gt; C["Numérica (cuantitativa)"]
+
+  B --&gt; D["Nominal (clasificación)"]
+  B --&gt; E["Ordinal (orden jerárquico)"]
+
+  C --&gt; F[Discreta]
+  C --&gt; G[Continua]
+
+  D --&gt; H["Ej: Estado civil, Afiliación política, Color de ojos"]
+  E --&gt; I["Ej: Rankings, Bajo-Medio-Alto"]
+  F --&gt; J["Ej: Número de hijos, Defectos por hora"]
+  G --&gt; K["Ej: Peso, Voltaje"]
+</pre>
+</div>
+<p></p><figcaption> Clasificación de Variables</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>Entender el tipo de variable es clave porque:</p>
+<ul>
+<li><strong>Define el resumen estadístico adecuado:</strong> No calculamos una media de colores de ojos.<br>
+</li>
+<li><strong>Determina el gráfico apropiado:</strong> Un histograma para variables numéricas, un gráfico de barras para categorías.<br>
+</li>
+<li><strong>Evita errores de interpretación:</strong> Un ordinal tratado como numérico puede dar conclusiones equivocadas.</li>
+</ul>
+<p>Ejemplos de tipos de variables:</p>
+<div id="tbl-ejemplos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ejemplos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.1: Ejemplo: Tipos de Variables en una Encuesta
+</figcaption>
+<div aria-describedby="tbl-ejemplos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 49%">
+<col style="width: 32%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pregunta</th>
+<th>Respuesta</th>
+<th>Tipo de Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>¿Tiene perfil de Facebook?</td>
+<td>Sí / No</td>
+<td>Categórica Nominal</td>
+</tr>
+<tr class="even">
+<td>¿Cuántos mensajes de texto ha enviado en los últimos dos días?</td>
+<td>________ (número entero)</td>
+<td>Numérica Discreta</td>
+</tr>
+<tr class="odd">
+<td>¿Cuánto tiempo le tomó bajar la aplicación?</td>
+<td>________ (minutos o segundos)</td>
+<td>Numérica Continua</td>
+</tr>
+<tr class="even">
+<td>¿Cómo evaluaría su experiencia en Facebook?</td>
+<td>Muy mala, Mala, Regular, Buena, Muy buena</td>
+<td>Categórica Ordinal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="organización-de-datos-categóricos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="organización-de-datos-categóricos"><span class="header-section-number">2.2</span> Organización de Datos Categóricos</h2>
+<section id="tablas-para-datos-categóricos" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="tablas-para-datos-categóricos"><span class="header-section-number">2.2.1</span> Tablas para Datos Categóricos</h3>
+<p><strong>Tabla resumen:</strong> Muestra frecuencias o porcentajes para cada categoría de la variable. A continuación mostramos cómo se distribuyen las calificaciones de nuestro restaurante en Google Maps, basadas en 100 reseñas:</p>
+<div id="tbl-calificaciones" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-calificaciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.2: Resumen de Calificaciones en Google Maps
+</figcaption>
+<div aria-describedby="tbl-calificaciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Calificación</th>
+<th style="text-align: center;">Frecuencia</th>
+<th style="text-align: center;">% sobre 100 reseñas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Excelente</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">40%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Buena</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">35%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Regular</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mala</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Tabla de contingencia:</strong> Relaciona dos o más variables categóricas. Muestra la frecuencia con la que ocurren combinaciones de categorías. Por ejemplo, las calificaciones según la hora del día:</p>
+<div id="tbl-contingencia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-contingencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.3: Calificaciones por Hora del Día
+</figcaption>
+<div aria-describedby="tbl-contingencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Calificación</th>
+<th style="text-align: center;">Mañana (n, %)</th>
+<th style="text-align: center;">Tarde (n, %)</th>
+<th style="text-align: center;">Noche (n, %)</th>
+<th style="text-align: center;">Madrugada (n, %)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Excelente</td>
+<td style="text-align: center;">10 (40%)</td>
+<td style="text-align: center;">15 (50%)</td>
+<td style="text-align: center;">10 (33.3%)</td>
+<td style="text-align: center;">5 (62.5%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Buena</td>
+<td style="text-align: center;">8 (32%)</td>
+<td style="text-align: center;">10 (33.3%)</td>
+<td style="text-align: center;">8 (26.7%)</td>
+<td style="text-align: center;">2 (25%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Regular</td>
+<td style="text-align: center;">4 (16%)</td>
+<td style="text-align: center;">3 (10%)</td>
+<td style="text-align: center;">7 (23.3%)</td>
+<td style="text-align: center;">1 (12.5%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mala</td>
+<td style="text-align: center;">3 (12%)</td>
+<td style="text-align: center;">2 (6.7%)</td>
+<td style="text-align: center;">5 (16.7%)</td>
+<td style="text-align: center;">0 (0%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>25 (100%)</strong></td>
+<td style="text-align: center;"><strong>30 (100%)</strong></td>
+<td style="text-align: center;"><strong>30 (100%)</strong></td>
+<td style="text-align: center;"><strong>8 (100%)</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Al analizar la tabla de contingencia, podemos comparar cómo varían las calificaciones según la hora del día. Por ejemplo, la madrugada muestra un 62.5% de reseñas “Excelente” y ninguna “Mala”, lo que sugiere que quienes califican en ese horario son clientes muy satisfechos (posiblemente menos volumen y mejor atención). En cambio, durante la noche la proporción de calificaciones “Excelente” baja a 33.3% y aumentan las “Mala” (16.7%), lo que podría indicar saturación operativa o tiempos de espera más largos.</p>
+<p>La tarde destaca por concentrar el mayor número de reseñas totales y un 50% de valoraciones “Excelente”, lo que la convierte en una franja estratégica para mantener estándares altos. Estos patrones permiten priorizar recursos: reforzar personal nocturno y replicar buenas prácticas de la madrugada y la tarde.</p>
+</section>
+<section id="visualizando-datos-categóricos" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="visualizando-datos-categóricos"><span class="header-section-number">2.2.2</span> Visualizando datos categóricos</h3>
+<section id="gráfico-de-barras" class="level4" data-number="2.2.2.1">
+<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="gráfico-de-barras"><span class="header-section-number">2.2.2.1</span> Gráfico de Barras</h4>
+<p>Los gráficos de barras son la herramienta más versátil para visualizar variables categóricas. Utilizan barras rectangulares cuya longitud (o altura) es proporcional a la frecuencia o porcentaje de cada categoría. Su principal ventaja es la facilidad para comparar visualmente diferentes categorías, ya que el ojo humano puede detectar rápidamente diferencias en longitud.</p>
+<p>Las barras pueden orientarse vertical u horizontalmente, y son especialmente útiles cuando los nombres de las categorías son largos (mejor horizontal) o cuando queremos enfatizar el orden jerárquico de los valores (mejor vertical). A diferencia de otros gráficos, las barras deben comenzar siempre desde cero para no distorsionar las comparaciones visuales. Mira un ejemplo de gráfico de barras:</p>
+<div id="fig-bar-chart" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bar-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/bar_chart.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bar-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Ejemplo de gráfico de barras mostrando la distribución de calificaciones
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="gráfico-de-torta-pie-chart" class="level4" data-number="2.2.2.2">
+<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="gráfico-de-torta-pie-chart"><span class="header-section-number">2.2.2.2</span> Gráfico de Torta (Pie Chart)</h4>
+<p>Los gráficos de torta representan datos categóricos como sectores de un círculo, donde cada sector es proporcional al porcentaje que representa esa categoría del total. La “torta” completa suma siempre 100%, y cada “rebanada” muestra visualmente qué proporción ocupa cada categoría.</p>
+<p>Su principal fortaleza es mostrar la <strong>composición del total</strong> - es decir, cómo se distribuye un todo entre sus partes. Son especialmente útiles cuando queremos enfatizar que una categoría domina sobre las demás o cuando la pregunta clave es “¿qué porcentaje del total representa cada grupo?”. Por ejemplo, para mostrar la participación de mercado de diferentes marcas o la distribución del presupuesto entre departamentos. Este sería el gráfico de torta que muestra la misma información del gráfico de barras anterior:</p>
+<div id="fig-pie-chart" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pie-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/pie.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pie-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.2: Ejemplo de gráfico de torta mostrando la distribución de calificaciones
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Limitaciones del gráfico de torta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Difícil comparación de sectores similares:</strong> El ojo humano no distingue bien diferencias pequeñas entre ángulos</li>
+<li><strong>Máximo recomendado:</strong> No más de 5-7 categorías para mantener legibilidad</li>
+<li><strong>Mejor alternativa:</strong> Considera un gráfico de barras si necesitas comparar categorías con valores muy cercanos</li>
+</ul>
+</div>
+</div>
+<p>Los gráficos de torta funcionan mejor cuando hay una o dos categorías claramente dominantes y el resto son minoritarias. Si todas las categorías tienen tamaños similares, un gráfico de barras será más efetorctivo para la comparación visual.</p>
+</section>
+<section id="gráfico-de-pareto" class="level4" data-number="2.2.2.3">
+<h4 data-number="2.2.2.3" class="anchored" data-anchor-id="gráfico-de-pareto"><span class="header-section-number">2.2.2.3</span> Gráfico de Pareto</h4>
+<p>El gráfico de Pareto combina barras y una línea para identificar las categorías más importantes según el <strong>principio de Pareto</strong> (regla 80-20). Las barras muestran las frecuencias ordenadas de mayor a menor, mientras que la línea representa el porcentaje acumulado hasta llegar al 100%.</p>
+<p>Su objetivo principal es <strong>priorizar</strong> - ayuda a identificar las pocas categorías que concentran la mayor parte del problema o fenómeno. Por ejemplo, en control de calidad, unas pocas causas suelen generar la mayoría de los defectos; en ventas, unos pocos productos pueden generar la mayor parte de los ingresos.</p>
+<p><strong>Elementos clave del gráfico de Pareto:</strong></p>
+<ul>
+<li><strong>Barras ordenadas:</strong> De mayor a menor frecuencia (izquierda a derecha)</li>
+<li><strong>Línea acumulada:</strong> Muestra el porcentaje que suman las categorías hasta ese punto</li>
+<li><strong>Principio 80-20:</strong> Busca el punto donde pocas categorías explican la mayoría del fenómeno</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pareto-chart" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pareto-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="capitulo2_files/figure-html/fig-pareto-chart-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pareto-chart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.3: Gráfico de Pareto - Análisis de Causas de Defectos
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Cuándo usar un gráfico de Pareto?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Identificar prioridades:</strong> ¿Qué problemas atender primero?</li>
+<li><strong>Análisis de causas:</strong> ¿Qué factores tienen mayor impacto?</li>
+<li><strong>Optimización de recursos:</strong> ¿Dónde enfocar los esfuerzos?</li>
+<li><strong>Seguimiento de mejoras:</strong> ¿Las acciones redujeron las causas principales?</li>
+</ul>
+</div>
+</div>
+<p><strong>Ejemplo práctico:</strong> Si analizamos las quejas de un restaurante y encontramos que “comida fría” y “tiempo de espera” representan el 75% de todas las quejas, sabemos que resolver estos dos problemas tendrá el mayor impacto en la satisfacción del cliente. El gráfico de Pareto haría visible esta concentración de manera inmediata.</p>
+</section>
+</section>
+<section id="visualizando-datos-categóricos-gráfico-de-barras-emparejadas" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="visualizando-datos-categóricos-gráfico-de-barras-emparejadas"><span class="header-section-number">2.2.3</span> Visualizando datos categóricos: Gráfico de Barras Emparejadas</h3>
+<p>El <strong>gráfico de barras emparejadas</strong> (o agrupadas) se utiliza cuando queremos comparar cómo se distribuye una variable categórica principal dentro de los niveles de otra variable categórica. Cada grupo del eje horizontal representa una categoría de la primera variable y, dentro de cada grupo, las barras muestran las categorías de la segunda.</p>
+<p><strong>Ejemplo:</strong> Si analizamos las calificaciones de un restaurante (Excelente, Buena, Regular, Mala) según la hora del día en que se dejó la reseña (Mañana, Tarde, Noche), podemos ver rápidamente en qué horario se concentran más las opiniones positivas.<br>
+Este tipo de gráfico ayuda a detectar patrones de comparación entre grupos: diferencias claras en alturas de barras indican posibles áreas de mejora o fortalezas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-grouped-bars" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-grouped-bars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="capitulo2_files/figure-html/fig-grouped-bars-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grouped-bars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.4: Gráfico de Barras Emparejadas - Calificaciones por Hora del Día
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cuándo usarlo:</strong></p>
+<ul>
+<li>Cuando tienes <strong>dos variables categóricas</strong>.</li>
+<li>Para comparar proporciones o frecuencias entre subgrupos.</li>
+<li>Como complemento visual de una tabla de contingencia.</li>
+</ul>
+<p><strong>Recomendaciones:</strong></p>
+<ul>
+<li>Ordena las categorías de forma lógica (por tiempo, intensidad, etc.).</li>
+<li>Usa una leyenda clara.</li>
+<li>Evita el exceso de colores; prioriza el contraste.</li>
+</ul>
+<p>En resumen: antes de elegir cómo mostrar tus datos categóricos, conviene pensar cuántas variables estás analizando. El siguiente esquema resume las opciones más comunes: si trabajas con una sola variable, puedes resumirla con una tabla y luego elegir un gráfico de barras, de torta o de Pareto según el objetivo. Si tienes dos variables categóricas, una tabla de contingencia es el punto de partida y suele representarse con un gráfico de barras emparejadas para comparar grupos.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  A[Datos categóricos]
+  A --&gt; B[Visualización]
+
+  B --&gt; C[Tabla Resumen - 1 variable]
+  B --&gt; D[Tabla Contingencia - 2 variables]
+
+  C --&gt; E[Gráfico de Barras]
+  C --&gt; F[Gráfico de torta]
+  C --&gt; G[Gráfico de Pareto]
+
+  D --&gt; H[Gráfico de Barras emparejadas]
+</pre>
+</div>
+<p></p><figcaption> Opciones de Visualización para Datos Categóricos</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizando-datos-numéricos" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="visualizando-datos-numéricos"><span class="header-section-number">2.2.4</span> Visualizando datos numéricos</h3>
+<section id="distribución-de-frecuencia" class="level4" data-number="2.2.4.1">
+<h4 data-number="2.2.4.1" class="anchored" data-anchor-id="distribución-de-frecuencia"><span class="header-section-number">2.2.4.1</span> Distribución de frecuencia</h4>
+<p>Imagina que registras el <strong>monto gastado por cada cliente</strong> en tu restaurante durante un día. Tienes muchos valores sueltos y quieres resumirlos para entender mejor los patrones.</p>
+<p>La <strong>distribución de frecuencia</strong> es una tabla que agrupa esos montos en <strong>categorías numéricas ordenadas</strong> (también llamadas clases) y cuenta cuántos clientes caen en cada una.</p>
+<p><strong>¿Cómo elegir las categorías?</strong></p>
+<p>Primero necesitas definir <strong>categorías adecuadas</strong>: decidir sus límites (fronteras) y su <strong>ancho</strong>.<br>
+El número de categorías depende del <strong>rango</strong> de los datos (máximo – mínimo). Si los gastos van desde $5 hasta $55, el rango es 50.<br>
+Cuando el rango es grande solemos usar más categorías; en la práctica, entre <strong>5 y 15</strong> funciona bien.</p>
+<p><strong>¿Cómo calcular el ancho?</strong></p>
+<p>Si decides usar, por ejemplo, 10 categorías:</p>
+<p><span class="math display">\[
+\text{Ancho} = \frac{\text{Rango}}{\text{Número de categorías}} = \frac{50}{10} = 5
+\]</span></p>
+<p>Eso significa que tus clases podrían ser: $5–&lt;$10, $10–&lt;$15, $15–&lt;$20, … hasta $55. Luego cuentas cuántos clientes gastaron en cada intervalo y obtienes una tabla clara para analizar tendencias (por ejemplo, “la mayoría gasta entre $15 y $25”).</p>
+<p>Esta tabla te permite pasar del desorden de datos individuales a una visión estructurada que facilita la toma de decisiones.</p>
+<p><strong>Ejemplo práctico: Distribución de gastos</strong></p>
+<p>Supongamos que registramos el gasto de <strong>100 clientes</strong> y los agrupamos usando intervalos de $5:</p>
+<div id="tbl-distribucion-gastos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-distribucion-gastos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.4: Distribución de Gastos por Cliente
+</figcaption>
+<div aria-describedby="tbl-distribucion-gastos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 23%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Intervalo (USD)</th>
+<th style="text-align: center;">Frecuencia</th>
+<th style="text-align: center;">% Relativo</th>
+<th style="text-align: center;">Frec. Acumulada</th>
+<th style="text-align: center;">% Acumulado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">$5 - &lt;$10</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8%</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">$10 - &lt;$15</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">23%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">$15 - &lt;$20</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">45%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">$20 - &lt;$25</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">70%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">$25 - &lt;$30</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">14%</td>
+<td style="text-align: center;">84</td>
+<td style="text-align: center;">84%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">$30 - &lt;$35</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">9%</td>
+<td style="text-align: center;">93</td>
+<td style="text-align: center;">93%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">$35 - &lt;$40</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5%</td>
+<td style="text-align: center;">98</td>
+<td style="text-align: center;">98%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">$40 - &lt;$45</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2%</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>100</strong></td>
+<td style="text-align: center;"><strong>100%</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Interpretación clave:</strong></p>
+<ul>
+<li><strong>Concentración:</strong> El 70% de los clientes gastó menos de $25</li>
+<li><strong>Cola:</strong> Solo el 7% gastó más de $35</li>
+<li><strong>Patrón:</strong> La mayoría de clientes (67%) gasta entre $10-$30</li>
 </ul>
 </section>
-<section id="medidas-de-tendencia-central" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">2.2</span> Medidas de Tendencia Central</h2>
-<p>Cuando queremos entender las calificaciones que los clientes dan a tu restaurante, buscamos encontrar un valor que represente lo que la mayoría piensa. Las medidas de tendencia central nos ayudan a esto.</p>
-<section id="media-promedio" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="media-promedio"><span class="header-section-number">2.2.1</span> Media (Promedio)</h3>
-<p>La media o promedio es una forma simple pero útil de resumir un conjunto de datos. La media es el valor que obtienes al sumar todas las calificaciones y dividirlas entre el número total de clientes.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Matemáticamente se escribiría así:</p>
-<p><span class="math display">\[
-\text{Media} = \bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Por ejemplo, si cinco clientes dieron las calificaciones: 4, 5, 3, 4 y 5, la media será:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\bar{x} = \frac{4 + 5 + 3 + 4 + 5}{5} = \frac{21}{5} = 4.2
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Sin embargo la media, tiene limitaciones: no muestra cómo están distribuidos los datos y puede ser engañosa si hay grandes diferencias entre los valores. Por ejemplo:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/media_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/media_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Aquí hay otro ejemplo donde la media es la misma en ambas situaciones pero el contexto individual que esconde es muy diferente:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/media_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="mediana" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="mediana"><span class="header-section-number">2.2.2</span> Mediana</h3>
-<p>Volviendo a las calificaciones de tu restaurante, la <strong>mediana</strong> es el valor que está justo en el medio cuando ordenas todas las opiniones de menor a mayor. Esto significa que la mitad de los clientes dieron una calificación igual o menor que la mediana, y la otra mitad dio una calificación igual o mayor.</p>
-<p>Por ejemplo, si tus clientes calificaron así: 3, 4, 4, 5, 5, la mediana es 4 — porque es el valor que divide el grupo en dos partes iguales.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\text{Mediana} = \text{valor central en datos ordenados}
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Una gran ventaja de la mediana es que <strong>no se ve afectada por calificaciones muy bajas o muy altas</strong> que podrían distorsionar la media. Por ejemplo, si alguien puso un 1 o un 10, la mediana sigue mostrando el punto medio real de la mayoría.</p>
-<p>Sin embargo, la mediana <strong>no nos dice qué tan dispersas están las calificaciones a cada lado</strong>. Por eso, para entender mejor la variabilidad de las opiniones, necesitaremos otras medidas que veremos más adelante.</p>
-<p>A continuación podemos ver un ejemplo donde la mediana es usada para entregar un mensaje erróneo:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/mediana_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Pero, los rendimientos anuales del fondo:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/mediana_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Miremos otro ejemplo donde la mediana similar no implica datos similares. Siempre hay tener una combinación de datos para tomar decisiones correctas</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/mediana_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="moda" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="moda"><span class="header-section-number">2.2.3</span> Moda</h3>
-<p>La <strong>moda</strong> es la calificación que más se repite entre tus clientes. Es como la opinión más común o popular sobre tu restaurante.</p>
-<p>Por ejemplo, si las calificaciones de tus clientes fueron: 3, 4, 4, 5, 5, tanto 4 como 5 se repiten dos veces, por lo que hay dos modas: 4 y 5.</p>
-<p>Si no hay repeticiones exactas, se pueden agrupar en categorías y tomar como moda la más común. Es útil especialmente con datos no numéricos, como colores o preferencias políticas, donde no tiene sentido calcular promedios.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\text{Moda} = \text{valor que aparece con mayor frecuencia}
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Su limitación: no considera la totalidad ni la distribución de los datos, y lo más común no siempre es lo más representativo. Miremos este ejemplo:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/moda_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/moda_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="medidas-de-variación" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="medidas-de-variación"><span class="header-section-number">2.3</span> Medidas de Variación</h2>
-<p>Las medidas de variación nos ayudan a entender qué tan diferentes o dispersos están los datos entre sí. Es decir, nos dicen si las opiniones o valores están muy juntos o muy separados.</p>
-<section id="rango" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="rango"><span class="header-section-number">2.3.1</span> Rango</h3>
-<p>Las medidas de variación nos ayudan a entender qué tan diferentes o dispersos están los datos entre sí. Es decir, nos dicen si las opiniones o valores están muy juntos o muy separados.</p>
-<p>Por ejemplo, si las calificaciones en tu restaurante van desde 2 hasta 5, el rango sería:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\text{Rango} = 5 - 2 = 3
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Esto nos dice que las opiniones varían en un rango de 3 puntos, desde una calificación baja hasta una alta.</p>
-<p>Su principal ventaja es su simplicidad, da una idea rápida del “ancho” del conjunto de datos.</p>
-<p>Pero su debilidad es igual de clara, solo considera los valores extremos, ignorando por completo todos los datos intermedios.</p>
-<p>Miremos un ejemplo de un rango que da una impresión incorrecta:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/rango_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/rango_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="varianza-y-desviación-estándar" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="varianza-y-desviación-estándar"><span class="header-section-number">2.3.2</span> Varianza y Desviación Estándar</h3>
-<p>La varianza y la desviación estándar son herramientas que nos ayudan a entender qué tan dispersos están los datos con respecto a su media.</p>
-<p>Imagina que tienes varios números y quieres saber si están todos cerca del promedio o si están muy separados entre sí.</p>
-<p>Para entender qué tan dispersas están las calificaciones de tus clientes respecto al promedio, usamos dos medidas fundamentales: la <strong>varianza</strong> y la <strong>desviación estándar</strong>:</p>
+<section id="histograma" class="level4" data-number="2.2.4.2">
+<h4 data-number="2.2.4.2" class="anchored" data-anchor-id="histograma"><span class="header-section-number">2.2.4.2</span> Histograma</h4>
+<p>Siguiendo con el ejemplo de los gastos en el restaurante, el <strong>histograma</strong> es la versión gráfica de la tabla de distribución de frecuencia.<br>
+En lugar de mostrar los números en una tabla, dibujamos una barra para cada categoría (intervalo de gasto).</p>
 <ul>
-<li>Una desviación estándar baja significa que los datos están cerca del promedio.</li>
-<li>Una alta desviación estándar indica mucha dispersión.</li>
+<li>El <strong>eje horizontal</strong> muestra los intervalos: $5–&lt;$10, $10–&lt;$15, etc.<br>
+</li>
+<li>El <strong>eje vertical</strong> muestra la frecuencia (o el porcentaje) de clientes en cada intervalo.<br>
+</li>
+<li>Las barras van <strong>pegadas</strong> porque los intervalos son continuos: representan rangos de una misma variable numérica.</li>
 </ul>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Si quisieras “cocinar” la varianza en tu propia cocina, la receta sería así:</p>
-<ol type="1">
-<li><strong>Encuentra la media</strong> de todas las calificaciones.<br>
-</li>
-<li><strong>Calcula qué tan lejos está cada calificación de esa media</strong> (la diferencia entre cada calificación y la media).<br>
-</li>
-<li><strong>Eleva al cuadrado cada una de esas diferencias</strong> para evitar que se cancelen y para dar más peso a las diferencias grandes.<br>
-</li>
-<li><strong>Suma todas esas diferencias al cuadrado y calcula el promedio</strong> dividiendo entre el número de calificaciones menos uno.</li>
-</ol>
-</div>
-</div>
-</div>
-<p>Matemáticamente, si tienes ( n ) calificaciones ( x_1, x_2, …, x_n ) y la media ( {x} ), la varianza se calcula así:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\text{Varianza} = s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Pero como la varianza está al cuadrado, no es fácil interpretarla directamente, pues sus unidades no son las mismas que las de las calificaciones. Por eso usamos la <strong>desviación estándar</strong>, que es la raíz cuadrada de la varianza y nos da una medida en las mismas unidades originales.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\text{Desviación Estándar} = s = \sqrt{s^2}
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Por ejemplo, si las calificaciones fueron: 4, 5, 3, 4 y 5, la media es:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-\bar{x} = \frac{4 + 5 + 3 + 4 + 5}{5} = 4.2
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Luego, calculamos la varianza:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-s^2 = \frac{(4 - 4.2)^2 + (5 - 4.2)^2 + (3 - 4.2)^2 + (4 - 4.2)^2 + (5 - 4.2)^2}{4} = 0.7
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Y finalmente, la desviación estándar es:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-s = \sqrt{0.7} \approx 0.84
-\]</span></p>
-</div>
-</div>
-</div>
-<p>Esto significa que, en promedio, las calificaciones se alejan de la media en aproximadamente 0.84 puntos.</p>
-<p>A diferencia del rango, que solo considera los valores más extremos, la varianza y la desviación estándar toman en cuenta todos los datos. Por eso ofrecen una visión más completa de la dispersión. Sin embargo, también tienen una desventaja: si hay un solo valor muy alejado (un valor extremo), puede aumentar mucho la varianza, aunque la mayoría de los datos estén cerca de la media. Mira el ejemplo a continuación, para entenderlo mejor:</p>
-<div class="cell" data-layout-align="center">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/varianza_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+<div id="fig-histograma-gastos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-histograma-gastos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="capitulo2_files/figure-html/fig-histograma-gastos-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histograma-gastos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.5: Histograma - Distribución de Gastos por Cliente
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="percentil-cuartiles" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="percentil-cuartiles"><span class="header-section-number">2.3.3</span> Percentil, Cuartiles</h3>
-<p>Imagina que quieres saber cómo se comparan las calificaciones de tus clientes con todas las demás. Los <strong>percentiles</strong> nos ayudan a entender la posición relativa de una calificación dentro del grupo.</p>
-<p>Un percentil nos dice qué porcentaje de las calificaciones está por debajo de cierto valor. Por ejemplo, el <strong>percentil 25</strong> indica el punto bajo el cual se encuentra el 25% de las calificaciones más bajas.</p>
-<p>Si una calificación está en el percentil 25, significa que el 25% de los clientes dio una calificación igual o menor que esa, y el 75% dio una calificación más alta.</p>
-<p>Esto es útil para entender la posición relativa de una calificación sin que las opiniones muy bajas o muy altas influyan demasiado.</p>
-<p>Sin embargo, los percentiles <strong>no nos dicen qué tan separados están los datos ni qué tan extremos son esos valores.</strong></p>
-<p>Los <strong>cuartiles</strong> son un tipo especial de percentiles que dividen las calificaciones en cuatro grupos iguales, cada uno con el 25% de las opiniones.</p>
+<p>Un <strong>histograma</strong> es la representación gráfica de una distribución de frecuencias para datos numéricos continuos. A diferencia del gráfico de barras (para datos categóricos), el histograma muestra barras adyacentes sin espacios entre ellas, lo que refleja la naturaleza continua de los datos.</p>
+<p><strong>Características clave del histograma:</strong></p>
 <ul>
-<li>El <strong>primer cuartil (Q1)</strong> es igual al percentil 25.<br>
-</li>
-<li>El <strong>segundo cuartil (Q2)</strong> es la mediana, el punto medio (percentil 50).<br>
-</li>
-<li>El <strong>tercer cuartil (Q3)</strong> es el percentil 75.</li>
+<li><strong>Eje X:</strong> Intervalos de valores (clases) de la variable numérica</li>
+<li><strong>Eje Y:</strong> Frecuencia (cantidad de observaciones en cada intervalo)</li>
+<li><strong>Barras conectadas:</strong> Sin espacios, indicando continuidad de los datos</li>
+<li><strong>Forma de distribución:</strong> Permite identificar patrones como simetría, sesgo o multimodalidad</li>
 </ul>
-<p>Esto permite resumir cómo se distribuyen las calificaciones y saber en qué grupo se ubica cada opinión, incluso si hay calificaciones muy bajas o muy altas.</p>
-</section>
-<section id="rango-intercuartílico-ric" class="level3" data-number="2.3.4">
-<h3 data-number="2.3.4" class="anchored" data-anchor-id="rango-intercuartílico-ric"><span class="header-section-number">2.3.4</span> Rango Intercuartílico (RIC)</h3>
-<p>Para entender mejor cómo varían las calificaciones en la parte central de los datos, usamos el <strong>Rango Intercuartílico</strong>, o <strong>RIC</strong>, que es la diferencia entre el tercer cuartil y el primer cuartil:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+<p>El histograma nos permite visualizar rápidamente:</p>
+<ul>
+<li><strong>¿Dónde se concentran los datos?</strong> (moda o pico más alto)</li>
+<li><strong>¿Cómo se distribuyen?</strong> (simétrica, sesgada a la izquierda/derecha)</li>
+<li><strong>¿Hay valores atípicos?</strong> (barras aisladas en los extremos)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-RIC = Q3 - Q1
-\]</span></p>
+<div class="callout-title-container flex-fill">
+Interpretación del histograma
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p><strong>Forma de la distribución:</strong></p>
+<ul>
+<li><strong>Aproximadamente normal:</strong> La distribución tiene forma de campana con un pico central</li>
+<li><strong>Sesgo ligero:</strong> Hay una “cola” más larga hacia la derecha (valores altos)</li>
+<li><strong>Concentración:</strong> La mayoría de clientes gasta entre $15-$30</li>
+</ul>
+<p><strong>Información práctica:</strong></p>
+<ul>
+<li><strong>Valor típico:</strong> Alrededor de $20-$25 (pico del histograma)</li>
+<li><strong>Rango común:</strong> El 70% de clientes gasta menos de $25</li>
+<li><strong>Valores extremos:</strong> Muy pocos clientes gastan más de $35</li>
+</ul>
 </div>
-<p>El RIC mide la dispersión del 50% central de las calificaciones, ignorando las opiniones más bajas y más altas que podrían ser atípicas.</p>
-<p>Por ejemplo, si el primer cuartil es 3.5 y el tercer cuartil es 4.5, el RIC sería:</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+</div>
+<p><strong>¿Cuándo usar un histograma vs.&nbsp;gráfico de barras?</strong></p>
+<div id="tbl-histograma-vs-barras" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-histograma-vs-barras-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2.5: Histograma vs.&nbsp;Gráfico de Barras
+</figcaption>
+<div aria-describedby="tbl-histograma-vs-barras-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 29%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criterio</th>
+<th style="text-align: left;">Histograma</th>
+<th style="text-align: left;">Gráfico de Barras</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tipo de datos</strong></td>
+<td style="text-align: left;">Numéricos continuos</td>
+<td style="text-align: left;">Categóricos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Separación de barras</strong></td>
+<td style="text-align: left;">Sin espacios (datos continuos)</td>
+<td style="text-align: left;">Con espacios (categorías distintas)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Objetivo principal</strong></td>
+<td style="text-align: left;">Mostrar distribución de frecuencias</td>
+<td style="text-align: left;">Comparar categorías</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Ejemplo</strong></td>
+<td style="text-align: left;">Edades, pesos, tiempos</td>
+<td style="text-align: left;">Colores, marcas, géneros</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="gráfico-de-dispersión" class="level4" data-number="2.2.4.3">
+<h4 data-number="2.2.4.3" class="anchored" data-anchor-id="gráfico-de-dispersión"><span class="header-section-number">2.2.4.3</span> Gráfico de Dispersión</h4>
+<p>El <strong>gráfico de dispersión</strong> (scatter plot) es la herramienta principal para visualizar la <strong>relación entre dos variables numéricas</strong>. A diferencia del histograma que muestra una sola variable, el gráfico de dispersión permite explorar si existe algún patrón, tendencia o correlación entre dos mediciones diferentes.</p>
+<p>Sigamos con el restaurante: además del <strong>gasto de cada cliente</strong> (en dólares), registramos el <strong>tiempo que permanecen</strong> en el establecimiento (en minutos). Queremos saber si existe alguna relación entre estas dos variables continuas.</p>
+<p>En el gráfico de dispersión: - Cada <strong>punto</strong> representa a un cliente individual. - El <strong>eje X</strong> muestra el tiempo de permanencia (en minutos). - El <strong>eje Y</strong> muestra el gasto total de ese cliente (en dólares).</p>
+<p><strong>Patrones que puedes identificar:</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><span class="math display">\[
-RIC = 4.5 - 3.5 = 1.0
-\]</span></p>
+<div class="callout-title-container flex-fill">
+Tipos de relaciones en un gráfico de dispersión
 </div>
 </div>
-</div>
-<p>Esto indica que la mitad central de las calificaciones está dentro de un rango de 1 punto, mostrando cuán consistentes son las opiniones principales.</p>
-<p>El RIC es muy útil porque, a diferencia del rango total, <strong>no se ve afectado por calificaciones extremas</strong> y nos da una idea clara de la variabilidad donde está la mayoría de los datos.</p>
-</section>
-<section id="diagrama-de-caja-y-brazos-boxplot" class="level3" data-number="2.3.5">
-<h3 data-number="2.3.5" class="anchored" data-anchor-id="diagrama-de-caja-y-brazos-boxplot"><span class="header-section-number">2.3.5</span> Diagrama de Caja y Brazos (Boxplot)</h3>
-<p>Para visualizar fácilmente la distribución de las calificaciones de tus clientes, usamos el <strong>diagrama de caja y brazos</strong>, también conocido como <strong>boxplot</strong>.</p>
-<p>Este gráfico muestra en una caja la parte central de los datos, desde el primer cuartil (Q1) hasta el tercer cuartil (Q3), con una línea en la mediana (Q2).</p>
-<p>Además, los “brazos” o líneas que salen de la caja se extienden hasta los valores mínimos y máximos dentro de un rango razonable, ayudándonos a identificar si hay calificaciones atípicas o muy extremas.</p>
-<p>Así, con un solo gráfico puedes ver:</p>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Dónde está la mayoría de las calificaciones (la caja).<br>
+<li><strong>Correlación positiva:</strong> Los puntos forman una nube que asciende (↗). A mayor X, mayor Y</li>
+<li><strong>Correlación negativa:</strong> Los puntos forman una nube que desciende (↘). A mayor X, menor Y<br>
 </li>
-<li>La calificación típica (la mediana dentro de la caja).<br>
-</li>
-<li>La dispersión general (la longitud de la caja y brazos).<br>
-</li>
-<li>Valores extremos o posibles opiniones fuera de lo común (puntos fuera de los brazos).</li>
+<li><strong>Sin correlación:</strong> Los puntos se distribuyen aleatoriamente sin patrón claro</li>
+<li><strong>Correlación curvilínea:</strong> Los puntos siguen una curva (ej. forma de U o parábola)</li>
 </ul>
-<p>El diagrama de caja es una herramienta poderosa para resumir y comparar la distribución de las calificaciones de forma rápida y visual.</p>
-<p>Este sería un ejemplo en R:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar paquetes si no están instalados</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("ggplot2", "ggthemes", "viridis"))</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggthemes' was built under R version 4.3.3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'viridis' was built under R version 4.3.3</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: viridisLite</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos simulados de calificaciones para 3 restaurantes</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">restaurante =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Mi Restaurante"</span>, <span class="st">"Competidor 1"</span>, <span class="st">"Competidor 2"</span>), <span class="at">each =</span> <span class="dv">50</span>),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">calificacion =</span> <span class="fu">c</span>(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="fl">0.7</span>),  <span class="co"># Mi restaurante: variación media</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="fl">3.5</span>, <span class="at">sd =</span> <span class="fl">1.2</span>), <span class="co"># Competidor 1: más variación (peor control)</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="fl">4.2</span>, <span class="at">sd =</span> <span class="fl">0.3</span>)  <span class="co"># Competidor 2: poca variación (muy consistente)</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Limitar calificaciones entre 1 y 5</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>calificacion <span class="ot">&lt;-</span> <span class="fu">pmin</span>(<span class="fu">pmax</span>(datos<span class="sc">$</span>calificacion, <span class="dv">1</span>), <span class="dv">5</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot comparativo con viridis y theme_few</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> restaurante, <span class="at">y =</span> calificacion, <span class="at">fill =</span> restaurante)) <span class="sc">+</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="dv">16</span>, <span class="at">outlier.size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">option =</span> <span class="st">"D"</span>) <span class="sc">+</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparación de Calificaciones entre Restaurantes"</span>,</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Restaurante"</span>,</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Calificación (1 a 5)"</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>() <span class="sc">+</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="capitulo2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+<div id="fig-dispersion-tiempo-gasto" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dispersion-tiempo-gasto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="capitulo2_files/figure-html/fig-dispersion-tiempo-gasto-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dispersion-tiempo-gasto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.6: Gráfico de Dispersión - Relación entre Tiempo de Permanencia y Gasto del Cliente
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="medidas-de-relación-lineal" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="medidas-de-relación-lineal"><span class="header-section-number">2.4</span> Medidas de Relación Lineal</h2>
-<p>Estas nos dicen si dos variables están relacionadas entre sí.</p>
-<p>Imagina que además de las calificaciones que dan tus clientes, también registras cuántas veces visitan tu restaurante al mes. Quieres entender si estas dos cosas están relacionadas: ¿los clientes que visitan más tienden a dar mejores calificaciones? ¿O tal vez ocurre lo contrario?</p>
-<section id="covarianza" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">2.4.1</span> Covarianza</h3>
-<p>La <strong>covarianza</strong> es una medida que nos indica si dos variables tienden a subir o bajar juntas.</p>
+<p><strong>Interpretación del gráfico de dispersión:</strong></p>
+<p>El ejemplo muestra una <strong>correlación positiva</strong> entre el tiempo de permanencia y el gasto del cliente. Esta relación tiene sentido desde la perspectiva del negocio:</p>
 <ul>
-<li>Si la covarianza es <strong>positiva</strong>, significa que cuando una variable aumenta, la otra también tiende a aumentar.<br>
-</li>
-<li>Si es <strong>negativa</strong>, cuando una variable sube, la otra tiende a bajar.<br>
-</li>
-<li>Si es cercana a <strong>cero</strong>, no hay una relación lineal clara entre ellas.</li>
+<li><strong>Tendencia ascendente:</strong> Los clientes que permanecen más tiempo tienden a gastar más</li>
+<li><strong>Relación lógica:</strong> Más tiempo permite más pedidos (aperitivos, postres, bebidas adicionales)</li>
+<li><strong>Variabilidad natural:</strong> No todos los puntos siguen la línea perfectamente - algunos clientes gastan mucho en poco tiempo (pedidos caros) y otros gastan poco aunque permanezcan mucho tiempo</li>
+<li><strong>Rango de comportamientos:</strong> Clientes con estadías cortas (20-60 min) gastan típicamente $8-$30, mientras que los de estadías largas (120-180 min) gastan frecuentemente $35-$70</li>
 </ul>
-<p>Sin embargo, la covarianza solo nos dice la dirección de la relación, pero no qué tan fuerte es, y su valor depende de las unidades de las variables, lo que dificulta compararla entre diferentes pares de variables. Es decir, no puedo comparar dos covarianzas de dos variables distintas.</p>
-</section>
-<section id="coeficiente-de-correlación" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">2.4.2</span> Coeficiente de Correlación</h3>
-<p>Para solucionar esas limitaciones, usamos el <strong>coeficiente de correlación</strong>.</p>
-<p>Este coeficiente es una versión estandarizada de la covarianza que siempre toma un valor entre -1 y 1:</p>
+<p><strong>Insights para el negocio:</strong></p>
 <ul>
-<li><strong>1</strong> indica una relación lineal positiva perfecta: a más visitas, mejores calificaciones, siempre.<br>
-</li>
-<li><strong>-1</strong> indica una relación lineal negativa perfecta: a más visitas, peores calificaciones, siempre.<br>
-</li>
-<li><strong>0</strong> indica que no hay una relación lineal significativa entre las variables.</li>
+<li><strong>Estrategia de retención:</strong> Mantener a los clientes más tiempo puede <strong>incrementar las ventas</strong></li>
+<li><strong>Ambiente acogedor:</strong> Espacios cómodos que inviten a quedarse más tiempo</li>
+<li><strong>Menú estratégico:</strong> Ofrecer aperitivos, postres y bebidas para <strong>extender la experiencia</strong></li>
+<li><strong>Identificar oportunidades:</strong> Clientes con estadías largas pero bajo gasto podrían necesitar más atención del mesero</li>
 </ul>
-<p>Por ejemplo, un coeficiente de correlación de 0.7 entre visitas y calificaciones indica una relación positiva fuerte: los clientes que visitan más suelen estar más satisfechos.</p>
-<p>Sin embargo, que haya correlación no implica que una variable <strong>cause</strong> la otra, sólo que existe alguna relación la cual incluso puede ser casualidad no causalidad. Miremos un ejemplo donde correlación no implica causalidad:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/correlacion_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Cuándo usar un gráfico de dispersión?
 </div>
 </div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/correlacion_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
-</figure>
-</div>
+<div class="callout-body-container callout-body">
+<p><strong>Ideal para:</strong></p>
+<ul>
+<li>Explorar relaciones entre dos variables numéricas</li>
+<li>Identificar correlaciones positivas, negativas o ausencia de correlación<br>
+</li>
+<li>Detectar valores atípicos (outliers)</li>
+<li>Validar supuestos antes de análisis estadísticos más avanzados</li>
+</ul>
+<p><strong>Limitaciones:</strong></p>
+<ul>
+<li>Solo muestra dos variables a la vez</li>
+<li>La correlación no implica causalidad</li>
+<li>Puede ser difícil interpretar con muchos puntos sobrepuestos</li>
+</ul>
 </div>
 </div>
 
 
+</section>
 </section>
 </section>
 
@@ -1333,6 +1512,9 @@ RIC = 4.5 - 3.5 = 1.0
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./capitulo3.html" class="pagination-link" aria-label="Explorando tus Datos con Estadísticos Descriptivos">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

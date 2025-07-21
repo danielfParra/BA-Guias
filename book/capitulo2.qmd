@@ -1,400 +1,599 @@
-# Explorando tus Datos con Estadísticos Descriptivos
+﻿# Fundamentos de Variables y Visualización de Datos
 
-Imagina que eres gerente de un restaurante que acaba de lanzar un nuevo menú y quieres evaluar la satisfacción de tus clientes a partir de las calificaciones que te han dado. Tienes cientos de puntuaciones y necesitas entender rápidamente cuál es la opinión general, qué tan variadas son las experiencias y si hay patrones o valores atípicos que merecen atención.
+## Introducción a Variables y Datos
 
-¿Cómo puedes resumir y comprender toda esa información de forma clara y sencilla? Para eso utilizamos los estadísticos descriptivos, herramientas fundamentales que nos permiten condensar grandes cantidades de datos en medidas simples y significativas.
+Antes de manipular o graficar, es importante entender qué son los datos y las variables.
 
-Estas medidas serán esenciales para tomar decisiones informadas que mejoren tu decisiones.
+::: {.callout-note}
+## Definiciones clave
 
-
-## Estadísticos Descriptivos
-
-Los estadísticos descriptivos son herramientas clave que nos permiten resumir y comprender mejor la información contenida en nuestros datos. Para facilitar su estudio, los podemos clasificar en cuatro categorías principales:
-
-* **Medidas de tendencia central**: Estas nos muestran el valor típico o representativo en un conjunto de datos, es decir, alrededor de qué número se agrupan la mayoría de las observaciones.
-* **Medidas de variación**:  Nos indican qué tan dispersos o concentrados están los datos respecto a esa tendencia central, ayudándonos a entender la consistencia o diversidad dentro de la información.
-* **Medidas de forma**: Describen la distribución general de los datos, revelando si están simétricos, sesgados hacia un lado o presentan picos o colas particulares.
-* **Medidas de relación**: Evalúan cómo dos variables numéricas se relacionan entre sí, especialmente si existe una conexión lineal que pueda ser útil para análisis más avanzados.
-
-## Medidas de Tendencia Central
-
-Cuando queremos entender las calificaciones que los clientes dan a tu restaurante, buscamos encontrar un valor que represente lo que la mayoría piensa. Las medidas de tendencia central nos ayudan a esto.
-
-### Media (Promedio)
-
-La media o promedio es una forma simple pero útil de resumir un conjunto de datos. La media es el valor que obtienes al sumar todas las calificaciones y dividirlas entre el número total de clientes.
-
-
-::: {.callout-tip appearance="simple"}
-Matemáticamente se escribiría así:
-
-$$
-\text{Media} = \bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-$$
+- **Variable:** Característica que puede cambiar entre observaciones (ej. género, ventas, PIB).  
+- **Datos:** Conjunto de observaciones (filas) con valores para esas variables (columnas).
 :::
 
-Por ejemplo, si cinco clientes dieron las calificaciones: 4, 5, 3, 4 y 5, la media será:
+### Tipos de variables
 
-::: {.callout-tip appearance="simple"}
-$$
-\bar{x} = \frac{4 + 5 + 3 + 4 + 5}{5} = \frac{21}{5} = 4.2
-$$
-:::
+Las variables se clasifican en dos grandes categorías según su naturaleza:
 
+```{mermaid}
+%%| fig-cap: "Clasificación de Variables"
+%%| fig-align: center
 
- Sin embargo la media, tiene limitaciones: no muestra cómo están distribuidos los datos y puede ser engañosa si hay grandes diferencias entre los valores. Por ejemplo:
+flowchart TD
+  A[Variables]
+  A --> B["Categoría (cualitativa)"]
+  A --> C["Numérica (cuantitativa)"]
 
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/media_1.png", dpi = 270)
-```
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/media_2.png", dpi = 270)
+  B --> D["Nominal (clasificación)"]
+  B --> E["Ordinal (orden jerárquico)"]
+
+  C --> F[Discreta]
+  C --> G[Continua]
+
+  D --> H["Ej: Estado civil, Afiliación política, Color de ojos"]
+  E --> I["Ej: Rankings, Bajo-Medio-Alto"]
+  F --> J["Ej: Número de hijos, Defectos por hora"]
+  G --> K["Ej: Peso, Voltaje"]
 ```
 
-Aquí hay otro ejemplo donde la media es la misma en ambas situaciones pero el contexto individual que esconde es muy diferente:
+Entender el tipo de variable es clave porque:
+
+- **Define el resumen estadístico adecuado:** No calculamos una media de colores de ojos.  
+- **Determina el gráfico apropiado:** Un histograma para variables numéricas, un gráfico de barras para categorías.  
+- **Evita errores de interpretación:** Un ordinal tratado como numérico puede dar conclusiones equivocadas.
+
+Ejemplos de tipos de variables:
+
+| Pregunta                                                        | Respuesta                                 | Tipo de Variable       |
+|-----------------------------------------------------------------|-------------------------------------------|------------------------|
+| ¿Tiene perfil de Facebook?                                      | Sí / No                                   | Categórica Nominal     |
+| ¿Cuántos mensajes de texto ha enviado en los últimos dos días?  | ________ (número entero)                 | Numérica Discreta      |
+| ¿Cuánto tiempo le tomó bajar la aplicación?                     | ________ (minutos o segundos)             | Numérica Continua      |
+| ¿Cómo evaluaría su experiencia en Facebook?                     | Muy mala, Mala, Regular, Buena, Muy buena | Categórica Ordinal     |
+
+: Ejemplo: Tipos de Variables en una Encuesta {#tbl-ejemplos}
+
+## Organización de Datos Categóricos
+
+### Tablas para Datos Categóricos
+
+**Tabla resumen:** Muestra frecuencias o porcentajes para cada categoría de la variable. A continuación mostramos cómo se distribuyen las calificaciones de nuestro restaurante en Google Maps, basadas en 100 reseñas:
+
+| Calificación | Frecuencia | % sobre 100 reseñas |
+|:-------------|:----------:|:-------------------:|
+| Excelente    |     40     |         40%         |
+| Buena        |     35     |         35%         |
+| Regular      |     20     |         20%         |
+| Mala         |      5     |          5%         |
+
+: Resumen de Calificaciones en Google Maps {#tbl-calificaciones}
+
+**Tabla de contingencia:** Relaciona dos o más variables categóricas. Muestra la frecuencia con la que ocurren combinaciones de categorías. Por ejemplo, las calificaciones según la hora del día:
+
+| Calificación | Mañana (n, %)  | Tarde (n, %)   | Noche (n, %)   | Madrugada (n, %) |
+|:-------------|:--------------:|:--------------:|:--------------:|:----------------:|
+| Excelente    |   10 (40%)     |   15 (50%)     |  10 (33.3%)    |    5 (62.5%)     |
+| Buena        |    8 (32%)     |  10 (33.3%)    |   8 (26.7%)    |     2 (25%)      |
+| Regular      |    4 (16%)     |    3 (10%)     |   7 (23.3%)    |    1 (12.5%)     |
+| Mala         |    3 (12%)     |   2 (6.7%)     |   5 (16.7%)    |      0 (0%)      |
+| **Total**    | **25 (100%)**  | **30 (100%)**  | **30 (100%)**  |  **8 (100%)**    |
+
+: Calificaciones por Hora del Día {#tbl-contingencia}
+
+Al analizar la tabla de contingencia, podemos comparar cómo varían las calificaciones según la hora del día. Por ejemplo, la madrugada muestra un 62.5% de reseñas "Excelente" y ninguna "Mala", lo que sugiere que quienes califican en ese horario son clientes muy satisfechos (posiblemente menos volumen y mejor atención). En cambio, durante la noche la proporción de calificaciones "Excelente" baja a 33.3% y aumentan las "Mala" (16.7%), lo que podría indicar saturación operativa o tiempos de espera más largos. 
+
+La tarde destaca por concentrar el mayor número de reseñas totales y un 50% de valoraciones "Excelente", lo que la convierte en una franja estratégica para mantener estándares altos. Estos patrones permiten priorizar recursos: reforzar personal nocturno y replicar buenas prácticas de la madrugada y la tarde.
+
+### Visualizando datos categóricos
+
+#### Gráfico de Barras
+
+Los gráficos de barras son la herramienta más versátil para visualizar variables categóricas. Utilizan barras rectangulares cuya longitud (o altura) es proporcional a la frecuencia o porcentaje de cada categoría. Su principal ventaja es la facilidad para comparar visualmente diferentes categorías, ya que el ojo humano puede detectar rápidamente diferencias en longitud.
+
+Las barras pueden orientarse vertical u horizontalmente, y son especialmente útiles cuando los nombres de las categorías son largos (mejor horizontal) o cuando queremos enfatizar el orden jerárquico de los valores (mejor vertical). A diferencia de otros gráficos, las barras deben comenzar siempre desde cero para no distorsionar las comparaciones visuales. Mira un ejemplo de gráfico de barras:
+
+![Ejemplo de gráfico de barras mostrando la distribución de calificaciones](img/bar_chart.png){#fig-bar-chart}
+
+
+
+#### Gráfico de Torta (Pie Chart)
+
+Los gráficos de torta representan datos categóricos como sectores de un círculo, donde cada sector es proporcional al porcentaje que representa esa categoría del total. La "torta" completa suma siempre 100%, y cada "rebanada" muestra visualmente qué proporción ocupa cada categoría.
+
+Su principal fortaleza es mostrar la **composición del total** - es decir, cómo se distribuye un todo entre sus partes. Son especialmente útiles cuando queremos enfatizar que una categoría domina sobre las demás o cuando la pregunta clave es "¿qué porcentaje del total representa cada grupo?". Por ejemplo, para mostrar la participación de mercado de diferentes marcas o la distribución del presupuesto entre departamentos. Este sería el gráfico de torta que muestra la misma información del gráfico de barras anterior:
+
+![Ejemplo de gráfico de torta mostrando la distribución de calificaciones](img/pie.png){#fig-pie-chart}
+
+::: {.callout-warning}
+## Limitaciones del gráfico de torta
+
+- **Difícil comparación de sectores similares:** El ojo humano no distingue bien diferencias pequeñas entre ángulos
+- **Máximo recomendado:** No más de 5-7 categorías para mantener legibilidad
+- **Mejor alternativa:** Considera un gráfico de barras si necesitas comparar categorías con valores muy cercanos
+:::
+
+Los gráficos de torta funcionan mejor cuando hay una o dos categorías claramente dominantes y el resto son minoritarias. Si todas las categorías tienen tamaños similares, un gráfico de barras será más efetorctivo para la comparación visual.
+
+#### Gráfico de Pareto
+
+El gráfico de Pareto combina barras y una línea para identificar las categorías más importantes según el **principio de Pareto** (regla 80-20). Las barras muestran las frecuencias ordenadas de mayor a menor, mientras que la línea representa el porcentaje acumulado hasta llegar al 100%.
+
+Su objetivo principal es **priorizar** - ayuda a identificar las pocas categorías que concentran la mayor parte del problema o fenómeno. Por ejemplo, en control de calidad, unas pocas causas suelen generar la mayoría de los defectos; en ventas, unos pocos productos pueden generar la mayor parte de los ingresos.
+
+**Elementos clave del gráfico de Pareto:**
+
+- **Barras ordenadas:** De mayor a menor frecuencia (izquierda a derecha)
+- **Línea acumulada:** Muestra el porcentaje que suman las categorías hasta ese punto
+- **Principio 80-20:** Busca el punto donde pocas categorías explican la mayoría del fenómeno
 
 ```{r}
+#| label: fig-pareto-chart
+#| fig-cap: "Gráfico de Pareto - Análisis de Causas de Defectos"
+#| warning: false
+#| message: false
 #| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/media_3.png", dpi = 270)
-```
-
-
-### Mediana
-
-Volviendo a las calificaciones de tu restaurante, la **mediana** es el valor que está justo en el medio cuando ordenas todas las opiniones de menor a mayor. Esto significa que la mitad de los clientes dieron una calificación igual o menor que la mediana, y la otra mitad dio una calificación igual o mayor.
-
-Por ejemplo, si tus clientes calificaron así: 3, 4, 4, 5, 5, la mediana es 4 — porque es el valor que divide el grupo en dos partes iguales.
-
-::: {.callout-tip appearance="simple"}
-$$
-\text{Mediana} = \text{valor central en datos ordenados}
-$$
-:::
-
-Una gran ventaja de la mediana es que **no se ve afectada por calificaciones muy bajas o muy altas** que podrían distorsionar la media. Por ejemplo, si alguien puso un 1 o un 10, la mediana sigue mostrando el punto medio real de la mayoría.
-
-Sin embargo, la mediana **no nos dice qué tan dispersas están las calificaciones a cada lado**. Por eso, para entender mejor la variabilidad de las opiniones, necesitaremos otras medidas que veremos más adelante.
-
-A continuación podemos ver un ejemplo donde la mediana es usada para entregar un mensaje erróneo:
-
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/mediana_1.png", dpi = 270)
-```
-Pero, los rendimientos anuales del fondo:
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/mediana_2.png", dpi = 270)
-```
-
-Miremos otro ejemplo donde la mediana similar no implica datos similares. Siempre hay tener una combinación de datos para tomar decisiones correctas
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/mediana_3.png", dpi = 270)
-```
-
-
-### Moda
-
-La **moda** es la calificación que más se repite entre tus clientes. Es como la opinión más común o popular sobre tu restaurante.
-
-Por ejemplo, si las calificaciones de tus clientes fueron: 3, 4, 4, 5, 5, tanto 4 como 5 se repiten dos veces, por lo que hay dos modas: 4 y 5.
-
-Si no hay repeticiones exactas, se pueden agrupar en categorías y tomar como moda la más común. Es útil especialmente con datos no numéricos, como colores o preferencias políticas, donde no tiene sentido calcular promedios.
-
-::: {.callout-tip appearance="simple"}
-$$
-\text{Moda} = \text{valor que aparece con mayor frecuencia}
-$$
-:::
-
-
-Su limitación: no considera la totalidad ni la distribución de los datos, y lo más común no siempre es lo más representativo. Miremos este ejemplo:
-
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/moda_1.png", dpi = 270)
-```
-
-
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/moda_2.png", dpi = 270)
-```
-
-## Medidas de Variación
-
-Las medidas de variación nos ayudan a entender qué tan diferentes o dispersos están los datos entre sí. Es decir, nos dicen si las opiniones o valores están muy juntos o muy separados.
-
-### Rango
-
-Las medidas de variación nos ayudan a entender qué tan diferentes o dispersos están los datos entre sí. Es decir, nos dicen si las opiniones o valores están muy juntos o muy separados.
-
-Por ejemplo, si las calificaciones en tu restaurante van desde 2 hasta 5, el rango sería:
-
-::: {.callout-tip appearance="simple"}
-$$
-\text{Rango} = 5 - 2 = 3
-$$
-:::
-
-Esto nos dice que las opiniones varían en un rango de 3 puntos, desde una calificación baja hasta una alta.
-
-Su principal ventaja es su simplicidad, da una idea rápida del “ancho” del conjunto de datos.
-
-Pero su debilidad es igual de clara, solo considera los valores extremos, ignorando por completo todos los datos intermedios. 
-
-Miremos un ejemplo de un rango que da una impresión incorrecta:
-
-
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/rango_1.png", dpi = 270)
-```
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/rango_2.png", dpi = 270)
-```
-
-### Varianza y Desviación Estándar
-
-La varianza y la desviación estándar son herramientas que nos ayudan a entender qué tan dispersos están los datos con respecto a su media.
-
-Imagina que tienes varios números y quieres saber si están todos cerca del promedio o si están muy separados entre sí. 
-
-Para entender qué tan dispersas están las calificaciones de tus clientes respecto al promedio, usamos dos medidas fundamentales: la **varianza** y la **desviación estándar**:
-
-* Una desviación estándar baja significa que los datos están cerca del promedio.
-* Una alta desviación estándar indica mucha dispersión.
-
-::: {.callout-tip appearance="simple"}
-Si quisieras “cocinar” la varianza en tu propia cocina, la receta sería así:
-
-1. **Encuentra la media** de todas las calificaciones.  
-2. **Calcula qué tan lejos está cada calificación de esa media** (la diferencia entre cada calificación y la media).  
-3. **Eleva al cuadrado cada una de esas diferencias** para evitar que se cancelen y para dar más peso a las diferencias grandes.  
-4. **Suma todas esas diferencias al cuadrado y calcula el promedio** dividiendo entre el número de calificaciones menos uno.
-:::
-
-Matemáticamente, si tienes \( n \) calificaciones \( x_1, x_2, ..., x_n \) y la media \( \bar{x} \), la varianza se calcula así:
-
-::: {.callout-tip appearance="simple"}
-$$
-\text{Varianza} = s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
-$$
-:::
-
-Pero como la varianza está al cuadrado, no es fácil interpretarla directamente, pues sus unidades no son las mismas que las de las calificaciones. Por eso usamos la **desviación estándar**, que es la raíz cuadrada de la varianza y nos da una medida en las mismas unidades originales.
-
-::: {.callout-tip appearance="simple"}
-$$
-\text{Desviación Estándar} = s = \sqrt{s^2}
-$$
-:::
-
-Por ejemplo, si las calificaciones fueron: 4, 5, 3, 4 y 5, la media es:
-
-::: {.callout-tip appearance="simple"}
-$$
-\bar{x} = \frac{4 + 5 + 3 + 4 + 5}{5} = 4.2
-$$
-:::
-
-Luego, calculamos la varianza:
-
-::: {.callout-tip appearance="simple"}
-$$
-s^2 = \frac{(4 - 4.2)^2 + (5 - 4.2)^2 + (3 - 4.2)^2 + (4 - 4.2)^2 + (5 - 4.2)^2}{4} = 0.7
-$$
-:::
-
-Y finalmente, la desviación estándar es:
-
-::: {.callout-tip appearance="simple"}
-$$
-s = \sqrt{0.7} \approx 0.84
-$$
-:::
-
-Esto significa que, en promedio, las calificaciones se alejan de la media en aproximadamente 0.84 puntos.
-
-A diferencia del rango, que solo considera los valores más extremos, la varianza y la desviación estándar toman en cuenta todos los datos. Por eso ofrecen una visión más completa de la dispersión. Sin embargo, también tienen una desventaja: si hay un solo valor muy alejado (un valor extremo), puede aumentar mucho la varianza, aunque la mayoría de los datos estén cerca de la media. Mira el ejemplo a continuación, para entenderlo mejor:
-
-```{r}
-#| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/varianza_1.png", dpi = 270)
-```
-
-### Percentil, Cuartiles 
-
-Imagina que quieres saber cómo se comparan las calificaciones de tus clientes con todas las demás. Los **percentiles** nos ayudan a entender la posición relativa de una calificación dentro del grupo.
-
-Un percentil nos dice qué porcentaje de las calificaciones está por debajo de cierto valor. Por ejemplo, el **percentil 25** indica el punto bajo el cual se encuentra el 25% de las calificaciones más bajas.
-
-Si una calificación está en el percentil 25, significa que el 25% de los clientes dio una calificación igual o menor que esa, y el 75% dio una calificación más alta.
-
-Esto es útil para entender la posición relativa de una calificación sin que las opiniones muy bajas o muy altas influyan demasiado.
-
-Sin embargo, los percentiles **no nos dicen qué tan separados están los datos ni qué tan extremos son esos valores.**
-
-Los **cuartiles** son un tipo especial de percentiles que dividen las calificaciones en cuatro grupos iguales, cada uno con el 25% de las opiniones.
-
-- El **primer cuartil (Q1)** es igual al percentil 25.  
-- El **segundo cuartil (Q2)** es la mediana, el punto medio (percentil 50).  
-- El **tercer cuartil (Q3)** es el percentil 75.
-
-Esto permite resumir cómo se distribuyen las calificaciones y saber en qué grupo se ubica cada opinión, incluso si hay calificaciones muy bajas o muy altas.
-
-### Rango Intercuartílico (RIC)
-
-Para entender mejor cómo varían las calificaciones en la parte central de los datos, usamos el **Rango Intercuartílico**, o **RIC**, que es la diferencia entre el tercer cuartil y el primer cuartil:
-
-::: {.callout-tip appearance="simple"}
-$$
-RIC = Q3 - Q1
-$$
-:::
-
-El RIC mide la dispersión del 50% central de las calificaciones, ignorando las opiniones más bajas y más altas que podrían ser atípicas.
-
-Por ejemplo, si el primer cuartil es 3.5 y el tercer cuartil es 4.5, el RIC sería:
-
-::: {.callout-tip appearance="simple"}
-$$
-RIC = 4.5 - 3.5 = 1.0
-$$
-:::
-
-Esto indica que la mitad central de las calificaciones está dentro de un rango de 1 punto, mostrando cuán consistentes son las opiniones principales.
-
-El RIC es muy útil porque, a diferencia del rango total, **no se ve afectado por calificaciones extremas** y nos da una idea clara de la variabilidad donde está la mayoría de los datos.
-
-
-### Diagrama de Caja y Brazos (Boxplot)
-
-Para visualizar fácilmente la distribución de las calificaciones de tus clientes, usamos el **diagrama de caja y brazos**, también conocido como **boxplot**.
-
-Este gráfico muestra en una caja la parte central de los datos, desde el primer cuartil (Q1) hasta el tercer cuartil (Q3), con una línea en la mediana (Q2).
-
-Además, los “brazos” o líneas que salen de la caja se extienden hasta los valores mínimos y máximos dentro de un rango razonable, ayudándonos a identificar si hay calificaciones atípicas o muy extremas.
-
-Así, con un solo gráfico puedes ver:
-
-- Dónde está la mayoría de las calificaciones (la caja).  
-- La calificación típica (la mediana dentro de la caja).  
-- La dispersión general (la longitud de la caja y brazos).  
-- Valores extremos o posibles opiniones fuera de lo común (puntos fuera de los brazos).
-
-El diagrama de caja es una herramienta poderosa para resumir y comparar la distribución de las calificaciones de forma rápida y visual.
-
-Este sería un ejemplo en R:
-
-
-```{r}
-#| fig-align: center
-#| out.width: '350px'
-# Instalar paquetes si no están instalados
-# install.packages(c("ggplot2", "ggthemes", "viridis"))
 
 library(ggplot2)
-library(ggthemes)
-library(viridis)
+library(dplyr)
 
-# Crear datos simulados de calificaciones para 3 restaurantes
-set.seed(123)
-
-datos <- data.frame(
-  restaurante = rep(c("Mi Restaurante", "Competidor 1", "Competidor 2"), each = 50),
-  calificacion = c(
-    rnorm(50, mean = 4, sd = 0.7),  # Mi restaurante: variación media
-    rnorm(50, mean = 3.5, sd = 1.2), # Competidor 1: más variación (peor control)
-    rnorm(50, mean = 4.2, sd = 0.3)  # Competidor 2: poca variación (muy consistente)
+# Datos de ejemplo: causas de defectos en un proceso
+datos_pareto <- data.frame(
+  Causa = c("Mejor precio", "Evitar multitudes o filas", "Conveniencia", 
+            "Mejor selección", "Tienda directamente"),
+  Frecuencia = c(53, 20, 12, 10, 5)
+) %>%
+  arrange(desc(Frecuencia)) %>%
+  mutate(
+    Porcentaje = round(Frecuencia / sum(Frecuencia) * 100, 1),
+    Acumulado = cumsum(Porcentaje)
   )
+
+# Crear el gráfico de Pareto
+ggplot(datos_pareto, aes(x = reorder(Causa, -Frecuencia))) +
+  # Barras
+  geom_col(aes(y = Frecuencia), fill = "#FFB000", alpha = 0.8, width = 0.7) +
+  # Línea acumulada
+  geom_line(aes(y = Acumulado, group = 1), color = "#FF6B35", linewidth = 1.2) +
+  geom_point(aes(y = Acumulado), color = "#FF6B35", size = 3) +
+  # Línea del 80%
+  geom_hline(yintercept = 80, linetype = "dashed", color = "red", alpha = 0.7) +
+  # Escalas
+  scale_y_continuous(
+    name = "Frecuencia", 
+    sec.axis = sec_axis(~., name = "Porcentaje Acumulado (%)", breaks = seq(0, 100, 20))
+  ) +
+  # Etiquetas y tema
+  labs(
+    title = "Gráfico de Pareto",
+    subtitle = "Razones para comprar en línea",
+    x = "Causas",
+    caption = "La línea roja punteada marca el 80%"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    axis.title = element_text(size = 11)
+  ) +
+  # Añadir etiquetas de porcentaje en los puntos
+  geom_text(aes(y = Acumulado, label = paste0(Acumulado, "%")), 
+            vjust = -0.5, size = 3, color = "#FF6B35")
+```
+
+::: {.callout-tip}
+
+## ¿Cuándo usar un gráfico de Pareto?
+
+- **Identificar prioridades:** ¿Qué problemas atender primero?
+- **Análisis de causas:** ¿Qué factores tienen mayor impacto?
+- **Optimización de recursos:** ¿Dónde enfocar los esfuerzos?
+- **Seguimiento de mejoras:** ¿Las acciones redujeron las causas principales?
+:::
+
+**Ejemplo práctico:** Si analizamos las quejas de un restaurante y encontramos que "comida fría" y "tiempo de espera" representan el 75% de todas las quejas, sabemos que resolver estos dos problemas tendrá el mayor impacto en la satisfacción del cliente. El gráfico de Pareto haría visible esta concentración de manera inmediata.
+
+### Visualizando datos categóricos: Gráfico de Barras Emparejadas
+
+El **gráfico de barras emparejadas** (o agrupadas) se utiliza cuando queremos comparar cómo se distribuye una variable categórica principal dentro de los niveles de otra variable categórica. Cada grupo del eje horizontal representa una categoría de la primera variable y, dentro de cada grupo, las barras muestran las categorías de la segunda.
+
+**Ejemplo:** Si analizamos las calificaciones de un restaurante (Excelente, Buena, Regular, Mala) según la hora del día en que se dejó la reseña (Mañana, Tarde, Noche), podemos ver rápidamente en qué horario se concentran más las opiniones positivas.  
+Este tipo de gráfico ayuda a detectar patrones de comparación entre grupos: diferencias claras en alturas de barras indican posibles áreas de mejora o fortalezas.
+
+```{r}
+#| label: fig-grouped-bars
+#| fig-cap: "Gráfico de Barras Emparejadas - Calificaciones por Hora del Día"
+#| warning: false
+#| message: false
+#| echo: false
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Datos de la tabla de contingencia
+datos_contingencia <- data.frame(
+  Calificacion = c("Excelente", "Buena", "Regular", "Mala"),
+  Mañana = c(10, 8, 4, 3),
+  Tarde = c(15, 10, 3, 2),
+  Noche = c(10, 8, 7, 5),
+  Madrugada = c(5, 2, 1, 0)
 )
 
-# Limitar calificaciones entre 1 y 5
-datos$calificacion <- pmin(pmax(datos$calificacion, 1), 5)
-
-# Boxplot comparativo con viridis y theme_few
-ggplot(datos, aes(x = restaurante, y = calificacion, fill = restaurante)) +
-  geom_boxplot(outlier.shape = 16, outlier.size = 2, alpha = 0.8) +
-  scale_fill_viridis(discrete = TRUE, option = "D") +
-  labs(
-    title = "Comparación de Calificaciones entre Restaurantes",
-    x = "Restaurante",
-    y = "Calificación (1 a 5)"
-  ) +
-  theme_few() +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(hjust = 0.5, size = 16, face = "bold")
+# Convertir a formato largo para ggplot
+datos_largo <- datos_contingencia %>%
+  pivot_longer(cols = -Calificacion, 
+               names_to = "Hora_del_dia", 
+               values_to = "Frecuencia") %>%
+  mutate(
+    Calificacion = factor(Calificacion, levels = c("Excelente", "Buena", "Regular", "Mala")),
+    Hora_del_dia = factor(Hora_del_dia, levels = c("Mañana", "Tarde", "Noche", "Madrugada"))
   )
+
+# Crear gráfico de barras emparejadas
+ggplot(datos_largo, aes(x = Calificacion, y = Frecuencia, fill = Hora_del_dia)) +
+  geom_col(position = "dodge", alpha = 0.8, width = 0.8) +
+  scale_fill_viridis_d(option = "D", name = "Hora del día") +
+  labs(
+    title = "Calificaciones del Restaurante por Hora del Día",
+    subtitle = "Distribución de reseñas según el momento de evaluación",
+    x = "Calificación",
+    y = "Número de reseñas",
+    caption = "Los datos muestran patrones claros: la madrugada tiene más 'Excelentes' proporcionalmente"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    axis.text.x = element_text(angle = 0, hjust = 0.5),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  ) +
+  # Añadir etiquetas en las barras
+  geom_text(aes(label = Frecuencia), 
+            position = position_dodge(width = 0.8), 
+            vjust = -0.3, size = 3)
 ```
 
-## Medidas de Relación Lineal
+**Cuándo usarlo:**
 
-Estas nos dicen si dos variables están relacionadas entre sí.
+- Cuando tienes **dos variables categóricas**.
+- Para comparar proporciones o frecuencias entre subgrupos.
+- Como complemento visual de una tabla de contingencia.
 
-Imagina que además de las calificaciones que dan tus clientes, también registras cuántas veces visitan tu restaurante al mes. Quieres entender si estas dos cosas están relacionadas: ¿los clientes que visitan más tienden a dar mejores calificaciones? ¿O tal vez ocurre lo contrario?
+**Recomendaciones:**
 
-### Covarianza
+- Ordena las categorías de forma lógica (por tiempo, intensidad, etc.).
+- Usa una leyenda clara.
+- Evita el exceso de colores; prioriza el contraste.
 
-La **covarianza** es una medida que nos indica si dos variables tienden a subir o bajar juntas.
 
-- Si la covarianza es **positiva**, significa que cuando una variable aumenta, la otra también tiende a aumentar.  
-- Si es **negativa**, cuando una variable sube, la otra tiende a bajar.  
-- Si es cercana a **cero**, no hay una relación lineal clara entre ellas.
+En resumen: antes de elegir cómo mostrar tus datos categóricos, conviene pensar cuántas variables estás analizando. El siguiente esquema resume las opciones más comunes: si trabajas con una sola variable, puedes resumirla con una tabla y luego elegir un gráfico de barras, de torta o de Pareto según el objetivo. Si tienes dos variables categóricas, una tabla de contingencia es el punto de partida y suele representarse con un gráfico de barras emparejadas para comparar grupos.
 
-Sin embargo, la covarianza solo nos dice la dirección de la relación, pero no qué tan fuerte es, y su valor depende de las unidades de las variables, lo que dificulta compararla entre diferentes pares de variables. Es decir, no puedo comparar dos covarianzas de dos variables distintas.
+```{mermaid}
+%%| fig-cap: "Opciones de Visualización para Datos Categóricos"
+%%| fig-align: center
 
-### Coeficiente de Correlación
+flowchart TB
+  A[Datos categóricos]
+  A --> B[Visualización]
 
-Para solucionar esas limitaciones, usamos el **coeficiente de correlación**.
+  B --> C[Tabla Resumen - 1 variable]
+  B --> D[Tabla Contingencia - 2 variables]
 
-Este coeficiente es una versión estandarizada de la covarianza que siempre toma un valor entre -1 y 1:
+  C --> E[Gráfico de Barras]
+  C --> F[Gráfico de torta]
+  C --> G[Gráfico de Pareto]
 
-- **1** indica una relación lineal positiva perfecta: a más visitas, mejores calificaciones, siempre.  
-- **-1** indica una relación lineal negativa perfecta: a más visitas, peores calificaciones, siempre.  
-- **0** indica que no hay una relación lineal significativa entre las variables.
+  D --> H[Gráfico de Barras emparejadas]
+```
 
-Por ejemplo, un coeficiente de correlación de 0.7 entre visitas y calificaciones indica una relación positiva fuerte: los clientes que visitan más suelen estar más satisfechos.
+### Visualizando datos numéricos
 
-Sin embargo, que haya correlación no implica que una variable **cause** la otra, sólo que existe alguna relación la cual incluso puede ser casualidad no causalidad. Miremos un ejemplo donde correlación no implica causalidad:
+#### Distribución de frecuencia
+
+Imagina que registras el **monto gastado por cada cliente** en tu restaurante durante un día. Tienes muchos valores sueltos y quieres resumirlos para entender mejor los patrones.  
+
+La **distribución de frecuencia** es una tabla que agrupa esos montos en **categorías numéricas ordenadas** (también llamadas clases) y cuenta cuántos clientes caen en cada una.
+
+ **¿Cómo elegir las categorías?**
+
+Primero necesitas definir **categorías adecuadas**: decidir sus límites (fronteras) y su **ancho**.  
+El número de categorías depende del **rango** de los datos (máximo – mínimo). Si los gastos van desde \$5 hasta \$55, el rango es 50.  
+Cuando el rango es grande solemos usar más categorías; en la práctica, entre **5 y 15** funciona bien.
+
+**¿Cómo calcular el ancho?**
+
+Si decides usar, por ejemplo, 10 categorías:
+
+$$
+\text{Ancho} = \frac{\text{Rango}}{\text{Número de categorías}} = \frac{50}{10} = 5
+$$
+
+Eso significa que tus clases podrían ser: \$5–\<\$10, \$10–\<\$15, \$15–\<\$20, … hasta \$55. Luego cuentas cuántos clientes gastaron en cada intervalo y obtienes una tabla clara para analizar tendencias (por ejemplo, “la mayoría gasta entre \$15 y \$25”).
+
+Esta tabla te permite pasar del desorden de datos individuales a una visión estructurada que facilita la toma de decisiones.
+
+**Ejemplo práctico: Distribución de gastos**
+
+Supongamos que registramos el gasto de **100 clientes** y los agrupamos usando intervalos de $5:
+
+| Intervalo (USD) | Frecuencia | % Relativo | Frec. Acumulada | % Acumulado |
+|:---------------:|:----------:|:----------:|:---------------:|:-----------:|
+| $5 - <$10       |     8      |     8%     |       8         |     8%      |
+| $10 - <$15      |    15      |    15%     |      23         |    23%      |
+| $15 - <$20      |    22      |    22%     |      45         |    45%      |
+| $20 - <$25      |    25      |    25%     |      70         |    70%      |
+| $25 - <$30      |    14      |    14%     |      84         |    84%      |
+| $30 - <$35      |     9      |     9%     |      93         |    93%      |
+| $35 - <$40      |     5      |     5%     |      98         |    98%      |
+| $40 - <$45      |     2      |     2%     |     100         |   100%      |
+| **Total**       |  **100**   |  **100%**  |       -         |      -      |
+
+: Distribución de Gastos por Cliente {#tbl-distribucion-gastos}
+
+**Interpretación clave:**
+
+- **Concentración:** El 70% de los clientes gastó menos de $25
+- **Cola:** Solo el 7% gastó más de $35
+- **Patrón:** La mayoría de clientes (67%) gasta entre $10-$30
+
+#### Histograma
+
+Siguiendo con el ejemplo de los gastos en el restaurante, el **histograma** es la versión gráfica de la tabla de distribución de frecuencia.  
+En lugar de mostrar los números en una tabla, dibujamos una barra para cada categoría (intervalo de gasto).  
+
+- El **eje horizontal** muestra los intervalos: \$5–\<\$10, \$10–\<\$15, etc.  
+- El **eje vertical** muestra la frecuencia (o el porcentaje) de clientes en cada intervalo.  
+- Las barras van **pegadas** porque los intervalos son continuos: representan rangos de una misma variable numérica.  
+
 
 ```{r}
+#| label: fig-histograma-gastos
+#| fig-cap: "Histograma - Distribución de Gastos por Cliente"
+#| warning: false
+#| message: false
 #| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/correlacion_1.png", dpi = 270)
+
+library(ggplot2)
+library(dplyr)
+
+# Crear datos simulados basados en la distribución de frecuencias
+# Usamos el punto medio de cada intervalo para representar los datos
+intervalos <- c(7.5, 12.5, 17.5, 22.5, 27.5, 32.5, 37.5, 42.5)
+frecuencias <- c(8, 15, 22, 25, 14, 9, 5, 2)
+
+# Generar datos individuales basados en las frecuencias
+# Para cada intervalo, creamos valores aleatorios dentro del rango
+set.seed(123)  # Para reproducibilidad
+datos_gastos <- c()
+
+for(i in 1:length(intervalos)) {
+  if(i == 1) {
+    valores <- runif(frecuencias[i], 5, 10)
+  } else if(i == 2) {
+    valores <- runif(frecuencias[i], 10, 15)
+  } else if(i == 3) {
+    valores <- runif(frecuencias[i], 15, 20)
+  } else if(i == 4) {
+    valores <- runif(frecuencias[i], 20, 25)
+  } else if(i == 5) {
+    valores <- runif(frecuencias[i], 25, 30)
+  } else if(i == 6) {
+    valores <- runif(frecuencias[i], 30, 35)
+  } else if(i == 7) {
+    valores <- runif(frecuencias[i], 35, 40)
+  } else {
+    valores <- runif(frecuencias[i], 40, 45)
+  }
+  datos_gastos <- c(datos_gastos, valores)
+}
+
+# Crear el histograma
+ggplot(data.frame(gastos = datos_gastos), aes(x = gastos)) +
+  geom_histogram(binwidth = 5, 
+                 boundary = 5,
+                 fill = "#4CAF50", 
+                 color = "white", 
+                 alpha = 0.8) +
+  scale_x_continuous(breaks = seq(5, 45, by = 5), 
+                     labels = paste0("$", seq(5, 45, by = 5))) +
+  scale_y_continuous(breaks = seq(0, 25, by = 5)) +
+  labs(
+    title = "Distribución de Gastos por Cliente",
+    subtitle = "Histograma basado en 100 observaciones",
+    x = "Gasto por Cliente (USD)",
+    y = "Frecuencia (Número de Clientes)",
+    caption = "Los datos muestran una distribución aproximadamente normal con sesgo ligero hacia la derecha"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_line(color = "grey90"),
+    plot.caption = element_text(size = 9, face = "italic")
+  ) +
+  # Añadir línea vertical para la media aproximada
+  geom_vline(xintercept = 21, linetype = "dashed", color = "red", alpha = 0.7) +
+  # Añadir anotación para la media
+  annotate("text", x = 23, y = 22, label = "Media ≈ $21", 
+           color = "red", angle = 90, vjust = -0.5, size = 3)
 ```
+
+Un **histograma** es la representación gráfica de una distribución de frecuencias para datos numéricos continuos. A diferencia del gráfico de barras (para datos categóricos), el histograma muestra barras adyacentes sin espacios entre ellas, lo que refleja la naturaleza continua de los datos.
+
+**Características clave del histograma:**
+
+- **Eje X:** Intervalos de valores (clases) de la variable numérica
+- **Eje Y:** Frecuencia (cantidad de observaciones en cada intervalo)
+- **Barras conectadas:** Sin espacios, indicando continuidad de los datos
+- **Forma de distribución:** Permite identificar patrones como simetría, sesgo o multimodalidad
+
+El histograma nos permite visualizar rápidamente:
+
+- **¿Dónde se concentran los datos?** (moda o pico más alto)
+- **¿Cómo se distribuyen?** (simétrica, sesgada a la izquierda/derecha)
+- **¿Hay valores atípicos?** (barras aisladas en los extremos)
+
+
+::: {.callout-note}
+## Interpretación del histograma
+
+**Forma de la distribución:**
+
+- **Aproximadamente normal:** La distribución tiene forma de campana con un pico central
+- **Sesgo ligero:** Hay una "cola" más larga hacia la derecha (valores altos)
+- **Concentración:** La mayoría de clientes gasta entre $15-$30
+
+**Información práctica:**
+
+- **Valor típico:** Alrededor de $20-$25 (pico del histograma)
+- **Rango común:** El 70% de clientes gasta menos de $25
+- **Valores extremos:** Muy pocos clientes gastan más de $35
+:::
+
+**¿Cuándo usar un histograma vs. gráfico de barras?**
+
+| Criterio | Histograma | Gráfico de Barras |
+|:---------|:-----------|:------------------|
+| **Tipo de datos** | Numéricos continuos | Categóricos |
+| **Separación de barras** | Sin espacios (datos continuos) | Con espacios (categorías distintas) |
+| **Objetivo principal** | Mostrar distribución de frecuencias | Comparar categorías |
+| **Ejemplo** | Edades, pesos, tiempos | Colores, marcas, géneros |
+
+: Histograma vs. Gráfico de Barras {#tbl-histograma-vs-barras}
+
+#### Gráfico de Dispersión
+
+El **gráfico de dispersión** (scatter plot) es la herramienta principal para visualizar la **relación entre dos variables numéricas**. A diferencia del histograma que muestra una sola variable, el gráfico de dispersión permite explorar si existe algún patrón, tendencia o correlación entre dos mediciones diferentes.
+
+Sigamos con el restaurante: además del **gasto de cada cliente** (en dólares), registramos el **tiempo que permanecen** en el establecimiento (en minutos). Queremos saber si existe alguna relación entre estas dos variables continuas.
+
+En el gráfico de dispersión:
+- Cada **punto** representa a un cliente individual.
+- El **eje X** muestra el tiempo de permanencia (en minutos).
+- El **eje Y** muestra el gasto total de ese cliente (en dólares).
+
+
+**Patrones que puedes identificar:**
+
+::: {.callout-tip}
+## Tipos de relaciones en un gráfico de dispersión
+
+- **Correlación positiva:** Los puntos forman una nube que asciende (↗). A mayor X, mayor Y
+- **Correlación negativa:** Los puntos forman una nube que desciende (↘). A mayor X, menor Y  
+- **Sin correlación:** Los puntos se distribuyen aleatoriamente sin patrón claro
+- **Correlación curvilínea:** Los puntos siguen una curva (ej. forma de U o parábola)
+:::
+
 ```{r}
+#| label: fig-dispersion-tiempo-gasto
+#| fig-cap: "Gráfico de Dispersión - Relación entre Tiempo de Permanencia y Gasto del Cliente"
+#| warning: false
+#| message: false
 #| echo: false
-#| out.width: '350px'
-#| fig-align: center
-knitr::include_graphics("img/correlacion_2.png", dpi = 270)
+
+library(ggplot2)
+library(dplyr)
+
+# Crear datos simulados para mostrar relación positiva entre dos variables continuas
+set.seed(456)  # Para reproducibilidad
+
+# Simular 120 clientes
+n_clientes <- 120
+
+# Tiempo de permanencia (variable continua): entre 20 y 180 minutos
+tiempo_permanencia <- runif(n_clientes, 20, 180)
+
+# Crear relación positiva realista: más tiempo = más gasto, pero con variabilidad
+# Gasto base depende del tiempo + componente de pedidos adicionales
+gasto_base <- 12 + 0.25 * tiempo_permanencia + 0.0015 * tiempo_permanencia^1.3
+
+# Añadir variabilidad realista (algunos clientes gastan más/menos independientemente del tiempo)
+ruido_gasto <- rnorm(n_clientes, 0, 6)
+gasto_total <- gasto_base + ruido_gasto
+
+# Asegurar valores realistas
+gasto_total <- pmax(gasto_total, 8)  # Mínimo $8
+gasto_total <- pmin(gasto_total, 75) # Máximo $75
+
+# Crear dataframe
+datos_tiempo_gasto <- data.frame(
+  tiempo = tiempo_permanencia,
+  gasto = gasto_total
+)
+
+# Crear el gráfico de dispersión
+ggplot(datos_tiempo_gasto, aes(x = tiempo, y = gasto)) +
+  geom_point(alpha = 0.7, size = 2.2, color = "#4682B4") +
+  geom_smooth(method = "lm", se = TRUE, color = "#FF6347", linewidth = 1.2) +
+  scale_x_continuous(breaks = seq(30, 180, 30),
+                     labels = paste0(seq(30, 180, 30), " min")) +
+  scale_y_continuous(breaks = seq(10, 70, 10),
+                     labels = paste0("$", seq(10, 70, 10))) +
+  labs(
+    title = "Tiempo de Permanencia vs. Gasto del Cliente",
+    subtitle = "Análisis de 120 clientes en el restaurante",
+    x = "Tiempo de permanencia (minutos)",
+    y = "Gasto total por cliente (USD)",
+    caption = "Correlación positiva: mayor tiempo de estadía se asocia con mayor gasto"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "grey95"),
+    plot.caption = element_text(size = 9, face = "italic")
+  ) +
+  # Añadir anotaciones explicativas
+  annotate("text", x = 50, y = 65, 
+           label = "Estadías cortas:\nconsumo rápido,\ngasto menor", 
+           size = 3.2, color = "#4682B4", fontface = "italic") +
+  annotate("text", x = 140, y = 25, 
+           label = "Estadías largas:\nmás pedidos,\nmayor consumo", 
+           size = 3.2, color = "#FF6347", fontface = "italic") +
+  # Línea de referencia para tiempo promedio
+  geom_vline(xintercept = 90, linetype = "dashed", alpha = 0.5, color = "gray50") +
+  annotate("text", x = 93, y = 15, label = "90 min\n(promedio)", 
+           size = 2.8, color = "gray50", angle = 90, vjust = -0.3)
 ```
+
+**Interpretación del gráfico de dispersión:**
+
+El ejemplo muestra una **correlación positiva** entre el tiempo de permanencia y el gasto del cliente. Esta relación tiene sentido desde la perspectiva del negocio:
+
+- **Tendencia ascendente:** Los clientes que permanecen más tiempo tienden a gastar más
+- **Relación lógica:** Más tiempo permite más pedidos (aperitivos, postres, bebidas adicionales)
+- **Variabilidad natural:** No todos los puntos siguen la línea perfectamente - algunos clientes gastan mucho en poco tiempo (pedidos caros) y otros gastan poco aunque permanezcan mucho tiempo
+- **Rango de comportamientos:** Clientes con estadías cortas (20-60 min) gastan típicamente $8-$30, mientras que los de estadías largas (120-180 min) gastan frecuentemente $35-$70
+
+**Insights para el negocio:**
+
+- **Estrategia de retención:** Mantener a los clientes más tiempo puede **incrementar las ventas**
+- **Ambiente acogedor:** Espacios cómodos que inviten a quedarse más tiempo
+- **Menú estratégico:** Ofrecer aperitivos, postres y bebidas para **extender la experiencia**
+- **Identificar oportunidades:** Clientes con estadías largas pero bajo gasto podrían necesitar más atención del mesero
+
+::: {.callout-note}
+## ¿Cuándo usar un gráfico de dispersión?
+
+**Ideal para:**
+
+- Explorar relaciones entre dos variables numéricas
+- Identificar correlaciones positivas, negativas o ausencia de correlación  
+- Detectar valores atípicos (outliers)
+- Validar supuestos antes de análisis estadísticos más avanzados
+
+**Limitaciones:**
+
+- Solo muestra dos variables a la vez
+- La correlación no implica causalidad
+- Puede ser difícil interpretar con muchos puntos sobrepuestos
+:::
+
+
 

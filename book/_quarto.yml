@@ -27,6 +27,9 @@ book:
     - index.qmd
     - intro.qmd
     - capitulo2.qmd
+    - capitulo3.qmd
+    # - capitulo4.qmd
+    # - capitulo5.qmd
 
 bibliography: references.bib
 
