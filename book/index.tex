@@ -66,46 +66,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -375,15 +335,772 @@ La analítica de negocios incluye:
 
 \bookmarksetup{startatroot}
 
-\chapter{Capítulo 2}\label{capuxedtulo-2}
+\chapter{Fundamentos de Variables y Visualización de
+Datos}\label{fundamentos-de-variables-y-visualizaciuxf3n-de-datos}
 
-\section{Introducción}\label{introducciuxf3n}
+\section{Introducción a Variables y
+Datos}\label{introducciuxf3n-a-variables-y-datos}
 
-Este es el nuevo capítulo 2.
+Antes de manipular o graficar, es importante entender qué son los datos
+y las variables.
 
-\section{Contenido}\label{contenido}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Definiciones clave}, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, opacityback=0, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
 
-Contenido del capítulo\ldots{}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Variable:} Característica que puede cambiar entre
+  observaciones (ej. género, ventas, PIB).\\
+\item
+  \textbf{Datos:} Conjunto de observaciones (filas) con valores para
+  esas variables (columnas).
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Tipos de variables}\label{tipos-de-variables}
+
+Las variables se clasifican en dos grandes categorías según su
+naturaleza:
+
+\includegraphics[width=11.72in,height=4.23in]{capitulo2_files/figure-latex/mermaid-figure-1.png}
+
+Clasificación de Variables
+
+Entender el tipo de variable es clave porque:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Define el resumen estadístico adecuado:} No calculamos una
+  media de colores de ojos.\\
+\item
+  \textbf{Determina el gráfico apropiado:} Un histograma para variables
+  numéricas, un gráfico de barras para categorías.\\
+\item
+  \textbf{Evita errores de interpretación:} Un ordinal tratado como
+  numérico puede dar conclusiones equivocadas.
+\end{itemize}
+
+Ejemplos de tipos de variables:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4924}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3258}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1818}}@{}}
+\caption{Ejemplo: Tipos de Variables en una
+Encuesta}\label{tbl-ejemplos}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Pregunta
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Respuesta
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tipo de Variable
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Pregunta
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Respuesta
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tipo de Variable
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+¿Tiene perfil de Facebook? & Sí / No & Categórica Nominal \\
+¿Cuántos mensajes de texto ha enviado en los últimos dos días? &
+\_\_\_\_\_\_\_\_ (número entero) & Numérica Discreta \\
+¿Cuánto tiempo le tomó bajar la aplicación? & \_\_\_\_\_\_\_\_ (minutos
+o segundos) & Numérica Continua \\
+¿Cómo evaluaría su experiencia en Facebook? & Muy mala, Mala, Regular,
+Buena, Muy buena & Categórica Ordinal \\
+\end{longtable}
+
+\section{Organización de Datos
+Categóricos}\label{organizaciuxf3n-de-datos-categuxf3ricos}
+
+\subsection{Tablas para Datos
+Categóricos}\label{tablas-para-datos-categuxf3ricos}
+
+\textbf{Tabla resumen:} Muestra frecuencias o porcentajes para cada
+categoría de la variable. A continuación mostramos cómo se distribuyen
+las calificaciones de nuestro restaurante en Google Maps, basadas en 100
+reseñas:
+
+\begin{longtable}[]{@{}lcc@{}}
+\caption{Resumen de Calificaciones en Google
+Maps}\label{tbl-calificaciones}\tabularnewline
+\toprule\noalign{}
+Calificación & Frecuencia & \% sobre 100 reseñas \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Calificación & Frecuencia & \% sobre 100 reseñas \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Excelente & 40 & 40\% \\
+Buena & 35 & 35\% \\
+Regular & 20 & 20\% \\
+Mala & 5 & 5\% \\
+\end{longtable}
+
+\textbf{Tabla de contingencia:} Relaciona dos o más variables
+categóricas. Muestra la frecuencia con la que ocurren combinaciones de
+categorías. Por ejemplo, las calificaciones según la hora del día:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1750}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2250}}@{}}
+\caption{Calificaciones por Hora del
+Día}\label{tbl-contingencia}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Calificación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Mañana (n, \%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Tarde (n, \%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Noche (n, \%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Madrugada (n, \%)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Calificación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Mañana (n, \%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Tarde (n, \%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Noche (n, \%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Madrugada (n, \%)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Excelente & 10 (40\%) & 15 (50\%) & 10 (33.3\%) & 5 (62.5\%) \\
+Buena & 8 (32\%) & 10 (33.3\%) & 8 (26.7\%) & 2 (25\%) \\
+Regular & 4 (16\%) & 3 (10\%) & 7 (23.3\%) & 1 (12.5\%) \\
+Mala & 3 (12\%) & 2 (6.7\%) & 5 (16.7\%) & 0 (0\%) \\
+\textbf{Total} & \textbf{25 (100\%)} & \textbf{30 (100\%)} & \textbf{30
+(100\%)} & \textbf{8 (100\%)} \\
+\end{longtable}
+
+Al analizar la tabla de contingencia, podemos comparar cómo varían las
+calificaciones según la hora del día. Por ejemplo, la madrugada muestra
+un 62.5\% de reseñas ``Excelente'' y ninguna ``Mala'', lo que sugiere
+que quienes califican en ese horario son clientes muy satisfechos
+(posiblemente menos volumen y mejor atención). En cambio, durante la
+noche la proporción de calificaciones ``Excelente'' baja a 33.3\% y
+aumentan las ``Mala'' (16.7\%), lo que podría indicar saturación
+operativa o tiempos de espera más largos.
+
+La tarde destaca por concentrar el mayor número de reseñas totales y un
+50\% de valoraciones ``Excelente'', lo que la convierte en una franja
+estratégica para mantener estándares altos. Estos patrones permiten
+priorizar recursos: reforzar personal nocturno y replicar buenas
+prácticas de la madrugada y la tarde.
+
+\subsection{Visualizando datos
+categóricos}\label{visualizando-datos-categuxf3ricos}
+
+\subsubsection{Gráfico de Barras}\label{gruxe1fico-de-barras}
+
+Los gráficos de barras son la herramienta más versátil para visualizar
+variables categóricas. Utilizan barras rectangulares cuya longitud (o
+altura) es proporcional a la frecuencia o porcentaje de cada categoría.
+Su principal ventaja es la facilidad para comparar visualmente
+diferentes categorías, ya que el ojo humano puede detectar rápidamente
+diferencias en longitud.
+
+Las barras pueden orientarse vertical u horizontalmente, y son
+especialmente útiles cuando los nombres de las categorías son largos
+(mejor horizontal) o cuando queremos enfatizar el orden jerárquico de
+los valores (mejor vertical). A diferencia de otros gráficos, las barras
+deben comenzar siempre desde cero para no distorsionar las comparaciones
+visuales. Mira un ejemplo de gráfico de barras:
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{img/bar_chart.png}}
+
+}
+
+\caption{\label{fig-bar-chart}Ejemplo de gráfico de barras mostrando la
+distribución de calificaciones}
+
+\end{figure}%
+
+\subsubsection{Gráfico de Torta (Pie
+Chart)}\label{gruxe1fico-de-torta-pie-chart}
+
+Los gráficos de torta representan datos categóricos como sectores de un
+círculo, donde cada sector es proporcional al porcentaje que representa
+esa categoría del total. La ``torta'' completa suma siempre 100\%, y
+cada ``rebanada'' muestra visualmente qué proporción ocupa cada
+categoría.
+
+Su principal fortaleza es mostrar la \textbf{composición del total} - es
+decir, cómo se distribuye un todo entre sus partes. Son especialmente
+útiles cuando queremos enfatizar que una categoría domina sobre las
+demás o cuando la pregunta clave es ``¿qué porcentaje del total
+representa cada grupo?''. Por ejemplo, para mostrar la participación de
+mercado de diferentes marcas o la distribución del presupuesto entre
+departamentos. Este sería el gráfico de torta que muestra la misma
+información del gráfico de barras anterior:
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{img/pie.png}}
+
+}
+
+\caption{\label{fig-pie-chart}Ejemplo de gráfico de torta mostrando la
+distribución de calificaciones}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-warning-color!10!white, left=2mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Limitaciones del gráfico de torta}, colframe=quarto-callout-warning-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, opacityback=0, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Difícil comparación de sectores similares:} El ojo humano no
+  distingue bien diferencias pequeñas entre ángulos
+\item
+  \textbf{Máximo recomendado:} No más de 5-7 categorías para mantener
+  legibilidad
+\item
+  \textbf{Mejor alternativa:} Considera un gráfico de barras si
+  necesitas comparar categorías con valores muy cercanos
+\end{itemize}
+
+\end{tcolorbox}
+
+Los gráficos de torta funcionan mejor cuando hay una o dos categorías
+claramente dominantes y el resto son minoritarias. Si todas las
+categorías tienen tamaños similares, un gráfico de barras será más
+efetorctivo para la comparación visual.
+
+\subsubsection{Gráfico de Pareto}\label{gruxe1fico-de-pareto}
+
+El gráfico de Pareto combina barras y una línea para identificar las
+categorías más importantes según el \textbf{principio de Pareto} (regla
+80-20). Las barras muestran las frecuencias ordenadas de mayor a menor,
+mientras que la línea representa el porcentaje acumulado hasta llegar al
+100\%.
+
+Su objetivo principal es \textbf{priorizar} - ayuda a identificar las
+pocas categorías que concentran la mayor parte del problema o fenómeno.
+Por ejemplo, en control de calidad, unas pocas causas suelen generar la
+mayoría de los defectos; en ventas, unos pocos productos pueden generar
+la mayor parte de los ingresos.
+
+\textbf{Elementos clave del gráfico de Pareto:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Barras ordenadas:} De mayor a menor frecuencia (izquierda a
+  derecha)
+\item
+  \textbf{Línea acumulada:} Muestra el porcentaje que suman las
+  categorías hasta ese punto
+\item
+  \textbf{Principio 80-20:} Busca el punto donde pocas categorías
+  explican la mayoría del fenómeno
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{capitulo2_files/figure-pdf/fig-pareto-chart-1.pdf}}
+
+}
+
+\caption{\label{fig-pareto-chart}Gráfico de Pareto - Análisis de Causas
+de Defectos}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{¿Cuándo usar un gráfico de Pareto?}, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, opacityback=0, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Identificar prioridades:} ¿Qué problemas atender primero?
+\item
+  \textbf{Análisis de causas:} ¿Qué factores tienen mayor impacto?
+\item
+  \textbf{Optimización de recursos:} ¿Dónde enfocar los esfuerzos?
+\item
+  \textbf{Seguimiento de mejoras:} ¿Las acciones redujeron las causas
+  principales?
+\end{itemize}
+
+\end{tcolorbox}
+
+\textbf{Ejemplo práctico:} Si analizamos las quejas de un restaurante y
+encontramos que ``comida fría'' y ``tiempo de espera'' representan el
+75\% de todas las quejas, sabemos que resolver estos dos problemas
+tendrá el mayor impacto en la satisfacción del cliente. El gráfico de
+Pareto haría visible esta concentración de manera inmediata.
+
+\subsection{Visualizando datos categóricos: Gráfico de Barras
+Emparejadas}\label{visualizando-datos-categuxf3ricos-gruxe1fico-de-barras-emparejadas}
+
+El \textbf{gráfico de barras emparejadas} (o agrupadas) se utiliza
+cuando queremos comparar cómo se distribuye una variable categórica
+principal dentro de los niveles de otra variable categórica. Cada grupo
+del eje horizontal representa una categoría de la primera variable y,
+dentro de cada grupo, las barras muestran las categorías de la segunda.
+
+\textbf{Ejemplo:} Si analizamos las calificaciones de un restaurante
+(Excelente, Buena, Regular, Mala) según la hora del día en que se dejó
+la reseña (Mañana, Tarde, Noche), podemos ver rápidamente en qué horario
+se concentran más las opiniones positivas.\\
+Este tipo de gráfico ayuda a detectar patrones de comparación entre
+grupos: diferencias claras en alturas de barras indican posibles áreas
+de mejora o fortalezas.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{capitulo2_files/figure-pdf/fig-grouped-bars-1.pdf}}
+
+}
+
+\caption{\label{fig-grouped-bars}Gráfico de Barras Emparejadas -
+Calificaciones por Hora del Día}
+
+\end{figure}%
+
+\textbf{Cuándo usarlo:}
+
+\begin{itemize}
+\tightlist
+\item
+  Cuando tienes \textbf{dos variables categóricas}.
+\item
+  Para comparar proporciones o frecuencias entre subgrupos.
+\item
+  Como complemento visual de una tabla de contingencia.
+\end{itemize}
+
+\textbf{Recomendaciones:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ordena las categorías de forma lógica (por tiempo, intensidad, etc.).
+\item
+  Usa una leyenda clara.
+\item
+  Evita el exceso de colores; prioriza el contraste.
+\end{itemize}
+
+En resumen: antes de elegir cómo mostrar tus datos categóricos, conviene
+pensar cuántas variables estás analizando. El siguiente esquema resume
+las opciones más comunes: si trabajas con una sola variable, puedes
+resumirla con una tabla y luego elegir un gráfico de barras, de torta o
+de Pareto según el objetivo. Si tienes dos variables categóricas, una
+tabla de contingencia es el punto de partida y suele representarse con
+un gráfico de barras emparejadas para comparar grupos.
+
+\includegraphics[width=10.13in,height=4.48in]{capitulo2_files/figure-latex/mermaid-figure-2.png}
+
+Opciones de Visualización para Datos Categóricos
+
+\subsection{Visualizando datos
+numéricos}\label{visualizando-datos-numuxe9ricos}
+
+\subsubsection{Distribución de
+frecuencia}\label{distribuciuxf3n-de-frecuencia}
+
+Imagina que registras el \textbf{monto gastado por cada cliente} en tu
+restaurante durante un día. Tienes muchos valores sueltos y quieres
+resumirlos para entender mejor los patrones.
+
+La \textbf{distribución de frecuencia} es una tabla que agrupa esos
+montos en \textbf{categorías numéricas ordenadas} (también llamadas
+clases) y cuenta cuántos clientes caen en cada una.
+
+\textbf{¿Cómo elegir las categorías?}
+
+Primero necesitas definir \textbf{categorías adecuadas}: decidir sus
+límites (fronteras) y su \textbf{ancho}.\\
+El número de categorías depende del \textbf{rango} de los datos (máximo
+-- mínimo). Si los gastos van desde \$5 hasta \$55, el rango es 50.\\
+Cuando el rango es grande solemos usar más categorías; en la práctica,
+entre \textbf{5 y 15} funciona bien.
+
+\textbf{¿Cómo calcular el ancho?}
+
+Si decides usar, por ejemplo, 10 categorías:
+
+\[
+\text{Ancho} = \frac{\text{Rango}}{\text{Número de categorías}} = \frac{50}{10} = 5
+\]
+
+Eso significa que tus clases podrían ser: \$5--\textless\$10,
+\$10--\textless\$15, \$15--\textless\$20, \ldots{} hasta \$55. Luego
+cuentas cuántos clientes gastaron en cada intervalo y obtienes una tabla
+clara para analizar tendencias (por ejemplo, ``la mayoría gasta entre
+\$15 y \$25'').
+
+Esta tabla te permite pasar del desorden de datos individuales a una
+visión estructurada que facilita la toma de decisiones.
+
+\textbf{Ejemplo práctico: Distribución de gastos}
+
+Supongamos que registramos el gasto de \textbf{100 clientes} y los
+agrupamos usando intervalos de \$5:
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2394}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1690}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1690}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2394}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1831}}@{}}
+\caption{Distribución de Gastos por
+Cliente}\label{tbl-distribucion-gastos}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Intervalo (USD)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Frecuencia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\% Relativo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Frec. Acumulada
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\% Acumulado
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Intervalo (USD)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Frecuencia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\% Relativo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Frec. Acumulada
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\% Acumulado
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\$5 - \textless\$10 & 8 & 8\% & 8 & 8\% \\
+\$10 - \textless\$15 & 15 & 15\% & 23 & 23\% \\
+\$15 - \textless\$20 & 22 & 22\% & 45 & 45\% \\
+\$20 - \textless\$25 & 25 & 25\% & 70 & 70\% \\
+\$25 - \textless\$30 & 14 & 14\% & 84 & 84\% \\
+\$30 - \textless\$35 & 9 & 9\% & 93 & 93\% \\
+\$35 - \textless\$40 & 5 & 5\% & 98 & 98\% \\
+\$40 - \textless\$45 & 2 & 2\% & 100 & 100\% \\
+\textbf{Total} & \textbf{100} & \textbf{100\%} & - & - \\
+\end{longtable}
+
+\textbf{Interpretación clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Concentración:} El 70\% de los clientes gastó menos de \$25
+\item
+  \textbf{Cola:} Solo el 7\% gastó más de \$35
+\item
+  \textbf{Patrón:} La mayoría de clientes (67\%) gasta entre \$10-\$30
+\end{itemize}
+
+\subsubsection{Histograma}\label{histograma}
+
+Siguiendo con el ejemplo de los gastos en el restaurante, el
+\textbf{histograma} es la versión gráfica de la tabla de distribución de
+frecuencia.\\
+En lugar de mostrar los números en una tabla, dibujamos una barra para
+cada categoría (intervalo de gasto).
+
+\begin{itemize}
+\tightlist
+\item
+  El \textbf{eje horizontal} muestra los intervalos: \$5--\textless\$10,
+  \$10--\textless\$15, etc.\\
+\item
+  El \textbf{eje vertical} muestra la frecuencia (o el porcentaje) de
+  clientes en cada intervalo.\\
+\item
+  Las barras van \textbf{pegadas} porque los intervalos son continuos:
+  representan rangos de una misma variable numérica.
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{capitulo2_files/figure-pdf/fig-histograma-gastos-1.pdf}}
+
+}
+
+\caption{\label{fig-histograma-gastos}Histograma - Distribución de
+Gastos por Cliente}
+
+\end{figure}%
+
+Un \textbf{histograma} es la representación gráfica de una distribución
+de frecuencias para datos numéricos continuos. A diferencia del gráfico
+de barras (para datos categóricos), el histograma muestra barras
+adyacentes sin espacios entre ellas, lo que refleja la naturaleza
+continua de los datos.
+
+\textbf{Características clave del histograma:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Eje X:} Intervalos de valores (clases) de la variable numérica
+\item
+  \textbf{Eje Y:} Frecuencia (cantidad de observaciones en cada
+  intervalo)
+\item
+  \textbf{Barras conectadas:} Sin espacios, indicando continuidad de los
+  datos
+\item
+  \textbf{Forma de distribución:} Permite identificar patrones como
+  simetría, sesgo o multimodalidad
+\end{itemize}
+
+El histograma nos permite visualizar rápidamente:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{¿Dónde se concentran los datos?} (moda o pico más alto)
+\item
+  \textbf{¿Cómo se distribuyen?} (simétrica, sesgada a la
+  izquierda/derecha)
+\item
+  \textbf{¿Hay valores atípicos?} (barras aisladas en los extremos)
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Interpretación del histograma}, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, opacityback=0, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+
+\textbf{Forma de la distribución:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Aproximadamente normal:} La distribución tiene forma de
+  campana con un pico central
+\item
+  \textbf{Sesgo ligero:} Hay una ``cola'' más larga hacia la derecha
+  (valores altos)
+\item
+  \textbf{Concentración:} La mayoría de clientes gasta entre \$15-\$30
+\end{itemize}
+
+\textbf{Información práctica:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Valor típico:} Alrededor de \$20-\$25 (pico del histograma)
+\item
+  \textbf{Rango común:} El 70\% de clientes gasta menos de \$25
+\item
+  \textbf{Valores extremos:} Muy pocos clientes gastan más de \$35
+\end{itemize}
+
+\end{tcolorbox}
+
+\textbf{¿Cuándo usar un histograma vs.~gráfico de barras?}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2439}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2927}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4634}}@{}}
+\caption{Histograma vs.~Gráfico de
+Barras}\label{tbl-histograma-vs-barras}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Criterio
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Histograma
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Gráfico de Barras
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Criterio
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Histograma
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Gráfico de Barras
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Tipo de datos} & Numéricos continuos & Categóricos \\
+\textbf{Separación de barras} & Sin espacios (datos continuos) & Con
+espacios (categorías distintas) \\
+\textbf{Objetivo principal} & Mostrar distribución de frecuencias &
+Comparar categorías \\
+\textbf{Ejemplo} & Edades, pesos, tiempos & Colores, marcas, géneros \\
+\end{longtable}
+
+\subsubsection{Gráfico de Dispersión}\label{gruxe1fico-de-dispersiuxf3n}
+
+El \textbf{gráfico de dispersión} (scatter plot) es la herramienta
+principal para visualizar la \textbf{relación entre dos variables
+numéricas}. A diferencia del histograma que muestra una sola variable,
+el gráfico de dispersión permite explorar si existe algún patrón,
+tendencia o correlación entre dos mediciones diferentes.
+
+Sigamos con el restaurante: además del \textbf{gasto de cada cliente}
+(en dólares), registramos el \textbf{tiempo que permanecen} en el
+establecimiento (en minutos). Queremos saber si existe alguna relación
+entre estas dos variables continuas.
+
+En el gráfico de dispersión: - Cada \textbf{punto} representa a un
+cliente individual. - El \textbf{eje X} muestra el tiempo de permanencia
+(en minutos). - El \textbf{eje Y} muestra el gasto total de ese cliente
+(en dólares).
+
+\textbf{Patrones que puedes identificar:}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipos de relaciones en un gráfico de dispersión}, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, opacityback=0, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Correlación positiva:} Los puntos forman una nube que asciende
+  (↗). A mayor X, mayor Y
+\item
+  \textbf{Correlación negativa:} Los puntos forman una nube que
+  desciende (↘). A mayor X, menor Y\\
+\item
+  \textbf{Sin correlación:} Los puntos se distribuyen aleatoriamente sin
+  patrón claro
+\item
+  \textbf{Correlación curvilínea:} Los puntos siguen una curva (ej.
+  forma de U o parábola)
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{capitulo2_files/figure-pdf/fig-dispersion-tiempo-gasto-1.pdf}}
+
+}
+
+\caption{\label{fig-dispersion-tiempo-gasto}Gráfico de Dispersión -
+Relación entre Tiempo de Permanencia y Gasto del Cliente}
+
+\end{figure}%
+
+\textbf{Interpretación del gráfico de dispersión:}
+
+El ejemplo muestra una \textbf{correlación positiva} entre el tiempo de
+permanencia y el gasto del cliente. Esta relación tiene sentido desde la
+perspectiva del negocio:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Tendencia ascendente:} Los clientes que permanecen más tiempo
+  tienden a gastar más
+\item
+  \textbf{Relación lógica:} Más tiempo permite más pedidos (aperitivos,
+  postres, bebidas adicionales)
+\item
+  \textbf{Variabilidad natural:} No todos los puntos siguen la línea
+  perfectamente - algunos clientes gastan mucho en poco tiempo (pedidos
+  caros) y otros gastan poco aunque permanezcan mucho tiempo
+\item
+  \textbf{Rango de comportamientos:} Clientes con estadías cortas (20-60
+  min) gastan típicamente \$8-\$30, mientras que los de estadías largas
+  (120-180 min) gastan frecuentemente \$35-\$70
+\end{itemize}
+
+\textbf{Insights para el negocio:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Estrategia de retención:} Mantener a los clientes más tiempo
+  puede \textbf{incrementar las ventas}
+\item
+  \textbf{Ambiente acogedor:} Espacios cómodos que inviten a quedarse
+  más tiempo
+\item
+  \textbf{Menú estratégico:} Ofrecer aperitivos, postres y bebidas para
+  \textbf{extender la experiencia}
+\item
+  \textbf{Identificar oportunidades:} Clientes con estadías largas pero
+  bajo gasto podrían necesitar más atención del mesero
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{¿Cuándo usar un gráfico de dispersión?}, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, opacityback=0, coltitle=black, breakable, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+
+\textbf{Ideal para:}
+
+\begin{itemize}
+\tightlist
+\item
+  Explorar relaciones entre dos variables numéricas
+\item
+  Identificar correlaciones positivas, negativas o ausencia de
+  correlación\\
+\item
+  Detectar valores atípicos (outliers)
+\item
+  Validar supuestos antes de análisis estadísticos más avanzados
+\end{itemize}
+
+\textbf{Limitaciones:}
+
+\begin{itemize}
+\tightlist
+\item
+  Solo muestra dos variables a la vez
+\item
+  La correlación no implica causalidad
+\item
+  Puede ser difícil interpretar con muchos puntos sobrepuestos
+\end{itemize}
+
+\end{tcolorbox}
 
 \bookmarksetup{startatroot}
 
@@ -446,7 +1163,7 @@ La media o promedio es una forma simple pero útil de resumir un conjunto
 de datos. La media es el valor que obtienes al sumar todas las
 calificaciones y dividirlas entre el número total de clientes.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -464,7 +1181,7 @@ Matemáticamente se escribiría así:
 Por ejemplo, si cinco clientes dieron las calificaciones: 4, 5, 3, 4 y
 5, la media será:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -507,7 +1224,7 @@ calificación igual o mayor.
 Por ejemplo, si tus clientes calificaron así: 3, 4, 4, 5, 5, la mediana
 es 4 --- porque es el valor que divide el grupo en dos partes iguales.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -564,7 +1281,7 @@ como moda la más común. Es útil especialmente con datos no numéricos,
 como colores o preferencias políticas, donde no tiene sentido calcular
 promedios.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -604,7 +1321,7 @@ o valores están muy juntos o muy separados.
 Por ejemplo, si las calificaciones en tu restaurante van desde 2 hasta
 5, el rango sería:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -658,7 +1375,7 @@ respecto al promedio, usamos dos medidas fundamentales: la
   Una alta desviación estándar indica mucha dispersión.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -689,7 +1406,7 @@ sería así:
 Matemáticamente, si tienes ( n ) calificaciones ( x\_1, x\_2, \ldots,
 x\_n ) y la media ( \bar\{x\} ), la varianza se calcula así:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -708,7 +1425,7 @@ calificaciones. Por eso usamos la \textbf{desviación estándar}, que es
 la raíz cuadrada de la varianza y nos da una medida en las mismas
 unidades originales.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -723,7 +1440,7 @@ unidades originales.
 
 Por ejemplo, si las calificaciones fueron: 4, 5, 3, 4 y 5, la media es:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -738,7 +1455,7 @@ Por ejemplo, si las calificaciones fueron: 4, 5, 3, 4 y 5, la media es:
 
 Luego, calculamos la varianza:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -753,7 +1470,7 @@ s^2 = \frac{(4 - 4.2)^2 + (5 - 4.2)^2 + (3 - 4.2)^2 + (4 - 4.2)^2 + (5 - 4.2)^2}
 
 Y finalmente, la desviación estándar es:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -827,7 +1544,7 @@ Para entender mejor cómo varían las calificaciones en la parte central
 de los datos, usamos el \textbf{Rango Intercuartílico}, o \textbf{RIC},
 que es la diferencia entre el tercer cuartil y el primer cuartil:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -846,7 +1563,7 @@ ignorando las opiniones más bajas y más altas que podrían ser atípicas.
 Por ejemplo, si el primer cuartil es 3.5 y el tercer cuartil es 4.5, el
 RIC sería:
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, colback=white, leftrule=.75mm, left=2mm, arc=.35mm, toprule=.15mm, opacityback=0, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, leftrule=.75mm, opacityback=0, left=2mm, breakable, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, bottomrule=.15mm, rightrule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-tip-color}{\faLightbulb}
 \end{minipage}%
@@ -902,25 +1619,9 @@ la distribución de las calificaciones de forma rápida y visual.
 
 Este sería un ejemplo en R:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Instalar paquetes si no están instalados}
-\CommentTok{\# install.packages(c("ggplot2", "ggthemes", "viridis"))}
-
-\FunctionTok{library}\NormalTok{(ggplot2)}
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'ggthemes' was built under R version 4.3.3
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(viridis)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 Warning: package 'viridis' was built under R version 4.3.3
@@ -929,40 +1630,6 @@ Warning: package 'viridis' was built under R version 4.3.3
 \begin{verbatim}
 Loading required package: viridisLite
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Crear datos simulados de calificaciones para 3 restaurantes}
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
-
-\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{restaurante =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Mi Restaurante"}\NormalTok{, }\StringTok{"Competidor 1"}\NormalTok{, }\StringTok{"Competidor 2"}\NormalTok{), }\AttributeTok{each =} \DecValTok{50}\NormalTok{),}
-  \AttributeTok{calificacion =} \FunctionTok{c}\NormalTok{(}
-    \FunctionTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\AttributeTok{mean =} \DecValTok{4}\NormalTok{, }\AttributeTok{sd =} \FloatTok{0.7}\NormalTok{),  }\CommentTok{\# Mi restaurante: variación media}
-    \FunctionTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\AttributeTok{mean =} \FloatTok{3.5}\NormalTok{, }\AttributeTok{sd =} \FloatTok{1.2}\NormalTok{), }\CommentTok{\# Competidor 1: más variación (peor control)}
-    \FunctionTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\AttributeTok{mean =} \FloatTok{4.2}\NormalTok{, }\AttributeTok{sd =} \FloatTok{0.3}\NormalTok{)  }\CommentTok{\# Competidor 2: poca variación (muy consistente)}
-\NormalTok{  )}
-\NormalTok{)}
-
-\CommentTok{\# Limitar calificaciones entre 1 y 5}
-\NormalTok{datos}\SpecialCharTok{$}\NormalTok{calificacion }\OtherTok{\textless{}{-}} \FunctionTok{pmin}\NormalTok{(}\FunctionTok{pmax}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{calificacion, }\DecValTok{1}\NormalTok{), }\DecValTok{5}\NormalTok{)}
-
-\CommentTok{\# Boxplot comparativo con viridis y theme\_few}
-\FunctionTok{ggplot}\NormalTok{(datos, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ restaurante, }\AttributeTok{y =}\NormalTok{ calificacion, }\AttributeTok{fill =}\NormalTok{ restaurante)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{outlier.shape =} \DecValTok{16}\NormalTok{, }\AttributeTok{outlier.size =} \DecValTok{2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_fill\_viridis}\NormalTok{(}\AttributeTok{discrete =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{option =} \StringTok{"D"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Comparación de Calificaciones entre Restaurantes"}\NormalTok{,}
-    \AttributeTok{x =} \StringTok{"Restaurante"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"Calificación (1 a 5)"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{theme\_few}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{theme}\NormalTok{(}
-    \AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
-    \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{size =} \DecValTok{16}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{)}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{center}
 \includegraphics[width=3.64583in,height=\textheight,keepaspectratio]{capitulo3_files/figure-pdf/unnamed-chunk-12-1.pdf}
@@ -1040,104 +1707,6 @@ no implica causalidad:
 \begin{center}
 \includegraphics[width=3.64583in,height=\textheight,keepaspectratio]{img/correlacion_2.png}
 \end{center}
-
-\bookmarksetup{startatroot}
-
-\chapter{Contando Historias Claras con
-Gráficos}\label{contando-historias-claras-con-gruxe1ficos}
-
-Imagina que entras a una librería y tomas un libro por curiosidad. Lo
-abres en una página al azar y notas que algo llama inmediatamente tu
-atención: un gráfico con colores vibrantes, líneas claras y un mensaje
-sencillo de entender. ¿Qué hizo que te fijaras primero en ese gráfico?
-Vamos a descubrirlo.
-
-\section{¿Qué es una buena
-gráfica?}\label{quuxe9-es-una-buena-gruxe1fica}
-
-Una gráfica efectiva no solo muestra números o barras. Es una
-herramienta poderosa que cuenta historias, explica conceptos y revela
-información de manera clara y sencilla. Algunas claves importantes para
-una buena gráfica son:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Claridad en la rotulación:} Todos los elementos del gráfico
-  deben estar claramente identificados.
-\item
-  \textbf{Sin ornamentación innecesaria:} Menos es más. No necesitas
-  adornos que distraigan del mensaje principal.
-\item
-  \textbf{Uso juicioso del color:} Elige colores que ayuden a resaltar
-  lo más importante.
-\item
-  \textbf{Una historia simple y clara:} El gráfico debe ser fácil de
-  entender a simple vista.
-\end{itemize}
-
-\section{Cómo leemos gráficos: principios
-clave}\label{cuxf3mo-leemos-gruxe1ficos-principios-clave}
-
-Existen cinco principios que describen cómo observamos y entendemos las
-gráficas:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{No vamos en orden:} Nuestra vista puede empezar por cualquier
-  parte del gráfico. Es posible que no leas el título hasta mucho
-  después.
-\item
-  \textbf{Primero vemos lo que se destaca:} Automáticamente nuestros
-  ojos buscan picos, colores intensos, intersecciones o valores
-  atípicos.
-\item
-  \textbf{Vemos solo unas pocas cosas a la vez:} Demasiada información
-  puede confundir. Concéntrate en pocos puntos clave.
-\item
-  \textbf{Buscamos significado y conexiones:} Al ver algo llamativo,
-  inmediatamente intentamos entender qué significa.
-\item
-  \textbf{Nos basamos en convenciones y metáforas:} Interpretamos
-  gráficos usando lo que ya conocemos y lo que hemos aprendido antes.
-\end{enumerate}
-
-\section{El uso inteligente del
-color}\label{el-uso-inteligente-del-color}
-
-Supongamos que quieres mostrar cómo han evolucionado las ventas de
-productos electrónicos en una tienda durante el último año. Tienes
-información de varias categorías como televisores, teléfonos y
-audífonos. ¿Cómo resaltas lo más importante?
-
-\begin{itemize}
-\item
-  Primero, piensa cuál es la pregunta más importante que debería
-  responder tu gráfico. ¿Quizás mostrar que los teléfonos han superado
-  ampliamente las ventas de los otros productos?
-\item
-  Usa un color vibrante como el azul intenso para la categoría principal
-  (teléfonos) y usa tonos grises o menos saturados para el resto
-  (televisores y audífonos). El contraste inmediatamente enfocará la
-  atención hacia los teléfonos, destacando claramente tu punto.
-\end{itemize}
-
-\textbf{Consejo práctico:} Haz todo gris excepto lo más importante. El
-gris es tu aliado, resaltando por contraste el mensaje central del
-gráfico.
-
-\section{Conclusión}\label{conclusiuxf3n}
-
-La próxima vez que diseñes un gráfico, recuerda que estás contando una
-historia. Decide qué quieres destacar, usa colores sabiamente y mantén
-la claridad y simplicidad. Así, tus lectores no solo verán un gráfico,
-sino que comprenderán y recordarán tu mensaje.
-
-\bookmarksetup{startatroot}
-
-\chapter{}\label{section}
 
 
 
