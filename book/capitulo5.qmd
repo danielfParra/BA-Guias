@@ -153,9 +153,106 @@ Piensa en un juicio: la ausencia de pruebas suficientes para condenar no es una 
 
 :::
 
+##  Comparando dos grupos: ¿de verdad son diferentes?
+
+> **Idea clave:** tener dos medias con valores distintos **no** implica automáticamente que sean **estadísticamente diferentes**.  
+> Una diferencia pequeña puede deberse al azar de a quiénes encuestamos, especialmente si las muestras son pequeñas o muy variables.
+
+Imagina que tu restaurante tiene **dos sedes**:
+
+- **Sede Norte**: acabas de implementar una capacitación en servicio.
+- **Sede Sur**: aún no (sirve como comparación).
+
+Encuestas la satisfacción (1 a 5) de clientes en ambas sedes y obtienes:
+
+- **Norte:** \($\bar{x}_N = 4.3$\), \($s_N = 0.7$\), \($n_N = 40$\)  
+- **Sur:** \($\bar{x}_S = 4.1$\), \($s_S = 0.9$\), \($n_S = 45$\)
+
+A simple vista **4.3 vs 4.1** luce mejor en Norte, ¿pero alcanza para concluir que la capacitación **elevó** la satisfacción? Vamos paso a paso.
+
+### Prueba de dos medias (grupos independientes)
+
+Cuando las personas encuestadas en un grupo **no** son las mismas del otro grupo (clientes distintos en cada sede), usamos una prueba de dos muestras **independientes**. Por defecto, usa la versión **Welch** (no asume varianzas iguales).
+
+**Hipótesis (bilateral):**
+
+- \($H_0:\ \mu_N - \mu_S = 0$\)  (no hay diferencia real)
+
+- \($H_1:\ \mu_N - \mu_S \neq 0$\) (sí hay diferencia)
+
+
+Para un nivel de significancia \($\alpha=0.05$\) (bilateral),
+el **p-valor** bilateral es \($\approx 0.25$\): no hay evidencia suficiente para afirmar que las medias difieren. **No rechazamos \($H_0$\).**  
+
+**Intervalo de confianza (95%) para \($\mu_N - \mu_S$\):**
+$$
+(0.2) \pm 1.99 \times 0.174 \;\approx\; (-0.15,\; 0.55)
+$$
+Como el **0** está dentro del intervalo, la diferencia podría ser nula.
+
+::: callout-tip
+## Lectura práctica
+- Que la media de Norte sea 4.3 y la de Sur 4.1 **no basta** para declarar una mejora real.
+- Con esta evidencia, **no podemos asegurar** que la capacitación subió la satisfacción; necesitamos más datos o un efecto más grande.
+:::
+
+#### Decidir unilateral vs bilateral
+- **Bilateral (\($\neq$\))** cuando buscas *cualquier* diferencia.  
+- **Unilateral (> o <)** solo si **antes** de ver los datos** tienes una hipótesis direccional clara (p. ej., “la capacitación **aumenta** la satisfacción”).  
+ 
+
+#### ¿Cuándo usar “pooled” (varianzas iguales)?
+Si existe evidencia fuerte de varianzas similares (y tamaños parecidos), puede usarse el test “pooled”. En la práctica, **Welch** es una opción **segura por defecto**.
+
+---
+
+### ¿Y si las muestras son las mismas personas? (Prueba pareada)
+
+Otra historia típica del restaurante: encuestas a **los mismos clientes** **antes** y **después** de la capacitación en la **Sede Norte**.  
+
+Aquí cada persona funciona como su **propio control** → usamos una prueba **pareada** (de medias de **diferencias**).
+
+- Define \($d_i = \text{(después)} - \text{(antes)}$\).  
+- Hipótesis:
+  - \($H_0: \mu_d = 0$\) (en promedio, no cambia)
+  - \($H_1: \mu_d > 0$\) (en promedio, mejora)
+
+**Ejemplo:** 30 clientes habituales,  
+\($\bar{d} = 0.25$\) puntos, \($s_d = 0.50$\).  
+$$
+t \;=\; \frac{0.25}{0.50/\sqrt{30}} \approx 2.74,\quad \text{gl}=29
+$$
+Con \($\alpha=0.05$\) unilateral, esto **sí** es significativo (p \($\approx 0.01$\)).  
+
+**Interpretación:** en la *misma* sede y *mismas* personas, la satisfacción **aumentó** tras la capacitación.
+
+::: callout-important
+## ¿Independientes o pareadas?
+- **Independientes:** Norte vs Sur (clientes **distintos** en cada sede).  
+- **Pareadas:** Antes vs Después en **la misma** sede y **mismas** personas.
+:::
+
+---
+
+### Checklist rápido para comparar dos medias
+
+1. **Escenario:**  
+   - ¿Independientes (Norte vs Sur) o Pareadas (Antes vs Después)?
+2. **Dirección de la hipótesis:**  
+   - ¿Buscas *cualquier* diferencia (bilateral) o una mejora concreta (unilateral)?
+
+
+::: callout-tip
+## Estadísticamente vs. prácticamente significativo
+Un resultado puede ser estadísticamente significativo pero **poco relevante** en la práctica (p. ej., mejora de 0.05 puntos en satisfacción con miles de encuestas).  
+En decisiones de negocio, combina el resultado estadístico con el **impacto real**.
+:::
+
+
 ### En resumen
 
 - Los **intervalos de confianza** son como dar un rango plausible para la verdadera satisfacción de todos los clientes.  
+
 - Las **pruebas de hipótesis** son como un juicio: partimos de una suposición y vemos si la evidencia la sostiene o la derrumba.  
 
 Ambas herramientas permiten ir más allá de describir lo que vemos en los datos: nos ayudan a **inferir** sobre toda la población de clientes del restaurante.

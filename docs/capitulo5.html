@@ -377,7 +377,13 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#pasos-de-la-prueba" id="toc-pasos-de-la-prueba" class="nav-link" data-scroll-target="#pasos-de-la-prueba"><span class="header-section-number">5.2.1</span> Pasos de la prueba</a></li>
   <li><a href="#ejemplo-del-restaurante-1" id="toc-ejemplo-del-restaurante-1" class="nav-link" data-scroll-target="#ejemplo-del-restaurante-1"><span class="header-section-number">5.2.2</span> Ejemplo del restaurante</a></li>
-  <li><a href="#en-resumen" id="toc-en-resumen" class="nav-link" data-scroll-target="#en-resumen"><span class="header-section-number">5.2.3</span> En resumen</a></li>
+  </ul></li>
+  <li><a href="#comparando-dos-grupos-de-verdad-son-diferentes" id="toc-comparando-dos-grupos-de-verdad-son-diferentes" class="nav-link" data-scroll-target="#comparando-dos-grupos-de-verdad-son-diferentes"><span class="header-section-number">5.3</span> Comparando dos grupos: ¿de verdad son diferentes?</a>
+  <ul class="collapse">
+  <li><a href="#prueba-de-dos-medias-grupos-independientes" id="toc-prueba-de-dos-medias-grupos-independientes" class="nav-link" data-scroll-target="#prueba-de-dos-medias-grupos-independientes"><span class="header-section-number">5.3.1</span> Prueba de dos medias (grupos independientes)</a></li>
+  <li><a href="#y-si-las-muestras-son-las-mismas-personas-prueba-pareada" id="toc-y-si-las-muestras-son-las-mismas-personas-prueba-pareada" class="nav-link" data-scroll-target="#y-si-las-muestras-son-las-mismas-personas-prueba-pareada"><span class="header-section-number">5.3.2</span> ¿Y si las muestras son las mismas personas? (Prueba pareada)</a></li>
+  <li><a href="#checklist-rápido-para-comparar-dos-medias" id="toc-checklist-rápido-para-comparar-dos-medias" class="nav-link" data-scroll-target="#checklist-rápido-para-comparar-dos-medias"><span class="header-section-number">5.3.3</span> Checklist rápido para comparar dos medias</a></li>
+  <li><a href="#en-resumen" id="toc-en-resumen" class="nav-link" data-scroll-target="#en-resumen"><span class="header-section-number">5.3.4</span> En resumen</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -590,12 +596,137 @@ Nota
 </div>
 </div>
 </section>
-<section id="en-resumen" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored" data-anchor-id="en-resumen"><span class="header-section-number">5.2.3</span> En resumen</h3>
+</section>
+<section id="comparando-dos-grupos-de-verdad-son-diferentes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="comparando-dos-grupos-de-verdad-son-diferentes"><span class="header-section-number">5.3</span> Comparando dos grupos: ¿de verdad son diferentes?</h2>
+<blockquote class="blockquote">
+<p><strong>Idea clave:</strong> tener dos medias con valores distintos <strong>no</strong> implica automáticamente que sean <strong>estadísticamente diferentes</strong>.<br>
+Una diferencia pequeña puede deberse al azar de a quiénes encuestamos, especialmente si las muestras son pequeñas o muy variables.</p>
+</blockquote>
+<p>Imagina que tu restaurante tiene <strong>dos sedes</strong>:</p>
 <ul>
-<li>Los <strong>intervalos de confianza</strong> son como dar un rango plausible para la verdadera satisfacción de todos los clientes.<br>
+<li><strong>Sede Norte</strong>: acabas de implementar una capacitación en servicio.</li>
+<li><strong>Sede Sur</strong>: aún no (sirve como comparación).</li>
+</ul>
+<p>Encuestas la satisfacción (1 a 5) de clientes en ambas sedes y obtienes:</p>
+<ul>
+<li><strong>Norte:</strong> (<span class="math inline">\(\bar{x}_N = 4.3\)</span>), (<span class="math inline">\(s_N = 0.7\)</span>), (<span class="math inline">\(n_N = 40\)</span>)<br>
 </li>
-<li>Las <strong>pruebas de hipótesis</strong> son como un juicio: partimos de una suposición y vemos si la evidencia la sostiene o la derrumba.</li>
+<li><strong>Sur:</strong> (<span class="math inline">\(\bar{x}_S = 4.1\)</span>), (<span class="math inline">\(s_S = 0.9\)</span>), (<span class="math inline">\(n_S = 45\)</span>)</li>
+</ul>
+<p>A simple vista <strong>4.3 vs 4.1</strong> luce mejor en Norte, ¿pero alcanza para concluir que la capacitación <strong>elevó</strong> la satisfacción? Vamos paso a paso.</p>
+<section id="prueba-de-dos-medias-grupos-independientes" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="prueba-de-dos-medias-grupos-independientes"><span class="header-section-number">5.3.1</span> Prueba de dos medias (grupos independientes)</h3>
+<p>Cuando las personas encuestadas en un grupo <strong>no</strong> son las mismas del otro grupo (clientes distintos en cada sede), usamos una prueba de dos muestras <strong>independientes</strong>. Por defecto, usa la versión <strong>Welch</strong> (no asume varianzas iguales).</p>
+<p><strong>Hipótesis (bilateral):</strong></p>
+<ul>
+<li><p>(<span class="math inline">\(H_0:\ \mu_N - \mu_S = 0\)</span>) (no hay diferencia real)</p></li>
+<li><p>(<span class="math inline">\(H_1:\ \mu_N - \mu_S \neq 0\)</span>) (sí hay diferencia)</p></li>
+</ul>
+<p>Para un nivel de significancia (<span class="math inline">\(\alpha=0.05\)</span>) (bilateral), el <strong>p-valor</strong> bilateral es (<span class="math inline">\(\approx 0.25\)</span>): no hay evidencia suficiente para afirmar que las medias difieren. <strong>No rechazamos (<span class="math inline">\(H_0\)</span>).</strong></p>
+<p><strong>Intervalo de confianza (95%) para (<span class="math inline">\(\mu_N - \mu_S\)</span>):</strong> <span class="math display">\[
+(0.2) \pm 1.99 \times 0.174 \;\approx\; (-0.15,\; 0.55)
+\]</span> Como el <strong>0</strong> está dentro del intervalo, la diferencia podría ser nula.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lectura práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Que la media de Norte sea 4.3 y la de Sur 4.1 <strong>no basta</strong> para declarar una mejora real.</li>
+<li>Con esta evidencia, <strong>no podemos asegurar</strong> que la capacitación subió la satisfacción; necesitamos más datos o un efecto más grande.</li>
+</ul>
+</div>
+</div>
+<section id="decidir-unilateral-vs-bilateral" class="level4" data-number="5.3.1.1">
+<h4 data-number="5.3.1.1" class="anchored" data-anchor-id="decidir-unilateral-vs-bilateral"><span class="header-section-number">5.3.1.1</span> Decidir unilateral vs bilateral</h4>
+<ul>
+<li><strong>Bilateral ((<span class="math inline">\(\neq\)</span>))</strong> cuando buscas <em>cualquier</em> diferencia.<br>
+</li>
+<li><strong>Unilateral (&gt; o &lt;)</strong> solo si <strong>antes</strong> de ver los datos** tienes una hipótesis direccional clara (p.&nbsp;ej., “la capacitación <strong>aumenta</strong> la satisfacción”).</li>
+</ul>
+</section>
+<section id="cuándo-usar-pooled-varianzas-iguales" class="level4" data-number="5.3.1.2">
+<h4 data-number="5.3.1.2" class="anchored" data-anchor-id="cuándo-usar-pooled-varianzas-iguales"><span class="header-section-number">5.3.1.2</span> ¿Cuándo usar “pooled” (varianzas iguales)?</h4>
+<p>Si existe evidencia fuerte de varianzas similares (y tamaños parecidos), puede usarse el test “pooled”. En la práctica, <strong>Welch</strong> es una opción <strong>segura por defecto</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="y-si-las-muestras-son-las-mismas-personas-prueba-pareada" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="y-si-las-muestras-son-las-mismas-personas-prueba-pareada"><span class="header-section-number">5.3.2</span> ¿Y si las muestras son las mismas personas? (Prueba pareada)</h3>
+<p>Otra historia típica del restaurante: encuestas a <strong>los mismos clientes</strong> <strong>antes</strong> y <strong>después</strong> de la capacitación en la <strong>Sede Norte</strong>.</p>
+<p>Aquí cada persona funciona como su <strong>propio control</strong> → usamos una prueba <strong>pareada</strong> (de medias de <strong>diferencias</strong>).</p>
+<ul>
+<li>Define (<span class="math inline">\(d_i = \text{(después)} - \text{(antes)}\)</span>).<br>
+</li>
+<li>Hipótesis:
+<ul>
+<li>(<span class="math inline">\(H_0: \mu_d = 0\)</span>) (en promedio, no cambia)</li>
+<li>(<span class="math inline">\(H_1: \mu_d &gt; 0\)</span>) (en promedio, mejora)</li>
+</ul></li>
+</ul>
+<p><strong>Ejemplo:</strong> 30 clientes habituales,<br>
+(<span class="math inline">\(\bar{d} = 0.25\)</span>) puntos, (<span class="math inline">\(s_d = 0.50\)</span>).<br>
+<span class="math display">\[
+t \;=\; \frac{0.25}{0.50/\sqrt{30}} \approx 2.74,\quad \text{gl}=29
+\]</span> Con (<span class="math inline">\(\alpha=0.05\)</span>) unilateral, esto <strong>sí</strong> es significativo (p (<span class="math inline">\(\approx 0.01\)</span>)).</p>
+<p><strong>Interpretación:</strong> en la <em>misma</em> sede y <em>mismas</em> personas, la satisfacción <strong>aumentó</strong> tras la capacitación.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Independientes o pareadas?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Independientes:</strong> Norte vs Sur (clientes <strong>distintos</strong> en cada sede).<br>
+</li>
+<li><strong>Pareadas:</strong> Antes vs Después en <strong>la misma</strong> sede y <strong>mismas</strong> personas.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="checklist-rápido-para-comparar-dos-medias" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="checklist-rápido-para-comparar-dos-medias"><span class="header-section-number">5.3.3</span> Checklist rápido para comparar dos medias</h3>
+<ol type="1">
+<li><strong>Escenario:</strong>
+<ul>
+<li>¿Independientes (Norte vs Sur) o Pareadas (Antes vs Después)?</li>
+</ul></li>
+<li><strong>Dirección de la hipótesis:</strong>
+<ul>
+<li>¿Buscas <em>cualquier</em> diferencia (bilateral) o una mejora concreta (unilateral)?</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estadísticamente vs.&nbsp;prácticamente significativo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un resultado puede ser estadísticamente significativo pero <strong>poco relevante</strong> en la práctica (p.&nbsp;ej., mejora de 0.05 puntos en satisfacción con miles de encuestas).<br>
+En decisiones de negocio, combina el resultado estadístico con el <strong>impacto real</strong>.</p>
+</div>
+</div>
+</section>
+<section id="en-resumen" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="en-resumen"><span class="header-section-number">5.3.4</span> En resumen</h3>
+<ul>
+<li><p>Los <strong>intervalos de confianza</strong> son como dar un rango plausible para la verdadera satisfacción de todos los clientes.</p></li>
+<li><p>Las <strong>pruebas de hipótesis</strong> son como un juicio: partimos de una suposición y vemos si la evidencia la sostiene o la derrumba.</p></li>
 </ul>
 <p>Ambas herramientas permiten ir más allá de describir lo que vemos en los datos: nos ayudan a <strong>inferir</strong> sobre toda la población de clientes del restaurante.</p>
 
