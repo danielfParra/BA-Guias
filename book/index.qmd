@@ -12,3 +12,4 @@ Parte del texto en estas notas de clase ha sido elaborado con ayuda de inteligen
   © 2025 Pontificia Universidad Javeriana. Este libro está licenciado bajo una licencia <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
 </div>
 
+

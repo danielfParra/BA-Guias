@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>capitulo5 – Notas de clase Business Analytics</title>
+<title>5&nbsp; Intervalos de Confianza y Pruebas de Hipótesis – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,11 +73,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -248,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">capitulo5.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -308,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./capitulo2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Variables y Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -326,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./capitulo5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">capitulo5.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span></a>
   </div>
 </li>
     </ul>
@@ -334,16 +363,245 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#intervalos-de-confianza" id="toc-intervalos-de-confianza" class="nav-link active" data-scroll-target="#intervalos-de-confianza"><span class="header-section-number">5.1</span> Intervalos de Confianza</a>
+  <ul class="collapse">
+  <li><a href="#cómo-se-construye" id="toc-cómo-se-construye" class="nav-link" data-scroll-target="#cómo-se-construye"><span class="header-section-number">5.1.1</span> ¿Cómo se construye?</a></li>
+  <li><a href="#ejemplo-del-restaurante" id="toc-ejemplo-del-restaurante" class="nav-link" data-scroll-target="#ejemplo-del-restaurante"><span class="header-section-number">5.1.2</span> Ejemplo del restaurante</a></li>
+  </ul></li>
+  <li><a href="#pruebas-de-hipótesis" id="toc-pruebas-de-hipótesis" class="nav-link" data-scroll-target="#pruebas-de-hipótesis"><span class="header-section-number">5.2</span> Pruebas de Hipótesis</a>
+  <ul class="collapse">
+  <li><a href="#pasos-de-la-prueba" id="toc-pasos-de-la-prueba" class="nav-link" data-scroll-target="#pasos-de-la-prueba"><span class="header-section-number">5.2.1</span> Pasos de la prueba</a></li>
+  <li><a href="#ejemplo-del-restaurante-1" id="toc-ejemplo-del-restaurante-1" class="nav-link" data-scroll-target="#ejemplo-del-restaurante-1"><span class="header-section-number">5.2.2</span> Ejemplo del restaurante</a></li>
+  <li><a href="#en-resumen" id="toc-en-resumen" class="nav-link" data-scroll-target="#en-resumen"><span class="header-section-number">5.2.3</span> En resumen</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>Imagina que eres el gerente de un restaurante que acaba de lanzar un nuevo plato estrella y quieres saber si a tus clientes les gusta tanto como esperabas.</p>
+<p>Después de varias semanas recogiste las opiniones de algunos clientes: les pediste que calificaran de 1 a 5 qué tan satisfechos quedaron.</p>
+<p>Ya sabes calcular promedios, medianas y varianzas (¡bien hecho hasta aquí 🎉!), pero surge una nueva pregunta:</p>
+<blockquote class="blockquote">
+<p>¿Podemos usar la muestra de clientes que respondieron para decir algo sobre <strong>todos</strong> los clientes del restaurante, incluso los que no alcanzamos a encuestar?</p>
+</blockquote>
+<p>Aquí entran en juego dos herramientas de la estadística inferencial: <strong>los intervalos de confianza</strong> y <strong>las pruebas de hipótesis</strong>.</p>
+<hr>
+<section id="intervalos-de-confianza" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="intervalos-de-confianza"><span class="header-section-number">5.1</span> Intervalos de Confianza</h2>
+<p>Imagina que lanzaste un nuevo plato al menú y quieres saber si a los clientes realmente les gusta. No puedes preguntarle a cada comensal, pero sí ofreces muestras del plato a algunos clientes y recoges sus calificaciones. Esas degustaciones te dan una pista, no la verdad absoluta, sobre la opinión de toda la clientela.</p>
+<p>En la mayoría de estudios sucede esto: se toma una muestra y se infiere información sobre la población total. Esto es porque es muy difícil o costoso preguntar a todos los clientes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/muestra.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Población vs muestra</figcaption>
+</figure>
+</div>
+<p>Un intervalo de confianza funciona igual para un parámetro (por ejemplo, el promedio de satisfacción): parte de la estimación obtenida en la muestra (la “degustación”) y le añade y quita un margen de error para formar un rango plausible. Dos puntos clave para entenderlo intuitivamente:</p>
+<ul>
+<li><p>Interpretación práctica: cuando hablamos de un “IC 95%” describimos el método: si repitieras el muestreo muchas veces y construyeras intervalos con el mismo procedimiento, alrededor del 95% de esos intervalos incluirían el valor verdadero desconocido. No quiere decir que exista un 95% de probabilidad de que este intervalo concreto lo contenga; el valor real es fijo y lo que cambia es el intervalo que construimos.</p></li>
+<li><p><em>¿Qué influye en el ancho del intervalo?</em></p></li>
+</ul>
+<ol type="1">
+<li>La dispersión de las calificaciones — más variabilidad → intervalos más anchos.</li>
+<li>El tamaño de la muestra — más clientes encuestados → intervalos más estrechos.</li>
+<li>El nivel de confianza elegido — mayor confianza → intervalos más amplios.</li>
+</ol>
+<p>Visualiza esto como elegir el tamaño de la degustación y el margen de seguridad alrededor de tu estimación: si usas un margen muy amplio te aseguras de cubrir el valor verdadero pero pierdes precisión; si eliges un margen muy estrecho ganas precisión pero aumentas la probabilidad de equivocarte.</p>
+<p>En resumen: un intervalo de confianza te ofrece un rango razonable para la media poblacional (por ejemplo, la satisfacción real de todos los clientes), acompañado de una medida explícita de cuánta confianza te da ese procedimiento si lo repitieras muchas veces.</p>
+<section id="cómo-se-construye" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="cómo-se-construye"><span class="header-section-number">5.1.1</span> ¿Cómo se construye?</h3>
+<p>El intervalo de confianza toma el promedio de tu muestra y le agrega un “margen de error”.</p>
+<p>Ese margen depende de dos cosas:<br>
+- Qué tan variable son las opiniones (la desviación estándar).<br>
+- Cuántos clientes alcanzaste a encuestar (el tamaño de la muestra).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fórmula del intervalo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+IC_{95\%} = \bar{x} \pm Z \cdot \frac{s}{\sqrt{n}}
+\]</span></p>
+<ul>
+<li>( <span class="math inline">\(\bar{x}\)</span> ): promedio de la muestra<br>
+</li>
+<li>( <span class="math inline">\(s\)</span> ): variabilidad de las opiniones<br>
+</li>
+<li>( <span class="math inline">\(n\)</span> ): número de clientes encuestados<br>
+</li>
+<li>( <span class="math inline">\(Z\)</span> ): un número fijo que depende del nivel de confianza (1.96 para 95%)<br>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ejemplo-del-restaurante" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="ejemplo-del-restaurante"><span class="header-section-number">5.1.2</span> Ejemplo del restaurante</h3>
+<p>Encuestaste a <strong>50 clientes</strong>.<br>
+El promedio de satisfacción fue <strong>4.2</strong> y la desviación estándar <strong>0.8</strong>.</p>
+<p><span class="math display">\[
+IC_{95\%} = 4.2 \pm 1.96 \cdot \frac{0.8}{\sqrt{50}} \approx (4.0,\;4.4)
+\]</span></p>
+<p>Esto significa que, aunque no hablamos con todos los clientes, podemos decir con un 95% de confianza que la satisfacción promedio real de <em>todos</em> los comensales está entre <strong>4.0 y 4.4</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>En otras palabras un intervalo de confianza dice:</strong></p>
+<p><strong>No estoy 100% seguro de la cifra exacta, pero tengo un rango muy confiable donde debe estar el promedio verdadero si pudiéramos preguntar a todos los clientes.</strong></p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="pruebas-de-hipótesis" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="pruebas-de-hipótesis"><span class="header-section-number">5.2</span> Pruebas de Hipótesis</h2>
+<p>Ahora imagina otra situación: tTu socio del restaurante es un poco escéptico y te dice:<br>
+&gt; “<em>Yo creo que los clientes nos califican, en promedio, con 4. Nada más</em>.”</p>
+<p>Tú, viendo tus datos, sospechas que en realidad el promedio es <strong>mayor</strong> a 4.</p>
+<p>¿Cómo decidir quién tiene razón?</p>
+<p>Aquí usamos una <strong>prueba de hipótesis</strong>. Es como un juicio estadístico:</p>
+<ul>
+<li>Partimos de la <strong>hipótesis nula (H₀)</strong>: lo que asumimos de entrada.<br>
+</li>
+<li>Luego vemos si hay suficiente evidencia en la muestra para rechazarla y quedarnos con la <strong>hipótesis alternativa (H₁)</strong>.</li>
+</ul>
+<section id="pasos-de-la-prueba" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="pasos-de-la-prueba"><span class="header-section-number">5.2.1</span> Pasos de la prueba</h3>
+<ol type="1">
+<li><strong>Plantear hipótesis</strong>
+<ul>
+<li>H₀: <span class="math inline">\(\mu = 4\)</span> (los clientes en promedio califican con 4).<br>
+</li>
+<li>H₁: <span class="math inline">\(\mu &gt; 4\)</span> (los clientes en promedio califican con más de 4).</li>
+</ul></li>
+<li><strong>Elegir un nivel de significancia</strong>
+<ul>
+<li>Normalmente usamos 5% (α = 0.05).<br>
+</li>
+<li>Significa que aceptamos un 5% de riesgo de equivocarnos al rechazar H₀.</li>
+</ul></li>
+<li><strong>Calcular el p-valor y tomar la decisión</strong></li>
+</ol>
+<ul>
+<li>Usamos el sofware de preferencia para calcular la prueba t y obtener el p-valor.</li>
+<li>Si <span class="math inline">\(p &lt; \alpha\)</span> (por ejemplo <span class="math inline">\(\alpha=0.05\)</span>) rechazamos H₀; si <span class="math inline">\(p \ge \alpha\)</span> no rechazamos H₀.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nota práctica: no necesitas calcular el p-valor a mano</p>
+<p>La mayoría de los paquetes estadísticos calculan y reportan el p-valor automáticamente:</p>
+<ul>
+<li>En R: <code>t.test(x, mu = 4)</code> devuelve la estadística, el p-valor y el intervalo de confianza.</li>
+<li>En Python (SciPy): <code>scipy.stats.ttest_1samp(x, 4)</code> devuelve la estadística t y el p-valor.</li>
+<li>En Excel: la herramienta de análisis de datos o la función T.TEST reportan p-valores.</li>
+</ul>
+<p>Lo importante es entender qué mide el p-valor y cómo interpretarlo, no hacer el cálculo manual cada vez.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="ejemplo-del-restaurante-1" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="ejemplo-del-restaurante-1"><span class="header-section-number">5.2.2</span> Ejemplo del restaurante</h3>
+<p>Con los datos de antes (<span class="math inline">\(\bar{x}=4.2,\; s=0.8,\; n=50\)</span>) podemos usar el concepto de <em>p-valor</em> para decidir si rechazar H₀.</p>
+<p>Intuitivamente, el p-valor responde a la pregunta: si la hipótesis nula fuera cierta (es decir, si no hubiera diferencia real y el verdadero promedio fuera 4), ¿qué probabilidad hay de obtener un resultado igual o más extremo que el observado? Para explicarlo paso a paso:</p>
+<ol type="1">
+<li>Supón por un momento que estamos persiguiendo un golpe de suerte: la hipótesis nula es verdadera (p.&nbsp;ej. el nuevo plato no cambia la satisfacción, la media es 4).</li>
+<li>Imagina la distribución de todos los resultados posibles que podríamos haber obtenido al repetir el experimento muchas veces bajo H₀. La mayoría serían resultados modestos y no llamativos; unos pocos serían flukes (suertes raras) que parecen indicar un efecto.</li>
+<li>Ubica nuestro resultado real dentro de esa distribución: el p-valor es la fracción de resultados bajo H₀ que serían tan o más extremos que el nuestro.</li>
+</ol>
+<p>Un p-valor pequeño (por ejemplo, 0.03) significa que sólo un pequeño porcentaje de resultados falsos serían tan espectaculares; esa rareza sugiere que tal vez no sea un fluke y que haya un efecto real.</p>
+<p>Aplicando esto a nuestros datos, el p-valor unilateral resultante es aproximadamente <span class="math inline">\(p \approx 0.038\)</span> (≈3.8%). Es decir: si de verdad el promedio fuera 4, sólo en ~3.8% de las muestras obtendríamos un resultado tan extremo por azar.</p>
+<p>Regla de decisión: si <span class="math inline">\(p &lt; \alpha\)</span> (por ejemplo <span class="math inline">\(\alpha=0.05\)</span>), rechazamos H₀. Aquí <span class="math inline">\(0.038 &lt; 0.05\)</span>, por lo que la evidencia es lo suficientemente fuerte para rechazar H₀.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Veredicto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rechazamos H₀.<br>
+Podemos afirmar que, en promedio, tus clientes están <strong>más satisfechos</strong> que el 4 que sospechaba tu socio.</p>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Importante — “rechazar” vs “aceptar” H₀</p>
+<p>En estadística decimos que <em>rechazamos</em> la hipótesis nula o <em>no la rechazamos</em>, pero no la <em>aceptamos</em> como verdadera. Intuitivamente es así porque la prueba está diseñada para buscar evidencia en contra de H₀: si la evidencia es fuerte, la descartamos; si no lo es, simplemente no tenemos base para descartarla.</p>
+<p>Piensa en un juicio: la ausencia de pruebas suficientes para condenar no es una prueba de inocencia absoluta. Del mismo modo, que los datos no permitan rechazar H₀ puede deberse a que H₀ es plausible <em>o</em> a que la muestra es pequeña o el test no tiene poder suficiente para detectar la diferencia (error tipo II). Por eso los científicos hablan de “no rechazar” y complementan con tamaño del efecto y poder del estudio.</p>
+</div>
+</div>
+</section>
+<section id="en-resumen" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="en-resumen"><span class="header-section-number">5.2.3</span> En resumen</h3>
+<ul>
+<li>Los <strong>intervalos de confianza</strong> son como dar un rango plausible para la verdadera satisfacción de todos los clientes.<br>
+</li>
+<li>Las <strong>pruebas de hipótesis</strong> son como un juicio: partimos de una suposición y vemos si la evidencia la sostiene o la derrumba.</li>
+</ul>
+<p>Ambas herramientas permiten ir más allá de describir lo que vemos en los datos: nos ayudan a <strong>inferir</strong> sobre toda la población de clientes del restaurante.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

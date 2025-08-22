@@ -308,5 +308,85 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fundamentos de Variables y Visualización de Datos</span>"
     ]
+  },
+  {
+    "objectID": "capitulo4.html",
+    "href": "capitulo4.html",
+    "title": "4  Contando Historias Claras con Gráficos",
+    "section": "",
+    "text": "4.1 ¿Qué es una buena gráfica?\nImagina que entras a una librería y tomas un libro por curiosidad. Lo abres en una página al azar y notas que algo llama inmediatamente tu atención: un gráfico con colores vibrantes, líneas claras y un mensaje sencillo de entender. ¿Qué hizo que te fijaras primero en ese gráfico? Vamos a descubrirlo.\nUna gráfica efectiva no solo muestra números o barras. Es una herramienta poderosa que cuenta historias, explica conceptos y revela información de manera clara y sencilla. Algunas claves importantes para una buena gráfica son:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo4.html#qué-es-una-buena-gráfica",
+    "href": "capitulo4.html#qué-es-una-buena-gráfica",
+    "title": "4  Contando Historias Claras con Gráficos",
+    "section": "",
+    "text": "Claridad en la rotulación: Todos los elementos del gráfico deben estar claramente identificados.\nSin ornamentación innecesaria: Menos es más. No necesitas adornos que distraigan del mensaje principal.\nUso juicioso del color: Elige colores que ayuden a resaltar lo más importante.\nUna historia simple y clara: El gráfico debe ser fácil de entender a simple vista.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo4.html#cómo-leemos-gráficos-principios-clave",
+    "href": "capitulo4.html#cómo-leemos-gráficos-principios-clave",
+    "title": "4  Contando Historias Claras con Gráficos",
+    "section": "4.2 Cómo leemos gráficos: principios clave",
+    "text": "4.2 Cómo leemos gráficos: principios clave\nExisten cinco principios que describen cómo observamos y entendemos las gráficas:\n\nNo vamos en orden: Nuestra vista puede empezar por cualquier parte del gráfico. Es posible que no leas el título hasta mucho después.\nPrimero vemos lo que se destaca: Automáticamente nuestros ojos buscan picos, colores intensos, intersecciones o valores atípicos.\nVemos solo unas pocas cosas a la vez: Demasiada información puede confundir. Concéntrate en pocos puntos clave.\nBuscamos significado y conexiones: Al ver algo llamativo, inmediatamente intentamos entender qué significa.\nNos basamos en convenciones y metáforas: Interpretamos gráficos usando lo que ya conocemos y lo que hemos aprendido antes.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo4.html#el-uso-inteligente-del-color",
+    "href": "capitulo4.html#el-uso-inteligente-del-color",
+    "title": "4  Contando Historias Claras con Gráficos",
+    "section": "4.3 El uso inteligente del color",
+    "text": "4.3 El uso inteligente del color\nSupongamos que quieres mostrar cómo han evolucionado las ventas de productos electrónicos en una tienda durante el último año. Tienes información de varias categorías como televisores, teléfonos y audífonos. ¿Cómo resaltas lo más importante?\n\nPrimero, piensa cuál es la pregunta más importante que debería responder tu gráfico. ¿Quizás mostrar que los teléfonos han superado ampliamente las ventas de los otros productos?\nUsa un color vibrante como el azul intenso para la categoría principal (teléfonos) y usa tonos grises o menos saturados para el resto (televisores y audífonos). El contraste inmediatamente enfocará la atención hacia los teléfonos, destacando claramente tu punto.\n\nConsejo práctico: Haz todo gris excepto lo más importante. El gris es tu aliado, resaltando por contraste el mensaje central del gráfico.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo4.html#conclusión",
+    "href": "capitulo4.html#conclusión",
+    "title": "4  Contando Historias Claras con Gráficos",
+    "section": "4.4 Conclusión",
+    "text": "4.4 Conclusión\nLa próxima vez que diseñes un gráfico, recuerda que estás contando una historia. Decide qué quieres destacar, usa colores sabiamente y mantén la claridad y simplicidad. Así, tus lectores no solo verán un gráfico, sino que comprenderán y recordarán tu mensaje.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo5.html",
+    "href": "capitulo5.html",
+    "title": "5  Intervalos de Confianza y Pruebas de Hipótesis",
+    "section": "",
+    "text": "5.1 Intervalos de Confianza\nImagina que eres el gerente de un restaurante que acaba de lanzar un nuevo plato estrella y quieres saber si a tus clientes les gusta tanto como esperabas.\nDespués de varias semanas recogiste las opiniones de algunos clientes: les pediste que calificaran de 1 a 5 qué tan satisfechos quedaron.\nYa sabes calcular promedios, medianas y varianzas (¡bien hecho hasta aquí 🎉!), pero surge una nueva pregunta:\nAquí entran en juego dos herramientas de la estadística inferencial: los intervalos de confianza y las pruebas de hipótesis.\nImagina que lanzaste un nuevo plato al menú y quieres saber si a los clientes realmente les gusta. No puedes preguntarle a cada comensal, pero sí ofreces muestras del plato a algunos clientes y recoges sus calificaciones. Esas degustaciones te dan una pista, no la verdad absoluta, sobre la opinión de toda la clientela.\nEn la mayoría de estudios sucede esto: se toma una muestra y se infiere información sobre la población total. Esto es porque es muy difícil o costoso preguntar a todos los clientes.\nUn intervalo de confianza funciona igual para un parámetro (por ejemplo, el promedio de satisfacción): parte de la estimación obtenida en la muestra (la “degustación”) y le añade y quita un margen de error para formar un rango plausible. Dos puntos clave para entenderlo intuitivamente:\nVisualiza esto como elegir el tamaño de la degustación y el margen de seguridad alrededor de tu estimación: si usas un margen muy amplio te aseguras de cubrir el valor verdadero pero pierdes precisión; si eliges un margen muy estrecho ganas precisión pero aumentas la probabilidad de equivocarte.\nEn resumen: un intervalo de confianza te ofrece un rango razonable para la media poblacional (por ejemplo, la satisfacción real de todos los clientes), acompañado de una medida explícita de cuánta confianza te da ese procedimiento si lo repitieras muchas veces.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Intervalos de Confianza y Pruebas de Hipótesis</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo5.html#intervalos-de-confianza",
+    "href": "capitulo5.html#intervalos-de-confianza",
+    "title": "5  Intervalos de Confianza y Pruebas de Hipótesis",
+    "section": "",
+    "text": "Población vs muestra\n\n\n\n\nInterpretación práctica: cuando hablamos de un “IC 95%” describimos el método: si repitieras el muestreo muchas veces y construyeras intervalos con el mismo procedimiento, alrededor del 95% de esos intervalos incluirían el valor verdadero desconocido. No quiere decir que exista un 95% de probabilidad de que este intervalo concreto lo contenga; el valor real es fijo y lo que cambia es el intervalo que construimos.\n¿Qué influye en el ancho del intervalo?\n\n\nLa dispersión de las calificaciones — más variabilidad → intervalos más anchos.\nEl tamaño de la muestra — más clientes encuestados → intervalos más estrechos.\nEl nivel de confianza elegido — mayor confianza → intervalos más amplios.\n\n\n\n\n5.1.1 ¿Cómo se construye?\nEl intervalo de confianza toma el promedio de tu muestra y le agrega un “margen de error”.\nEse margen depende de dos cosas:\n- Qué tan variable son las opiniones (la desviación estándar).\n- Cuántos clientes alcanzaste a encuestar (el tamaño de la muestra).\n\n\n\n\n\n\nFórmula del intervalo\n\n\n\n\\[\nIC_{95\\%} = \\bar{x} \\pm Z \\cdot \\frac{s}{\\sqrt{n}}\n\\]\n\n( \\(\\bar{x}\\) ): promedio de la muestra\n\n( \\(s\\) ): variabilidad de las opiniones\n\n( \\(n\\) ): número de clientes encuestados\n\n( \\(Z\\) ): un número fijo que depende del nivel de confianza (1.96 para 95%)\n\n\n\n\n\n\n5.1.2 Ejemplo del restaurante\nEncuestaste a 50 clientes.\nEl promedio de satisfacción fue 4.2 y la desviación estándar 0.8.\n\\[\nIC_{95\\%} = 4.2 \\pm 1.96 \\cdot \\frac{0.8}{\\sqrt{50}} \\approx (4.0,\\;4.4)\n\\]\nEsto significa que, aunque no hablamos con todos los clientes, podemos decir con un 95% de confianza que la satisfacción promedio real de todos los comensales está entre 4.0 y 4.4.\n\n\n\n\n\n\nTip\n\n\n\nEn otras palabras un intervalo de confianza dice:\nNo estoy 100% seguro de la cifra exacta, pero tengo un rango muy confiable donde debe estar el promedio verdadero si pudiéramos preguntar a todos los clientes.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Intervalos de Confianza y Pruebas de Hipótesis</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo5.html#pruebas-de-hipótesis",
+    "href": "capitulo5.html#pruebas-de-hipótesis",
+    "title": "5  Intervalos de Confianza y Pruebas de Hipótesis",
+    "section": "5.2 Pruebas de Hipótesis",
+    "text": "5.2 Pruebas de Hipótesis\nAhora imagina otra situación: tTu socio del restaurante es un poco escéptico y te dice:\n&gt; “Yo creo que los clientes nos califican, en promedio, con 4. Nada más.”\nTú, viendo tus datos, sospechas que en realidad el promedio es mayor a 4.\n¿Cómo decidir quién tiene razón?\nAquí usamos una prueba de hipótesis. Es como un juicio estadístico:\n\nPartimos de la hipótesis nula (H₀): lo que asumimos de entrada.\n\nLuego vemos si hay suficiente evidencia en la muestra para rechazarla y quedarnos con la hipótesis alternativa (H₁).\n\n\n5.2.1 Pasos de la prueba\n\nPlantear hipótesis\n\nH₀: \\(\\mu = 4\\) (los clientes en promedio califican con 4).\n\nH₁: \\(\\mu &gt; 4\\) (los clientes en promedio califican con más de 4).\n\nElegir un nivel de significancia\n\nNormalmente usamos 5% (α = 0.05).\n\nSignifica que aceptamos un 5% de riesgo de equivocarnos al rechazar H₀.\n\nCalcular el p-valor y tomar la decisión\n\n\nUsamos el sofware de preferencia para calcular la prueba t y obtener el p-valor.\nSi \\(p &lt; \\alpha\\) (por ejemplo \\(\\alpha=0.05\\)) rechazamos H₀; si \\(p \\ge \\alpha\\) no rechazamos H₀.\n\n\n\n\n\n\n\nNota\n\n\n\nNota práctica: no necesitas calcular el p-valor a mano\nLa mayoría de los paquetes estadísticos calculan y reportan el p-valor automáticamente:\n\nEn R: t.test(x, mu = 4) devuelve la estadística, el p-valor y el intervalo de confianza.\nEn Python (SciPy): scipy.stats.ttest_1samp(x, 4) devuelve la estadística t y el p-valor.\nEn Excel: la herramienta de análisis de datos o la función T.TEST reportan p-valores.\n\nLo importante es entender qué mide el p-valor y cómo interpretarlo, no hacer el cálculo manual cada vez.\n\n\n\n\n\n5.2.2 Ejemplo del restaurante\nCon los datos de antes (\\(\\bar{x}=4.2,\\; s=0.8,\\; n=50\\)) podemos usar el concepto de p-valor para decidir si rechazar H₀.\nIntuitivamente, el p-valor responde a la pregunta: si la hipótesis nula fuera cierta (es decir, si no hubiera diferencia real y el verdadero promedio fuera 4), ¿qué probabilidad hay de obtener un resultado igual o más extremo que el observado? Para explicarlo paso a paso:\n\nSupón por un momento que estamos persiguiendo un golpe de suerte: la hipótesis nula es verdadera (p. ej. el nuevo plato no cambia la satisfacción, la media es 4).\nImagina la distribución de todos los resultados posibles que podríamos haber obtenido al repetir el experimento muchas veces bajo H₀. La mayoría serían resultados modestos y no llamativos; unos pocos serían flukes (suertes raras) que parecen indicar un efecto.\nUbica nuestro resultado real dentro de esa distribución: el p-valor es la fracción de resultados bajo H₀ que serían tan o más extremos que el nuestro.\n\nUn p-valor pequeño (por ejemplo, 0.03) significa que sólo un pequeño porcentaje de resultados falsos serían tan espectaculares; esa rareza sugiere que tal vez no sea un fluke y que haya un efecto real.\nAplicando esto a nuestros datos, el p-valor unilateral resultante es aproximadamente \\(p \\approx 0.038\\) (≈3.8%). Es decir: si de verdad el promedio fuera 4, sólo en ~3.8% de las muestras obtendríamos un resultado tan extremo por azar.\nRegla de decisión: si \\(p &lt; \\alpha\\) (por ejemplo \\(\\alpha=0.05\\)), rechazamos H₀. Aquí \\(0.038 &lt; 0.05\\), por lo que la evidencia es lo suficientemente fuerte para rechazar H₀.\n\n\n\n\n\n\nVeredicto\n\n\n\nRechazamos H₀.\nPodemos afirmar que, en promedio, tus clientes están más satisfechos que el 4 que sospechaba tu socio.\n\n\n\n\n\n\n\n\n\nNota\n\n\n\nImportante — “rechazar” vs “aceptar” H₀\nEn estadística decimos que rechazamos la hipótesis nula o no la rechazamos, pero no la aceptamos como verdadera. Intuitivamente es así porque la prueba está diseñada para buscar evidencia en contra de H₀: si la evidencia es fuerte, la descartamos; si no lo es, simplemente no tenemos base para descartarla.\nPiensa en un juicio: la ausencia de pruebas suficientes para condenar no es una prueba de inocencia absoluta. Del mismo modo, que los datos no permitan rechazar H₀ puede deberse a que H₀ es plausible o a que la muestra es pequeña o el test no tiene poder suficiente para detectar la diferencia (error tipo II). Por eso los científicos hablan de “no rechazar” y complementan con tamaño del efecto y poder del estudio.\n\n\n\n\n5.2.3 En resumen\n\nLos intervalos de confianza son como dar un rango plausible para la verdadera satisfacción de todos los clientes.\n\nLas pruebas de hipótesis son como un juicio: partimos de una suposición y vemos si la evidencia la sostiene o la derrumba.\n\nAmbas herramientas permiten ir más allá de describir lo que vemos en los datos: nos ayudan a inferir sobre toda la población de clientes del restaurante.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Intervalos de Confianza y Pruebas de Hipótesis</span>"
+    ]
   }
 ]
