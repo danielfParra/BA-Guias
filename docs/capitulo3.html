@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.7.32" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3  Explorando tus Datos con Estadísticos Descriptivos – Notas de clase Business Analytics</title>
+<title>3&nbsp; Explorando tus Datos con Estadísticos Descriptivos – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +22,30 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./capitulo4.html" rel="next">
+<link href="./capitulo2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b9e11ad5a37ead2aabff839d95ae3857.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -83,117 +104,10 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="custom.css" />
+<link rel="stylesheet" href="custom.css">
 </head>
 
-<body>
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn"
-      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
-      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
-      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
-        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
-        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="/">
-      Notas de clase Business Analytics
-      </a> 
-        <div class="sidebar-tools-main">
-    <div class="dropdown">
-      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="/Notas-de-clase-Business-Analytics.pdf">
-              <i class="bi bi-file-pdf pe-1"></i>
-            Descargar PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="/Notas-de-clase-Business-Analytics.epub">
-              <i class="bi bi-journal pe-1"></i>
-            Descargar ePub
-            </a>
-          </li>
-      </ul>
-    </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bienvenidos</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción: Descubriendo la Analítica de Datos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/capitulo2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción a Variables y Datos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/capitulo3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class='chapter-number'>3</span>  <span class='chapter-title'>Explorando tus Datos con Estadísticos Descriptivos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/capitulo4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/capitulo5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>5</span>  <span class='chapter-title'>Intervalos de Confianza y Pruebas de Hipótesis</span></span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <div id="quarto-toc-target"></div>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-<script id = "quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -357,9 +271,140 @@ window.Quarto = {
     }
   </script>
 
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Notas de clase Business Analytics</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Notas-de-clase-Business-Analytics.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Descargar PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Notas-de-clase-Business-Analytics.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Descargar ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bienvenidos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Variables y Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contando Historias Claras con Gráficos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#estadísticos-descriptivos" id="toc-estadísticos-descriptivos" class="nav-link active" data-scroll-target="#estadísticos-descriptivos"><span class="header-section-number">3.1</span> Estadísticos Descriptivos</a></li>
+  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central"><span class="header-section-number">3.2</span> Medidas de Tendencia Central</a>
+  <ul class="collapse">
+  <li><a href="#media-promedio" id="toc-media-promedio" class="nav-link" data-scroll-target="#media-promedio"><span class="header-section-number">3.2.1</span> Media (Promedio)</a></li>
+  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana"><span class="header-section-number">3.2.2</span> Mediana</a></li>
+  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda"><span class="header-section-number">3.2.3</span> Moda</a></li>
+  </ul></li>
+  <li><a href="#medidas-de-variación" id="toc-medidas-de-variación" class="nav-link" data-scroll-target="#medidas-de-variación"><span class="header-section-number">3.3</span> Medidas de Variación</a>
+  <ul class="collapse">
+  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango"><span class="header-section-number">3.3.1</span> Rango</a></li>
+  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar"><span class="header-section-number">3.3.2</span> Varianza y Desviación Estándar</a></li>
+  <li><a href="#percentil-cuartiles" id="toc-percentil-cuartiles" class="nav-link" data-scroll-target="#percentil-cuartiles"><span class="header-section-number">3.3.3</span> Percentil, Cuartiles</a></li>
+  <li><a href="#rango-intercuartílico-ric" id="toc-rango-intercuartílico-ric" class="nav-link" data-scroll-target="#rango-intercuartílico-ric"><span class="header-section-number">3.3.4</span> Rango Intercuartílico (RIC)</a></li>
+  <li><a href="#diagrama-de-caja-y-brazos-boxplot" id="toc-diagrama-de-caja-y-brazos-boxplot" class="nav-link" data-scroll-target="#diagrama-de-caja-y-brazos-boxplot"><span class="header-section-number">3.3.5</span> Diagrama de Caja y Brazos (Boxplot)</a></li>
+  </ul></li>
+  <li><a href="#medidas-de-relación-lineal" id="toc-medidas-de-relación-lineal" class="nav-link" data-scroll-target="#medidas-de-relación-lineal"><span class="header-section-number">3.4</span> Medidas de Relación Lineal</a>
+  <ul class="collapse">
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">3.4.1</span> Covarianza</a></li>
+  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">3.4.2</span> Coeficiente de Correlación</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>  <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></h1>
 </div>
 
 
@@ -375,37 +420,12 @@ window.Quarto = {
 
 </header>
 
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#estadísticos-descriptivos" id="toc-estadísticos-descriptivos"><span class="header-section-number">3.1</span> Estadísticos Descriptivos</a></li>
-  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central"><span class="header-section-number">3.2</span> Medidas de Tendencia Central</a>
-  <ul>
-  <li><a href="#media-promedio" id="toc-media-promedio"><span class="header-section-number">3.2.1</span> Media (Promedio)</a></li>
-  <li><a href="#mediana" id="toc-mediana"><span class="header-section-number">3.2.2</span> Mediana</a></li>
-  <li><a href="#moda" id="toc-moda"><span class="header-section-number">3.2.3</span> Moda</a></li>
-  </ul></li>
-  <li><a href="#medidas-de-variación" id="toc-medidas-de-variación"><span class="header-section-number">3.3</span> Medidas de Variación</a>
-  <ul>
-  <li><a href="#rango" id="toc-rango"><span class="header-section-number">3.3.1</span> Rango</a></li>
-  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar"><span class="header-section-number">3.3.2</span> Varianza y Desviación Estándar</a></li>
-  <li><a href="#percentil-cuartiles" id="toc-percentil-cuartiles"><span class="header-section-number">3.3.3</span> Percentil, Cuartiles</a></li>
-  <li><a href="#rango-intercuartílico-ric" id="toc-rango-intercuartílico-ric"><span class="header-section-number">3.3.4</span> Rango Intercuartílico (RIC)</a></li>
-  <li><a href="#diagrama-de-caja-y-brazos-boxplot" id="toc-diagrama-de-caja-y-brazos-boxplot"><span class="header-section-number">3.3.5</span> Diagrama de Caja y Brazos (Boxplot)</a></li>
-  </ul></li>
-  <li><a href="#medidas-de-relación-lineal" id="toc-medidas-de-relación-lineal"><span class="header-section-number">3.4</span> Medidas de Relación Lineal</a>
-  <ul>
-  <li><a href="#covarianza" id="toc-covarianza"><span class="header-section-number">3.4.1</span> Covarianza</a></li>
-  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación"><span class="header-section-number">3.4.2</span> Coeficiente de Correlación</a></li>
-  </ul></li>
-  </ul>
-</nav>
+
 <p>Imagina que eres gerente de un restaurante que acaba de lanzar un nuevo menú y quieres evaluar la satisfacción de tus clientes a partir de las calificaciones que te han dado. Tienes cientos de puntuaciones y necesitas entender rápidamente cuál es la opinión general, qué tan variadas son las experiencias y si hay patrones o valores atípicos que merecen atención.</p>
 <p>¿Cómo puedes resumir y comprender toda esa información de forma clara y sencilla? Para eso utilizamos los estadísticos descriptivos, herramientas fundamentales que nos permiten condensar grandes cantidades de datos en medidas simples y significativas.</p>
 <p>Estas medidas serán esenciales para tomar decisiones informadas que mejoren tu decisiones.</p>
 <section id="estadísticos-descriptivos" class="level2" data-number="3.1">
-<h2 data-number="3.1"><span class="header-section-number">3.1</span> Estadísticos Descriptivos</h2>
+<h2 data-number="3.1" class="anchored" data-anchor-id="estadísticos-descriptivos"><span class="header-section-number">3.1</span> Estadísticos Descriptivos</h2>
 <p>Los estadísticos descriptivos son herramientas clave que nos permiten resumir y comprender mejor la información contenida en nuestros datos. Para facilitar su estudio, los podemos clasificar en cuatro categorías principales:</p>
 <ul>
 <li><strong>Medidas de tendencia central</strong>: Estas nos muestran el valor típico o representativo en un conjunto de datos, es decir, alrededor de qué número se agrupan la mayoría de las observaciones.</li>
@@ -415,15 +435,15 @@ window.Quarto = {
 </ul>
 </section>
 <section id="medidas-de-tendencia-central" class="level2" data-number="3.2">
-<h2 data-number="3.2"><span class="header-section-number">3.2</span> Medidas de Tendencia Central</h2>
+<h2 data-number="3.2" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">3.2</span> Medidas de Tendencia Central</h2>
 <p>Cuando queremos entender las calificaciones que los clientes dan a tu restaurante, buscamos encontrar un valor que represente lo que la mayoría piensa. Las medidas de tendencia central nos ayudan a esto.</p>
 <section id="media-promedio" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1"><span class="header-section-number">3.2.1</span> Media (Promedio)</h3>
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="media-promedio"><span class="header-section-number">3.2.1</span> Media (Promedio)</h3>
 <p>La media o promedio es una forma simple pero útil de resumir un conjunto de datos. La media es el valor que obtienes al sumar todas las calificaciones y dividirlas entre el número total de clientes.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>Matemáticamente se escribiría así:</p>
@@ -437,7 +457,7 @@ window.Quarto = {
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -450,8 +470,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/media_1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/media_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -459,8 +479,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/media_2.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/media_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -469,21 +489,21 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/media_3.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/media_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="mediana" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2"><span class="header-section-number">3.2.2</span> Mediana</h3>
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="mediana"><span class="header-section-number">3.2.2</span> Mediana</h3>
 <p>Volviendo a las calificaciones de tu restaurante, la <strong>mediana</strong> es el valor que está justo en el medio cuando ordenas todas las opiniones de menor a mayor. Esto significa que la mitad de los clientes dieron una calificación igual o menor que la mediana, y la otra mitad dio una calificación igual o mayor.</p>
 <p>Por ejemplo, si tus clientes calificaron así: 3, 4, 4, 5, 5, la mediana es 4 — porque es el valor que divide el grupo en dos partes iguales.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -498,8 +518,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/mediana_1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/mediana_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -508,8 +528,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/mediana_2.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/mediana_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -518,22 +538,22 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/mediana_3.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/mediana_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="moda" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3"><span class="header-section-number">3.2.3</span> Moda</h3>
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="moda"><span class="header-section-number">3.2.3</span> Moda</h3>
 <p>La <strong>moda</strong> es la calificación que más se repite entre tus clientes. Es como la opinión más común o popular sobre tu restaurante.</p>
 <p>Por ejemplo, si las calificaciones de tus clientes fueron: 3, 4, 4, 5, 5, tanto 4 como 5 se repiten dos veces, por lo que hay dos modas: 4 y 5.</p>
 <p>Si no hay repeticiones exactas, se pueden agrupar en categorías y tomar como moda la más común. Es útil especialmente con datos no numéricos, como colores o preferencias políticas, donde no tiene sentido calcular promedios.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -546,8 +566,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/moda_1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/moda_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -555,8 +575,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/moda_2.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/moda_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -564,16 +584,16 @@ window.Quarto = {
 </section>
 </section>
 <section id="medidas-de-variación" class="level2" data-number="3.3">
-<h2 data-number="3.3"><span class="header-section-number">3.3</span> Medidas de Variación</h2>
+<h2 data-number="3.3" class="anchored" data-anchor-id="medidas-de-variación"><span class="header-section-number">3.3</span> Medidas de Variación</h2>
 <p>Las medidas de variación nos ayudan a entender qué tan diferentes o dispersos están los datos entre sí. Es decir, nos dicen si las opiniones o valores están muy juntos o muy separados.</p>
 <section id="rango" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1"><span class="header-section-number">3.3.1</span> Rango</h3>
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="rango"><span class="header-section-number">3.3.1</span> Rango</h3>
 <p>Las medidas de variación nos ayudan a entender qué tan diferentes o dispersos están los datos entre sí. Es decir, nos dicen si las opiniones o valores están muy juntos o muy separados.</p>
 <p>Por ejemplo, si las calificaciones en tu restaurante van desde 2 hasta 5, el rango sería:</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -589,8 +609,8 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/rango_1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/rango_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -598,15 +618,15 @@ window.Quarto = {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/rango_2.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/rango_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="varianza-y-desviación-estándar" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2"><span class="header-section-number">3.3.2</span> Varianza y Desviación Estándar</h3>
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="varianza-y-desviación-estándar"><span class="header-section-number">3.3.2</span> Varianza y Desviación Estándar</h3>
 <p>La varianza y la desviación estándar son herramientas que nos ayudan a entender qué tan dispersos están los datos con respecto a su media.</p>
 <p>Imagina que tienes varios números y quieres saber si están todos cerca del promedio o si están muy separados entre sí.</p>
 <p>Para entender qué tan dispersas están las calificaciones de tus clientes respecto al promedio, usamos dos medidas fundamentales: la <strong>varianza</strong> y la <strong>desviación estándar</strong>:</p>
@@ -617,16 +637,16 @@ window.Quarto = {
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>Si quisieras “cocinar” la varianza en tu propia cocina, la receta sería así:</p>
 <ol type="1">
-<li><strong>Encuentra la media</strong> de todas las calificaciones.<br />
+<li><strong>Encuentra la media</strong> de todas las calificaciones.<br>
 </li>
-<li><strong>Calcula qué tan lejos está cada calificación de esa media</strong> (la diferencia entre cada calificación y la media).<br />
+<li><strong>Calcula qué tan lejos está cada calificación de esa media</strong> (la diferencia entre cada calificación y la media).<br>
 </li>
-<li><strong>Eleva al cuadrado cada una de esas diferencias</strong> para evitar que se cancelen y para dar más peso a las diferencias grandes.<br />
+<li><strong>Eleva al cuadrado cada una de esas diferencias</strong> para evitar que se cancelen y para dar más peso a las diferencias grandes.<br>
 </li>
 <li><strong>Suma todas esas diferencias al cuadrado y calcula el promedio</strong> dividiendo entre el número de calificaciones menos uno.</li>
 </ol>
@@ -637,7 +657,7 @@ window.Quarto = {
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -650,7 +670,7 @@ window.Quarto = {
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -663,7 +683,7 @@ window.Quarto = {
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -676,7 +696,7 @@ window.Quarto = {
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -689,7 +709,7 @@ s^2 = \frac{(4 - 4.2)^2 + (5 - 4.2)^2 + (3 - 4.2)^2 + (4 - 4.2)^2 + (5 - 4.2)^2}
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -703,15 +723,15 @@ s = \sqrt{0.7} \approx 0.84
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/varianza_1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/varianza_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="percentil-cuartiles" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3"><span class="header-section-number">3.3.3</span> Percentil, Cuartiles</h3>
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="percentil-cuartiles"><span class="header-section-number">3.3.3</span> Percentil, Cuartiles</h3>
 <p>Imagina que quieres saber cómo se comparan las calificaciones de tus clientes con todas las demás. Los <strong>percentiles</strong> nos ayudan a entender la posición relativa de una calificación dentro del grupo.</p>
 <p>Un percentil nos dice qué porcentaje de las calificaciones está por debajo de cierto valor. Por ejemplo, el <strong>percentil 25</strong> indica el punto bajo el cual se encuentra el 25% de las calificaciones más bajas.</p>
 <p>Si una calificación está en el percentil 25, significa que el 25% de los clientes dio una calificación igual o menor que esa, y el 75% dio una calificación más alta.</p>
@@ -719,21 +739,21 @@ s = \sqrt{0.7} \approx 0.84
 <p>Sin embargo, los percentiles <strong>no nos dicen qué tan separados están los datos ni qué tan extremos son esos valores.</strong></p>
 <p>Los <strong>cuartiles</strong> son un tipo especial de percentiles que dividen las calificaciones en cuatro grupos iguales, cada uno con el 25% de las opiniones.</p>
 <ul>
-<li>El <strong>primer cuartil (Q1)</strong> es igual al percentil 25.<br />
+<li>El <strong>primer cuartil (Q1)</strong> es igual al percentil 25.<br>
 </li>
-<li>El <strong>segundo cuartil (Q2)</strong> es la mediana, el punto medio (percentil 50).<br />
+<li>El <strong>segundo cuartil (Q2)</strong> es la mediana, el punto medio (percentil 50).<br>
 </li>
 <li>El <strong>tercer cuartil (Q3)</strong> es el percentil 75.</li>
 </ul>
 <p>Esto permite resumir cómo se distribuyen las calificaciones y saber en qué grupo se ubica cada opinión, incluso si hay calificaciones muy bajas o muy altas.</p>
 </section>
 <section id="rango-intercuartílico-ric" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4"><span class="header-section-number">3.3.4</span> Rango Intercuartílico (RIC)</h3>
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="rango-intercuartílico-ric"><span class="header-section-number">3.3.4</span> Rango Intercuartílico (RIC)</h3>
 <p>Para entender mejor cómo varían las calificaciones en la parte central de los datos, usamos el <strong>Rango Intercuartílico</strong>, o <strong>RIC</strong>, que es la diferencia entre el tercer cuartil y el primer cuartil:</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -747,7 +767,7 @@ RIC = Q3 - Q1
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
 <p><span class="math display">\[
@@ -760,17 +780,17 @@ RIC = 4.5 - 3.5 = 1.0
 <p>El RIC es muy útil porque, a diferencia del rango total, <strong>no se ve afectado por calificaciones extremas</strong> y nos da una idea clara de la variabilidad donde está la mayoría de los datos.</p>
 </section>
 <section id="diagrama-de-caja-y-brazos-boxplot" class="level3" data-number="3.3.5">
-<h3 data-number="3.3.5"><span class="header-section-number">3.3.5</span> Diagrama de Caja y Brazos (Boxplot)</h3>
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="diagrama-de-caja-y-brazos-boxplot"><span class="header-section-number">3.3.5</span> Diagrama de Caja y Brazos (Boxplot)</h3>
 <p>Para visualizar fácilmente la distribución de las calificaciones de tus clientes, usamos el <strong>diagrama de caja y brazos</strong>, también conocido como <strong>boxplot</strong>.</p>
 <p>Este gráfico muestra en una caja la parte central de los datos, desde el primer cuartil (Q1) hasta el tercer cuartil (Q3), con una línea en la mediana (Q2).</p>
 <p>Además, los “brazos” o líneas que salen de la caja se extienden hasta los valores mínimos y máximos dentro de un rango razonable, ayudándonos a identificar si hay calificaciones atípicas o muy extremas.</p>
 <p>Así, con un solo gráfico puedes ver:</p>
 <ul>
-<li>Dónde está la mayoría de las calificaciones (la caja).<br />
+<li>Dónde está la mayoría de las calificaciones (la caja).<br>
 </li>
-<li>La calificación típica (la mediana dentro de la caja).<br />
+<li>La calificación típica (la mediana dentro de la caja).<br>
 </li>
-<li>La dispersión general (la longitud de la caja y brazos).<br />
+<li>La dispersión general (la longitud de la caja y brazos).<br>
 </li>
 <li>Valores extremos o posibles opiniones fuera de lo común (puntos fuera de los brazos).</li>
 </ul>
@@ -778,18 +798,18 @@ RIC = 4.5 - 3.5 = 1.0
 <p>Este sería un ejemplo en R:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package &#39;ggthemes&#39; was built under R version 4.3.3</code></pre>
+<pre><code>Warning: package 'ggthemes' was built under R version 4.3.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package &#39;viridis&#39; was built under R version 4.3.3</code></pre>
+<pre><code>Warning: package 'viridis' was built under R version 4.3.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: viridisLite</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="capitulo3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="capitulo3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -797,29 +817,29 @@ RIC = 4.5 - 3.5 = 1.0
 </section>
 </section>
 <section id="medidas-de-relación-lineal" class="level2" data-number="3.4">
-<h2 data-number="3.4"><span class="header-section-number">3.4</span> Medidas de Relación Lineal</h2>
+<h2 data-number="3.4" class="anchored" data-anchor-id="medidas-de-relación-lineal"><span class="header-section-number">3.4</span> Medidas de Relación Lineal</h2>
 <p>Estas nos dicen si dos variables están relacionadas entre sí.</p>
 <p>Imagina que además de las calificaciones que dan tus clientes, también registras cuántas veces visitan tu restaurante al mes. Quieres entender si estas dos cosas están relacionadas: ¿los clientes que visitan más tienden a dar mejores calificaciones? ¿O tal vez ocurre lo contrario?</p>
 <section id="covarianza" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1"><span class="header-section-number">3.4.1</span> Covarianza</h3>
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">3.4.1</span> Covarianza</h3>
 <p>La <strong>covarianza</strong> es una medida que nos indica si dos variables tienden a subir o bajar juntas.</p>
 <ul>
-<li>Si la covarianza es <strong>positiva</strong>, significa que cuando una variable aumenta, la otra también tiende a aumentar.<br />
+<li>Si la covarianza es <strong>positiva</strong>, significa que cuando una variable aumenta, la otra también tiende a aumentar.<br>
 </li>
-<li>Si es <strong>negativa</strong>, cuando una variable sube, la otra tiende a bajar.<br />
+<li>Si es <strong>negativa</strong>, cuando una variable sube, la otra tiende a bajar.<br>
 </li>
 <li>Si es cercana a <strong>cero</strong>, no hay una relación lineal clara entre ellas.</li>
 </ul>
 <p>Sin embargo, la covarianza solo nos dice la dirección de la relación, pero no qué tan fuerte es, y su valor depende de las unidades de las variables, lo que dificulta compararla entre diferentes pares de variables. Es decir, no puedo comparar dos covarianzas de dos variables distintas.</p>
 </section>
 <section id="coeficiente-de-correlación" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2"><span class="header-section-number">3.4.2</span> Coeficiente de Correlación</h3>
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">3.4.2</span> Coeficiente de Correlación</h3>
 <p>Para solucionar esas limitaciones, usamos el <strong>coeficiente de correlación</strong>.</p>
 <p>Este coeficiente es una versión estandarizada de la covarianza que siempre toma un valor entre -1 y 1:</p>
 <ul>
-<li><strong>1</strong> indica una relación lineal positiva perfecta: a más visitas, mejores calificaciones, siempre.<br />
+<li><strong>1</strong> indica una relación lineal positiva perfecta: a más visitas, mejores calificaciones, siempre.<br>
 </li>
-<li><strong>-1</strong> indica una relación lineal negativa perfecta: a más visitas, peores calificaciones, siempre.<br />
+<li><strong>-1</strong> indica una relación lineal negativa perfecta: a más visitas, peores calificaciones, siempre.<br>
 </li>
 <li><strong>0</strong> indica que no hay una relación lineal significativa entre las variables.</li>
 </ul>
@@ -828,8 +848,8 @@ RIC = 4.5 - 3.5 = 1.0
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/correlacion_1.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/correlacion_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
@@ -837,23 +857,19 @@ RIC = 4.5 - 3.5 = 1.0
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="img/correlacion_2.png" class="img-fluid quarto-figure quarto-figure-center" width="350" /></p>
+<figure class="figure">
+<p><img src="img/correlacion_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">Notas de clase Business Analytics</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">Notas de clase Business Analytics</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uZXh0"><span class="chapter-number">4</span>  <span class="chapter-title">Contando Historias Claras con Gráficos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1wcmV2"><span class="chapter-number">2</span>  <span class="chapter-title">Introducción a Variables y Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sQmllbnZlbmlkb3M=">Bienvenidos</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbnRyby5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPkludHJvZHVjY2nDs246LURlc2N1YnJpZW5kby1sYS1BbmFsw610aWNhLWRlLURhdG9zPC9zcGFuPg=="><span class="chapter-number">1</span>  <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jYXBpdHVsbzIuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5JbnRyb2R1Y2Npw7NuLWEtVmFyaWFibGVzLXktRGF0b3M8L3NwYW4+"><span class="chapter-number">2</span>  <span class="chapter-title">Introducción a Variables y Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jYXBpdHVsbzMuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mzwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5FeHBsb3JhbmRvLXR1cy1EYXRvcy1jb24tRXN0YWTDrXN0aWNvcy1EZXNjcmlwdGl2b3M8L3NwYW4+"><span class="chapter-number">3</span>  <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jYXBpdHVsbzQuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NDwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5Db250YW5kby1IaXN0b3JpYXMtQ2xhcmFzLWNvbi1HcsOhZmljb3M8L3NwYW4+"><span class="chapter-number">4</span>  <span class="chapter-title">Contando Historias Claras con Gráficos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jYXBpdHVsbzUuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5JbnRlcnZhbG9zLWRlLUNvbmZpYW56YS15LVBydWViYXMtZGUtSGlww7N0ZXNpczwvc3Bhbj4="><span class="chapter-number">5</span>  <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mzwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5FeHBsb3JhbmRvLXR1cy1EYXRvcy1jb24tRXN0YWTDrXN0aWNvcy1EZXNjcmlwdGl2b3M8L3NwYW4+"><span class="chapter-number">3</span>  <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span></span></p>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ=="><span class="chapter-number">3</span>  <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span> – Notas de clase Business Analytics</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU="><span class="chapter-number">3</span>  <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span> – Notas de clase Business Analytics</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl"><span class="chapter-number">3</span>  <span class="chapter-title">Explorando tus Datos con Estadísticos Descriptivos</span> – Notas de clase Business Analytics</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Notas de clase Business Analytics</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw=="></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj"></span></p>
-</div>
+
+
 </section>
 </section>
 
 </main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1267,18 +1283,19 @@ RIC = 4.5 - 3.5 = 1.0
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a  href="/capitulo2.html" class="pagination-link" aria-label="Introducción a Variables y Datos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción a Variables y Datos</span></span>
+      <a href="./capitulo2.html" class="pagination-link" aria-label="Introducción a Variables y Datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Variables y Datos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a  href="/capitulo4.html" class="pagination-link" aria-label="Contando Historias Claras con Gráficos">
-        <span class="nav-page-text"><span class='chapter-number'>4</span>  <span class='chapter-title'>Contando Historias Claras con Gráficos</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./capitulo4.html" class="pagination-link" aria-label="Contando Historias Claras con Gráficos">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contando Historias Claras con Gráficos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 
-</body>
 
-</html>
+
+
+</body></html>

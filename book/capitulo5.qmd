@@ -201,11 +201,6 @@ Como el **0** está dentro del intervalo, la diferencia podría ser nula.
 - **Unilateral (> o <)** solo si **antes** de ver los datos** tienes una hipótesis direccional clara (p. ej., “la capacitación **aumenta** la satisfacción”).  
  
 
-#### ¿Cuándo usar “pooled” (varianzas iguales)?
-Si existe evidencia fuerte de varianzas similares (y tamaños parecidos), puede usarse el test “pooled”. En la práctica, **Welch** es una opción **segura por defecto**.
-
----
-
 ### ¿Y si las muestras son las mismas personas? (Prueba pareada)
 
 Otra historia típica del restaurante: encuestas a **los mismos clientes** **antes** y **después** de la capacitación en la **Sede Norte**.  
@@ -219,9 +214,7 @@ Aquí cada persona funciona como su **propio control** → usamos una prueba **p
 
 **Ejemplo:** 30 clientes habituales,  
 \($\bar{d} = 0.25$\) puntos, \($s_d = 0.50$\).  
-$$
-t \;=\; \frac{0.25}{0.50/\sqrt{30}} \approx 2.74,\quad \text{gl}=29
-$$
+
 Con \($\alpha=0.05$\) unilateral, esto **sí** es significativo (p \($\approx 0.01$\)).  
 
 **Interpretación:** en la *misma* sede y *mismas* personas, la satisfacción **aumentó** tras la capacitación.

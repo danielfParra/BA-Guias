@@ -30,6 +30,7 @@ book:
     - capitulo3.qmd
     - capitulo4.qmd
     - capitulo5.qmd
+    - capitulo6.qmd
 
 bibliography: references.bib
 

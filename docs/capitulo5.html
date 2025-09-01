@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./capitulo6.html" rel="next">
 <link href="./capitulo4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -358,6 +359,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -651,11 +658,6 @@ Lectura práctica
 <li><strong>Unilateral (&gt; o &lt;)</strong> solo si <strong>antes</strong> de ver los datos** tienes una hipótesis direccional clara (p.&nbsp;ej., “la capacitación <strong>aumenta</strong> la satisfacción”).</li>
 </ul>
 </section>
-<section id="cuándo-usar-pooled-varianzas-iguales" class="level4" data-number="5.3.1.2">
-<h4 data-number="5.3.1.2" class="anchored" data-anchor-id="cuándo-usar-pooled-varianzas-iguales"><span class="header-section-number">5.3.1.2</span> ¿Cuándo usar “pooled” (varianzas iguales)?</h4>
-<p>Si existe evidencia fuerte de varianzas similares (y tamaños parecidos), puede usarse el test “pooled”. En la práctica, <strong>Welch</strong> es una opción <strong>segura por defecto</strong>.</p>
-<hr>
-</section>
 </section>
 <section id="y-si-las-muestras-son-las-mismas-personas-prueba-pareada" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="y-si-las-muestras-son-las-mismas-personas-prueba-pareada"><span class="header-section-number">5.3.2</span> ¿Y si las muestras son las mismas personas? (Prueba pareada)</h3>
@@ -671,10 +673,8 @@ Lectura práctica
 </ul></li>
 </ul>
 <p><strong>Ejemplo:</strong> 30 clientes habituales,<br>
-(<span class="math inline">\(\bar{d} = 0.25\)</span>) puntos, (<span class="math inline">\(s_d = 0.50\)</span>).<br>
-<span class="math display">\[
-t \;=\; \frac{0.25}{0.50/\sqrt{30}} \approx 2.74,\quad \text{gl}=29
-\]</span> Con (<span class="math inline">\(\alpha=0.05\)</span>) unilateral, esto <strong>sí</strong> es significativo (p (<span class="math inline">\(\approx 0.01\)</span>)).</p>
+(<span class="math inline">\(\bar{d} = 0.25\)</span>) puntos, (<span class="math inline">\(s_d = 0.50\)</span>).</p>
+<p>Con (<span class="math inline">\(\alpha=0.05\)</span>) unilateral, esto <strong>sí</strong> es significativo (p (<span class="math inline">\(\approx 0.01\)</span>)).</p>
 <p><strong>Interpretación:</strong> en la <em>misma</em> sede y <em>mismas</em> personas, la satisfacción <strong>aumentó</strong> tras la capacitación.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1154,6 +1154,9 @@ En decisiones de negocio, combina el resultado estadístico con el <strong>impac
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./capitulo6.html" class="pagination-link" aria-label="Descubriendo Patrones con Regresión Lineal">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

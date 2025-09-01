@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introducción: Descubriendo la Analítica de Datos – Notas de clase Business Analytics</title>
+<title>6&nbsp; Descubriendo Patrones con Regresión Lineal – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./capitulo2.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./capitulo5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -74,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -249,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo6.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -302,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></span></a>
   </div>
 </li>
@@ -330,6 +358,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -340,15 +374,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#qué-es-la-analítica-de-datos-para-negocios" id="toc-qué-es-la-analítica-de-datos-para-negocios" class="nav-link active" data-scroll-target="#qué-es-la-analítica-de-datos-para-negocios"><span class="header-section-number">1.1</span> ¿Qué es la Analítica de Datos para Negocios?</a></li>
-  <li><a href="#qué-tipo-de-preguntas-podemos-responder-con-la-analítica" id="toc-qué-tipo-de-preguntas-podemos-responder-con-la-analítica" class="nav-link" data-scroll-target="#qué-tipo-de-preguntas-podemos-responder-con-la-analítica"><span class="header-section-number">1.2</span> ¿Qué tipo de preguntas podemos responder con la analítica?</a></li>
-  <li><a href="#tipos-de-analítica" id="toc-tipos-de-analítica" class="nav-link" data-scroll-target="#tipos-de-analítica"><span class="header-section-number">1.3</span> Tipos de Analítica</a>
+  <li><a href="#una-primera-pista-con-la-regresión-simple" id="toc-una-primera-pista-con-la-regresión-simple" class="nav-link active" data-scroll-target="#una-primera-pista-con-la-regresión-simple"><span class="header-section-number">6.1</span> 6.1 Una primera pista con la Regresión Simple</a></li>
+  <li><a href="#es-realmente-importante-mi-coeficiente-significancia-estadística" id="toc-es-realmente-importante-mi-coeficiente-significancia-estadística" class="nav-link" data-scroll-target="#es-realmente-importante-mi-coeficiente-significancia-estadística"><span class="header-section-number">6.2</span> ¿Es realmente importante mi coeficiente? (significancia estadística)</a>
   <ul class="collapse">
-  <li><a href="#analítica-descriptiva" id="toc-analítica-descriptiva" class="nav-link" data-scroll-target="#analítica-descriptiva"><span class="header-section-number">1.3.1</span> Analítica Descriptiva</a></li>
-  <li><a href="#analítica-predictiva" id="toc-analítica-predictiva" class="nav-link" data-scroll-target="#analítica-predictiva"><span class="header-section-number">1.3.2</span> Analítica Predictiva</a></li>
-  <li><a href="#analítica-prescriptiva" id="toc-analítica-prescriptiva" class="nav-link" data-scroll-target="#analítica-prescriptiva"><span class="header-section-number">1.3.3</span> Analítica Prescriptiva</a></li>
+  <li><a href="#el-planteamiento" id="toc-el-planteamiento" class="nav-link" data-scroll-target="#el-planteamiento"><span class="header-section-number">6.2.1</span> El planteamiento</a></li>
+  <li><a href="#ejemplo-de-restaurante" id="toc-ejemplo-de-restaurante" class="nav-link" data-scroll-target="#ejemplo-de-restaurante"><span class="header-section-number">6.2.2</span> Ejemplo de restaurante 🍝</a></li>
+  <li><a href="#la-prueba" id="toc-la-prueba" class="nav-link" data-scroll-target="#la-prueba"><span class="header-section-number">6.2.3</span> La prueba</a></li>
+  <li><a href="#la-moraleja" id="toc-la-moraleja" class="nav-link" data-scroll-target="#la-moraleja"><span class="header-section-number">6.2.4</span> La moraleja</a></li>
   </ul></li>
-  <li><a href="#la-cadena-de-valor-en-business-analytics" id="toc-la-cadena-de-valor-en-business-analytics" class="nav-link" data-scroll-target="#la-cadena-de-valor-en-business-analytics"><span class="header-section-number">1.4</span> La cadena de valor en Business Analytics</a></li>
+  <li><a href="#midiendo-qué-tan-bien-funciona-mi-regresión" id="toc-midiendo-qué-tan-bien-funciona-mi-regresión" class="nav-link" data-scroll-target="#midiendo-qué-tan-bien-funciona-mi-regresión"><span class="header-section-number">6.3</span> Midiendo qué tan bien funciona mi regresión</a></li>
+  <li><a href="#sumando-más-ingredientes-la-regresión-múltiple" id="toc-sumando-más-ingredientes-la-regresión-múltiple" class="nav-link" data-scroll-target="#sumando-más-ingredientes-la-regresión-múltiple"><span class="header-section-number">6.4</span> Sumando más ingredientes: la Regresión Múltiple</a>
+  <ul class="collapse">
+  <li><a href="#significancia-en-la-regresión-múltiple" id="toc-significancia-en-la-regresión-múltiple" class="nav-link" data-scroll-target="#significancia-en-la-regresión-múltiple"><span class="header-section-number">6.4.1</span> Significancia en la regresión múltiple</a></li>
+  </ul></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">6.5</span> Conclusión</a></li>
   </ul>
 </nav>
     </div>
@@ -358,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción: Descubriendo la Analítica de Datos</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></h1>
 </div>
 
 
@@ -375,61 +414,186 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Imagina que trabajas en una empresa que debe decidir qué producto lanzar o qué precio poner a sus artículos. ¿Cómo tomas estas decisiones? Antiguamente, las decisiones se tomaban según la intuición del jefe (<strong>HiPPO</strong>, la persona mejor pagada en la organización), pero actualmente contamos con algo mejor: la analítica de datos.</p>
-<section id="qué-es-la-analítica-de-datos-para-negocios" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="qué-es-la-analítica-de-datos-para-negocios"><span class="header-section-number">1.1</span> ¿Qué es la Analítica de Datos para Negocios?</h2>
-<p>La analítica de datos es la aplicación de herramientas tecnológicas y estadísticas para analizar información relevante y apoyar la toma de decisiones en una organización.</p>
-<p>Los datos, sin embargo, no son suficientes por sí solos. Necesitamos interpretarlos de manera efectiva para contar historias convincentes que permitan tomar decisiones informadas.</p>
-</section>
-<section id="qué-tipo-de-preguntas-podemos-responder-con-la-analítica" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="qué-tipo-de-preguntas-podemos-responder-con-la-analítica"><span class="header-section-number">1.2</span> ¿Qué tipo de preguntas podemos responder con la analítica?</h2>
-<p>La analítica de negocios nos permite responder preguntas prácticas, como:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/reg_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<p>Imagina que eres dueño de un restaurante 🍝.<br>
+Cada día recibes clientes, vendes platos y al final de la semana te preguntas:</p>
+<blockquote class="blockquote">
+<p><strong>¿Qué hace que mis ventas suban o bajen?</strong><br>
+¿Será el precio de los platos, la inversión en publicidad, o quizá los fines de semana festivos?</p>
+</blockquote>
+<p>Aquí entra en acción la <strong>regresión lineal</strong>, una herramienta que nos ayuda a descubrir patrones escondidos en los datos.</p>
+<section id="una-primera-pista-con-la-regresión-simple" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="una-primera-pista-con-la-regresión-simple"><span class="header-section-number">6.1</span> 6.1 Una primera pista con la Regresión Simple</h2>
+<p>Empecemos simple: ¿qué pasa con tus ventas y el precio del menú?</p>
+<p>Si anotas tus datos semana a semana y los pones en un gráfico como el de abajo, notarás que cuando el precio sube, las ventas tienden a bajar. La regresión lineal traza la <strong>mejor línea recta</strong> que explica esa relación.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/reg_2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Gráfico de dispersión ventas vs.&nbsp;precio</figcaption>
+</figure>
+</div>
+<p>La ecuación que representa la línea roja de ese gráfico se ve así:</p>
+<p><span class="math display">\[
+Ventas = b_0 + b_1 \times Precio + \varepsilon
+\]</span></p>
 <ul>
-<li>¿Quiénes son mis clientes?</li>
-<li>¿Qué campaña de marketing es más efectiva?</li>
-<li>¿Cuál sería el efecto de cambiar los precios?</li>
-<li>¿Cómo predecir la demanda de un producto?</li>
+<li><strong><span class="math inline">\(b_0\)</span></strong>: el punto de partida (ventas cuando el precio es cero, aunque no sea realista vender gratis 🍕).<br>
+</li>
+<li><strong><span class="math inline">\(b_1\)</span></strong>: la <em>pendiente</em>; cuánto cambian las ventas si subes el precio en una unidad.<br>
+</li>
+<li><strong><span class="math inline">\(\varepsilon\)</span></strong>: el ruido que la línea no puede explicar (clima, humor del chef, partidos de fútbol, etc.).</li>
+</ul>
+<p>👉 Si el modelo encuentra que:</p>
+<p><span class="math display">\[
+\hat{Ventas} = 500 - 25 \times Precio
+\]</span></p>
+<p>significa que por cada $1 más en el precio, <strong>pierdes 25 platos vendidos en promedio</strong>. ¡Cuidado con pasarte de caro!</p>
+</section>
+<section id="es-realmente-importante-mi-coeficiente-significancia-estadística" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="es-realmente-importante-mi-coeficiente-significancia-estadística"><span class="header-section-number">6.2</span> ¿Es realmente importante mi coeficiente? (significancia estadística)</h2>
+<p>Hasta ahora vimos que un coeficiente <span class="math inline">\(b_1\)</span> nos dice cómo cambia <span class="math inline">\(Y\)</span> cuando <span class="math inline">\(X\)</span> sube una unidad.</p>
+<p>Pero la gran pregunta es: <strong>¿podemos confiar en que ese efecto no apareció solo por azar?</strong></p>
+<p>Aquí entran las <strong>pruebas de hipótesis</strong> que estudiamos el capítulo anterior.</p>
+<section id="el-planteamiento" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="el-planteamiento"><span class="header-section-number">6.2.1</span> El planteamiento</h3>
+<ul>
+<li><strong>Hipótesis nula (<span class="math inline">\(H_0\)</span>)</strong>: el coeficiente es igual a 0.<br>
+&gt; Es decir, que la variable no tiene efecto real en las ventas.<br>
+</li>
+<li><strong>Hipótesis alternativa (<span class="math inline">\(H_1\)</span>)</strong>: el coeficiente es diferente de 0.<br>
+&gt; Que sí existe un impacto real.</li>
+</ul>
+<p>Para saber si tu coeficiente es realmente significativo, puedes usar el valor p (p-value). Este valor te dice la probabilidad de que el coeficiente sea cero (es decir, que no tenga efecto).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prueba de significancia estadística
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Si el valor p es menor que 0.05, puedes decir que el coeficiente es <strong>significativo</strong>. Esto significa que hay evidencia suficiente para afirmar que el precio sí afecta las ventas.</li>
+<li>Si el valor p es mayor que 0.05, no puedes rechazar la hipótesis nula de que el coeficiente es cero. En otras palabras, no hay suficiente evidencia para afirmar que el precio afecta las ventas.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ejemplo-de-restaurante" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="ejemplo-de-restaurante"><span class="header-section-number">6.2.2</span> Ejemplo de restaurante 🍝</h3>
+<p>Supongamos que obtienes un nuevo modelo al recoger más datos:</p>
+<p><span class="math display">\[
+\hat{Ventas} = 400 - 20 \times Precio + 60 \times Publicidad
+\]</span></p>
+<ul>
+<li>El coeficiente de <strong>Precio = -20</strong> sugiere que subir $1 reduce 20 platos vendidos.<br>
+</li>
+<li>Pero, ¿y si esa relación negativa se debe solo a la casualidad en tus datos?</li>
 </ul>
 </section>
-<section id="tipos-de-analítica" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="tipos-de-analítica"><span class="header-section-number">1.3</span> Tipos de Analítica</h2>
-<p>Hay tres tipos principales de analítica:</p>
-<section id="analítica-descriptiva" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="analítica-descriptiva"><span class="header-section-number">1.3.1</span> Analítica Descriptiva</h3>
-<p>Describe la situación actual mediante visualizaciones y estadísticas básicas.</p>
-<p><strong>Ejemplos:</strong></p>
+<section id="la-prueba" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="la-prueba"><span class="header-section-number">6.2.3</span> La prueba</h3>
+<p>El software (R, Excel, Stata, etc.) hace un <strong>test t</strong> que compara el valor del coeficiente con la variabilidad de los datos.<br>
+De ahí sale un número mágico: el <strong>p-valor</strong>.</p>
 <ul>
-<li>¿Han crecido las ventas este año?</li>
-<li>¿Qué región vende menos?</li>
+<li>Si el <strong>p-valor &lt; 0.05</strong>, rechazamos la hipótesis nula.<br>
+&gt; Concluimos que el efecto es significativo: el precio <em>sí afecta</em> las ventas.<br>
+</li>
+<li>Si el <strong>p-valor ≥ 0.05</strong>, no tenemos suficiente evidencia.<br>
+&gt; No podemos asegurar que el precio influya: podría ser puro ruido.</li>
 </ul>
 </section>
-<section id="analítica-predictiva" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="analítica-predictiva"><span class="header-section-number">1.3.2</span> Analítica Predictiva</h3>
-<p>Predice qué sucederá, aprovechando correlaciones entre variables. Aquí no es necesaria la causalidad, sino una relación estadística sólida.</p>
-<p><strong>Ejemplos:</strong></p>
-<ul>
-<li>¿Cuál es la probabilidad de que un cliente deje de comprar?</li>
-<li>¿Qué tan probable es que una transacción sea fraudulenta?</li>
-</ul>
-</section>
-<section id="analítica-prescriptiva" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="analítica-prescriptiva"><span class="header-section-number">1.3.3</span> Analítica Prescriptiva</h3>
-<p>Sugiere decisiones óptimas, enfocándose en relaciones causales y, frecuentemente, utilizando experimentos.</p>
-<p><strong>Ejemplos:</strong></p>
-<ul>
-<li>¿Subir el precio incrementará las ganancias?</li>
-<li>¿Qué diseño de página web aumentará las ventas?</li>
-</ul>
+<section id="la-moraleja" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="la-moraleja"><span class="header-section-number">6.2.4</span> La moraleja</h3>
+<p>Un coeficiente puede verse grande o pequeño, positivo o negativo, pero lo crucial es saber si es <strong>estadísticamente diferente de cero</strong>.<br>
+Solo así podemos decir con confianza que esa variable explica parte de la historia de nuestros datos.</p>
+<p>👉 En negocios, esto significa que antes de tomar decisiones (subir precios, invertir en publicidad, lanzar una promo) debemos asegurarnos de que los efectos que vemos no sean simplemente coincidencias.</p>
 </section>
 </section>
-<section id="la-cadena-de-valor-en-business-analytics" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="la-cadena-de-valor-en-business-analytics"><span class="header-section-number">1.4</span> La cadena de valor en Business Analytics</h2>
-<p>La analítica de negocios incluye:</p>
+<section id="midiendo-qué-tan-bien-funciona-mi-regresión" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="midiendo-qué-tan-bien-funciona-mi-regresión"><span class="header-section-number">6.3</span> Midiendo qué tan bien funciona mi regresión</h2>
+<p>No basta con tener la línea (regresión), también queremos saber <strong>qué tan buena es</strong>.</p>
+<p>Para eso usamos el famoso <strong><span class="math inline">\(R^2\)</span></strong>, también llamado coeficiente de determinación:</p>
 <ul>
-<li><strong>Recolección y organización de datos:</strong> Crear bases de datos (SQL, Power BI).</li>
-<li><strong>Análisis de datos:</strong> Usar herramientas como R, Excel o Python para análisis estratégicos.</li>
-<li><strong>Comunicación de resultados:</strong> Presentar hallazgos en reportes y visualizaciones (PowerPoint, Tableau, Quarto).</li>
+<li>Si <span class="math inline">\(R^2 = 0.8\)</span>, entonces el 80% de las variaciones en ventas se explican solo con el precio.<br>
+</li>
+<li>El 20% restante… bueno, puede ser el clima, la competencia, o ese influencer foodie que llegó sin avisar 📸.</li>
 </ul>
+<p>Si <span class="math inline">\(R^2 = 0\)</span>, tu modelo no explica nada: sería como decir que el precio no tiene relación alguna con las ventas, y que lo único que podrías hacer es mirar el promedio de todas las semanas.</p>
+<p>Si <span class="math inline">\(R^2 = 1\)</span>, tu modelo explica todo: las ventas estarían perfectamente determinadas por el precio, sin misterios, sin azar, sin sorpresas (lo cual rara vez pasa en la vida real).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Piensa en <span class="math inline">\(R^2\)</span> como un termómetro de confianza: te dice qué tan buena es tu línea de regresión para capturar la historia detrás de tus datos. No es perfecto, pero sí es una brújula que te orienta sobre cuánto puedes fiarte de tu modelo para explicar lo que ves.</p>
+</div>
+</div>
+</section>
+<section id="sumando-más-ingredientes-la-regresión-múltiple" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sumando-más-ingredientes-la-regresión-múltiple"><span class="header-section-number">6.4</span> Sumando más ingredientes: la Regresión Múltiple</h2>
+<p>En la vida real, tus ventas no dependen solo del precio.<br>
+En tu restaurante también influyen otros “ingredientes” del negocio:</p>
+<ul>
+<li>el <strong>precio</strong> del menú,<br>
+</li>
+<li>el <strong>dinero invertido en publicidad</strong>,<br>
+</li>
+<li>y si fue o no una <strong>semana festiva</strong>.</li>
+</ul>
+<p>La regresión múltiple nos permite poner todos esos factores en la misma receta estadística.Supongamos que tus datos arrojan:</p>
+<p><span class="math display">\[
+\hat{Ventas} = 400 - 20 \times Precio + 60 \times Publicidad + 15 \times Festivo
+\]</span></p>
+<p>Interpretación:<br>
+- Cada $1 más en el precio reduce en promedio 20 platos vendidos.<br>
+- Cada $100 en publicidad aumentan las ventas en 60 platos.<br>
+- Si es semana festiva, se venden 15 platos extra aunque no cambie nada más.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plantilla de interpretación (ceteris paribus): significa que por cada unidad que aumente <strong>variable</strong>, la <strong>variable dependiente</strong> cambia en promedio <strong>coeficiente</strong> unidades, manteniendo constantes las demás variables.</p>
+<p>Ejemplo: por cada $1 que aumenta el precio, las ventas semanales disminuyen en promedio 20 platos, manteniendo la publicidad y la condición de semana festiva constantes.</p>
+</div>
+</div>
+<p>En otras palabras, la regresión múltiple te permite <strong>separar los efectos</strong>:<br>
+sabes qué parte de las ventas se debe al precio, qué parte a la publicidad y qué parte al calendario.</p>
+<section id="significancia-en-la-regresión-múltiple" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="significancia-en-la-regresión-múltiple"><span class="header-section-number">6.4.1</span> Significancia en la regresión múltiple</h3>
+<p>En regresión múltiple evaluamos la significancia de cada coeficiente de la misma manera que en la regresión simple: mediante un estadístico t y su p-valor. Cada coeficiente se interpreta <strong>ceteris paribus</strong> (manteniendo las demás variables constantes), por eso es importante no mezclar la interpretación de los efectos.</p>
+<p>Ejemplo (resumen):</p>
+<ul>
+<li><span class="math inline">\(\hat{Ventas} = 400 - 20\times Precio + 60\times Publicidad + 15\times Festivo\)</span></li>
+<li>p-valores (ej.): Precio <span class="math inline">\(p&lt;0.01\)</span> (significativo), Publicidad <span class="math inline">\(p=0.18\)</span> (no significativo), Festivo <span class="math inline">\(p=0.03\)</span> (significativo)</li>
+</ul>
+<p>Aunque el coeficiente de publicidad sea 60, su p-valor elevado (<span class="math inline">\(p=0.18\)</span>) indica que no hay suficiente evidencia para afirmar que la publicidad tiene un efecto sobre las ventas una vez controlamos por precio y festivo (ceteris paribus). Esto implica que aunque el coeficiente sea 60, en términos estadísticos es 0.</p>
+</section>
+</section>
+<section id="conclusión" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">6.5</span> Conclusión</h2>
+<p>La regresión lineal, ya sea simple o múltiple, funciona como una lupa 🔍:<br>
+te ayuda a <strong>distinguir qué factores realmente impulsan tus resultados</strong> y cuáles son solo ruido.</p>
+<p>En el restaurante esto significa tomar decisiones con más confianza:<br>
+¿bajo precios?, ¿aumento el presupuesto en publicidad?, ¿aprovecho mejor los festivos?</p>
+<p>👉 La magia está en que no tienes que adivinar. Los datos te cuentan la historia, y la regresión es el traductor.</p>
 
 
 </section>
@@ -849,14 +1013,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Bienvenidos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bienvenidos</span>
+      <a href="./capitulo5.html" class="pagination-link" aria-label="Intervalos de Confianza y Pruebas de Hipótesis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./capitulo2.html" class="pagination-link" aria-label="Introducción a Variables y Datos">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Variables y Datos</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
