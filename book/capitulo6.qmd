@@ -14,7 +14,7 @@ Aquí entra en acción la **regresión lineal**, una herramienta que nos ayuda a
 
 
 
-## 6.1 Una primera pista con la Regresión Simple
+## Una primera pista con la Regresión Simple
 
 Empecemos simple: ¿qué pasa con tus ventas y el precio del menú?  
 
