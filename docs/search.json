@@ -378,5 +378,65 @@
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Extensiones del modelo de regresión lineal</span>"
     ]
+  },
+  {
+    "objectID": "capitulo8.html",
+    "href": "capitulo8.html",
+    "title": "8  Modelos de probabilidad",
+    "section": "",
+    "text": "8.1 El primer intento: Modelo de Probabilidad Lineal (MPL)\nHasta ahora hemos trabajado con regresiones en las que la variable dependiente es continua: ventas, gasto promedio, calificaciones de clientes. Pero en la práctica, muchas decisiones importantes se expresan como un sí o no:\nEstas situaciones se modelan con variables binarias: toman el valor 1 cuando el evento ocurre y 0 cuando no.\nEn este capítulo introducimos modelos donde la variable respuesta es una probabilidad o una categoría, en lugar de una cantidad continua.\nPodemos intentar usar regresión lineal directamente, tratando la variable binaria como si fuera continua. El modelo se vería así:\n\\[\nPr(\\text{Regresa}=1) = b_0 + b_1 \\times Precio + b_2 \\times Publicidad + \\varepsilon\n\\]\nAquí:\nEjemplo en el restaurante:\n- Cada $1 adicional en el precio del menú disminuye la probabilidad de regreso en 3 puntos porcentuales.\n- Cada $100 en publicidad aumenta la probabilidad en 2 puntos porcentuales.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Modelos de probabilidad</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo8.html#el-primer-intento-modelo-de-probabilidad-lineal-mpl",
+    "href": "capitulo8.html#el-primer-intento-modelo-de-probabilidad-lineal-mpl",
+    "title": "8  Modelos de probabilidad",
+    "section": "",
+    "text": "\\(b_1\\) indica cómo cambia la probabilidad de regreso cuando aumenta el precio en 1 unidad.\n\n\\(b_2\\) mide el efecto de invertir más en publicidad.\n\n\n\n\n\n\n\n\nAdvertencia\n\n\n\nProblema: este modelo puede predecir probabilidades menores a 0 o mayores a 1, lo cual no tiene sentido.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Modelos de probabilidad</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo8.html#la-solución-regresión-logística",
+    "href": "capitulo8.html#la-solución-regresión-logística",
+    "title": "8  Modelos de probabilidad",
+    "section": "8.2 La solución: Regresión Logística",
+    "text": "8.2 La solución: Regresión Logística\nPara asegurarnos de que las probabilidades siempre estén entre 0 y 1, usamos una transformación llamada función logística:\n\\[\nPr(\\text{Regresa}=1) = \\frac{1}{1 + e^{-(b_0 + b_1 \\times Precio + b_2 \\times Publicidad)}}\n\\]\n\nSin importar los valores de Precio o Publicidad, el resultado siempre es una probabilidad válida.\n\nLa relación entre las variables y la probabilidad no es lineal, sino en forma de “S”: los cambios tienen más impacto en ciertos rangos y menos en otros.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Modelos de probabilidad</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo8.html#intuición-con-el-restaurante",
+    "href": "capitulo8.html#intuición-con-el-restaurante",
+    "title": "8  Modelos de probabilidad",
+    "section": "8.3 Intuición con el restaurante 🍽️",
+    "text": "8.3 Intuición con el restaurante 🍽️\nSupongamos que estimamos el siguiente modelo:\n\\[\nPr(\\text{Regresa}=1) = \\frac{1}{1 + e^{-(2 - 0.05 \\times Precio + 0.01 \\times Publicidad)}}\n\\]\nInterpretación:\n- Cada $1 más en el precio reduce la probabilidad de regreso en aproximadamente 5%.\n- Cada $100 invertidos en publicidad aumentan la probabilidad en 1%.\nEjemplos:\n- Menú a $20 y publicidad de $500 → probabilidad de regreso = 70%.\n- Menú a $30 y misma publicidad → probabilidad de regreso = 55%.\n\n\n\n\n\nCurva logística: probabilidad de que un cliente regrese según el precio",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Modelos de probabilidad</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo8.html#cuándo-usar-el-modelo-de-probabilidad-lineal-mpl-y-cuándo-la-regresión-logística",
+    "href": "capitulo8.html#cuándo-usar-el-modelo-de-probabilidad-lineal-mpl-y-cuándo-la-regresión-logística",
+    "title": "8  Modelos de probabilidad",
+    "section": "8.4 ¿Cuándo usar el Modelo de Probabilidad Lineal (MPL) y cuándo la Regresión Logística?",
+    "text": "8.4 ¿Cuándo usar el Modelo de Probabilidad Lineal (MPL) y cuándo la Regresión Logística?\nBreve respuesta intuitiva:\n\nUsa el MPL para exploraciones rápidas o cuando quieras una lectura lineal sencilla de los datos. Es fácil de estimar y explicar. Sirve mejor para efectos generales.\nUsa la regresión logística cuando necesites predicciones de probabilidad coherentes (siempre entre 0 y 1) para cada individuo, o cuando la relación entre las variables y la probabilidad tenga curvatura (forma de “S”).\n\nMás en detalle:\n\n¿Por qué el MPL puede funcionar como primer paso?\n\nEs un modelo lineal simple: el coeficiente se interpreta directamente como “cambio en la probabilidad (puntos porcentuales) por unidad”.\nEs útil para explorar señales en los datos y para comunicación rápida cuando las predicciones quedan mayoritariamente dentro de 0–1.\n\n¿Por qué puede fallar el MPL?\n\nPuede predecir probabilidades menores que 0 o mayores que 1.\nNo captura la naturaleza no lineal típica de muchas probabilidades (efectos que se saturan).\nSus errores estándar pueden ser incorrectos por la heterocedasticidad inherente a variables binarias.\n\n¿Por qué la regresión logística suele ser mejor?\n\nLa transformación logística garantiza probabilidades en [0,1].\nModela la curvatura (efectos más fuertes en ciertas zonas y más débiles en los extremos).\nEs el estándar práctico cuando se requiere rigor en predicción y en inferencia para variables binarias.\n\n\nRegla práctica:\n\nSi necesitas rapidez y las probabilidades estimadas caen dentro de 0.1–0.9 sin comportamientos extraños, el MPL puede servir para explorar. Pero si necesitas predicciones confiables, interpretación robusta y valores fuera del rango son posibles, usa logística.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Modelos de probabilidad</span>"
+    ]
+  },
+  {
+    "objectID": "capitulo8.html#interpretación-coeficientes-log-odds-y-efectos-marginales-explicado-fácil",
+    "href": "capitulo8.html#interpretación-coeficientes-log-odds-y-efectos-marginales-explicado-fácil",
+    "title": "8  Modelos de probabilidad",
+    "section": "8.5 Interpretación: coeficientes, log-odds y efectos marginales (explicado fácil)",
+    "text": "8.5 Interpretación: coeficientes, log-odds y efectos marginales (explicado fácil)\nLo esencial de forma muy simple:\n\nEn regresión lineal un coeficiente \\(β_j\\) se lee directo: un aumento de 1 en \\(X_j\\) cambia la probabilidad en \\(β_j\\) puntos porcentuales.\nEn regresión logística NO se lee así. Los coeficientes actúan sobre los log-odds (el logaritmo de las odds), no sobre la probabilidad directa.\n\n¿Qué quiere decir eso en palabras? - Piensa que la regresión logística primero calcula una “puntuación” \\((x \\times β)\\). Esa puntuación se transforma con la función logística para producir una probabilidad entre 0 y 1. El coeficiente \\(β_j\\) dice cuánto cambia la puntuación (el log-odds), pero ese cambio no se traduce siempre en la misma variación de probabilidad: depende del punto donde estés.\nEfectos marginales — la forma práctica de leer resultados:\n\nPara saber cuánto cambia la probabilidad cuando \\(X_j\\) aumenta en 1 unidad necesitamos calcular el efecto marginal, que combina \\(β_j\\) con la probabilidad actual p:\ncambio en probabilidad ≈ \\[ β_j × p × (1 - p)\\]\n\nObserva que p(1-p) es máximo cuando p ≈ 0.5, y pequeño cuando p está cerca de 0 o 1. Esto significa que un mismo \\(β_j\\) puede implicar cambios grandes en la probabilidad si estamos en la zona media, y cambios pequeños si estamos en los extremos.\n\n\nEjemplo muy concreto: - Si \\(β_precio = -0.05\\) y para un cliente \\(p = 0.5\\), el efecto aproximado de subir 1 unidad el precio es:\n\\(-0.05 × 0.5 × 0.5 = -0.0125\\) → una reducción de \\(~1.25\\) puntos porcentuales en la probabilidad de regreso en ese punto.\nCómo reportarlo en práctica:\n\nEfecto marginal en la media (MEM): calcula \\(p\\) en las medias de las covariables y aplica la fórmula. Fácil de explicar.\nEfecto marginal promedio (AME): calcula el efecto marginal por observación y promedia; refleja el efecto medio en la muestra.\nCambio discreto para variables dummy: calcula la diferencia en la probabilidad predicha al pasar la variable de 0 a 1.\n\nOtra forma común: odds y odds ratio (explicado fácil)\nCuando se estima un modelo binomial (logístico) los coeficientes se obtienen en la escala de los log-odds. Para pasar a una interpretación más intuitiva aplicamos la exponencial de ese coeficiente:\n\nOR = \\(exp(β_j)\\)\n\nEsto se denomina odds ratio (OR) y compara cómo cambian las odds cuando una variable aumenta en una unidad.\nDefiniciones claras e intuitivas:\n\nOdds: la razón entre la probabilidad de éxito y la probabilidad de fracaso.\nodds = \\(p / (1 - p)\\)\ndonde \\(p\\) es la probabilidad de que ocurra el evento de interés.\nOdds ratio (OR): la razón entre las odds en dos grupos o condiciones.\nOR = odds en el grupo A / odds en el grupo B\nSi OR &gt; 1, las odds son mayores en el numerador; si OR &lt; 1, las odds son menores.\n\nEjemplo simple e intuitivo:\n\nSi \\(exp(β_precio) = 0.95\\), eso significa que aumentar el precio en 1 unidad multiplica las odds por \\(0.95\\) (una reducción del 5% en las odds). No es exactamente la misma reducción en la probabilidad, pero da una idea clara de dirección y magnitud relativa.\n\nConsejo práctico para comunicar resultados:\n\nUsa OR cuando quieras mostrar «cuánto cambian las odds» (útil en reportes) y complementa siempre con efectos marginales o cambios en probabilidades para audiencias no técnicas.\n\nResumen para el lector final:\n\nMPL: simple y útil para exploración, pero con límites (probabilidades fuera de rango, errores en inferencia).\nLogística: un poco más compleja de interpretar, pero produce probabilidades coherentes; siempre traduzcas β a efectos marginales o a cambios en probabilidad para comunicar resultados a audiencias no técnicas.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Modelos de probabilidad</span>"
+    ]
   }
 ]

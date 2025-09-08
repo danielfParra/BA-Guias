@@ -32,6 +32,7 @@ book:
     - capitulo5.qmd
     - capitulo6.qmd
     - capitulo7.qmd
+    - capitulo8.qmd
 
 bibliography: references.bib
 
