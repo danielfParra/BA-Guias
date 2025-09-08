@@ -159,3 +159,67 @@ En el restaurante esto significa tomar decisiones con más confianza:
 ¿bajo precios?, ¿aumento el presupuesto en publicidad?, ¿aprovecho mejor los festivos?  
 
 👉 La magia está en que no tienes que adivinar. Los datos te cuentan la historia, y la regresión es el traductor.
+
+
+# Extensiones del modelo de regresión lineal
+
+Hasta ahora, hemos usado modelos de regresión lineal “simples” para predecir ventas en tu restaurante según precio, publicidad o si era semana festiva. Pero el mundo real es más complejo: las variables **pueden interactuar** entre sí y la relación con las ventas **no siempre es lineal**.  
+
+Veamos cómo ampliar la receta de la regresión lineal para capturar estos matices.  
+
+---
+
+## 6.1 Cuando los ingredientes se combinan: Interacciones
+
+Imagina que lanzas un nuevo plato y quieres saber cómo influye el **precio** en las ventas. Pero tal vez el impacto del precio depende de otra variable, por ejemplo, si hiciste o no **publicidad**.  
+
+- Si no hay publicidad, un descuento en el precio podría no atraer a muchos clientes.  
+- Si sí hay publicidad, ese mismo descuento puede disparar las ventas.  
+
+Esto se llama **interacción**: el efecto de una variable depende del valor de otra.  
+
+\[
+Ventas = b_0 + b_1 \times Precio + b_2 \times Publicidad + b_3 \times (Precio \times Publicidad) + \varepsilon
+\]
+
+El término $b_3$ mide cuánto cambia el efecto del precio cuando hay publicidad.  
+
+::: callout-tip
+**Intuición:** no todos los ingredientes de tu receta funcionan igual por separado. A veces lo que importa es la mezcla.  
+:::
+
+---
+
+## 6.2 Relaciones no siempre lineales
+
+No siempre el efecto de una variable es recto como una línea. Por ejemplo:  
+
+- Si el precio es muy bajo, las ventas suben (¡oferta irresistible!).  
+- Si subes demasiado el precio, las ventas bajan (¡nadie quiere pagar tanto!).  
+
+Esto dibuja una **curva** en vez de una línea.  
+
+Para capturar ese patrón podemos agregar un **término cuadrático** al modelo:  
+
+\[
+Ventas = b_0 + b_1 \times Precio + b_2 \times Precio^2 + \varepsilon
+\]
+
+- $b_1$ mide el efecto lineal del precio.  
+- $b_2$ permite que la curva se doble hacia arriba o hacia abajo.  
+
+::: callout-tip
+**Intuición:** como en la cocina, no siempre más de un ingrediente mejora el plato. Hay un punto óptimo de sal o picante: demasiado poco o demasiado mucho arruina la receta.  
+:::
+
+```{r}
+#| label: grafico-cuadratico
+#| fig-cap: "Relación cuadrática entre precio y ventas (ejemplo simulado)"
+#| echo: false
+
+set.seed(123)
+precio <- seq(5, 30, 1)
+ventas <- 200 - 10*precio + 0.3*precio^2 + rnorm(length(precio), 0, 15)
+plot(precio, ventas, pch=19, col="darkred",
+     main="Ejemplo relación cuadrática",
+     xlab="Precio", ylab="Ventas")

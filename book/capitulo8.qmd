@@ -1,0 +1,39 @@
+---
+title: "8. Modelos de Probabilidad"
+---
+
+# Modelos de Probabilidad
+
+En este capítulo introducimos modelos donde la variable respuesta es una **probabilidad** o una **categoría**, en lugar de una cantidad continua.
+
+## 8.1 ¿Por qué no usar solo regresión lineal?
+Cuando la variable objetivo es binaria (ej.: compra/no compra), la regresión lineal puede producir valores fuera del rango [0,1] y errores de interpretación. Aquí entran los **modelos de probabilidad**.
+
+## 8.2 Variable dependiente binaria
+Ejemplos típicos:
+- Que un cliente realice una compra (sí/no)
+- Que un estudiante apruebe un examen (sí/no)
+- Que un usuario haga clic en un anuncio (sí/no)
+
+## 8.3 El modelo de probabilidad lineal (MPL)
+Forma básica:
+$$
+P(Y=1 \mid X) = \beta_0 + \beta_1 X_1 + \cdots + \beta_k X_k
+$$
+Limitaciones:
+- Puede dar probabilidades < 0 o > 1.
+- Heterocedasticidad (varianza no constante) por construcción.
+- No modela bien la naturaleza sigmoide de muchas relaciones.
+
+## 8.4 Hacia modelos no lineales: intuición
+La probabilidad de un evento suele crecer rápido al principio y luego se “aplaca” (ej.: adopción de un producto). Necesitamos una función que respete el rango [0,1] y permita esta curvatura.
+
+## 8.5 Próximos pasos
+En las siguientes secciones (a desarrollar) veremos:
+- Regresión logística
+- Función logística y odds
+- Interpretación de coeficientes (log-odds, odds ratio)
+- Métricas de desempeño: accuracy, AUC, curva ROC
+- Extensiones: regularización, multinomial, etc.
+
+(Completa y expande según tus necesidades didácticas.)

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Descubriendo Patrones con Regresión Lineal – Notas de clase Business Analytics</title>
+<title>7&nbsp; Extensiones del modelo de regresión lineal – Notas de clase Business Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./capitulo5.html" rel="prev">
+<link href="./capitulo6.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -277,7 +277,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo6.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./capitulo7.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Extensiones del modelo de regresión lineal</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -360,8 +360,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./capitulo6.html" class="sidebar-item-text sidebar-link active">
+  <a href="./capitulo6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capitulo7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Extensiones del modelo de regresión lineal</span></span></a>
   </div>
 </li>
     </ul>
@@ -374,25 +380,12 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#una-primera-pista-con-la-regresión-simple" id="toc-una-primera-pista-con-la-regresión-simple" class="nav-link active" data-scroll-target="#una-primera-pista-con-la-regresión-simple"><span class="header-section-number">6.1</span> Una primera pista con la Regresión Simple</a></li>
-  <li><a href="#es-realmente-importante-mi-coeficiente-significancia-estadística" id="toc-es-realmente-importante-mi-coeficiente-significancia-estadística" class="nav-link" data-scroll-target="#es-realmente-importante-mi-coeficiente-significancia-estadística"><span class="header-section-number">6.2</span> ¿Es realmente importante mi coeficiente? (significancia estadística)</a>
+  <li><a href="#cuando-los-ingredientes-se-combinan-interacciones" id="toc-cuando-los-ingredientes-se-combinan-interacciones" class="nav-link active" data-scroll-target="#cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">7.1</span> Cuando los ingredientes se combinan: Interacciones</a>
   <ul class="collapse">
-  <li><a href="#el-planteamiento" id="toc-el-planteamiento" class="nav-link" data-scroll-target="#el-planteamiento"><span class="header-section-number">6.2.1</span> El planteamiento</a></li>
-  <li><a href="#ejemplo-de-restaurante" id="toc-ejemplo-de-restaurante" class="nav-link" data-scroll-target="#ejemplo-de-restaurante"><span class="header-section-number">6.2.2</span> Ejemplo de restaurante 🍝</a></li>
-  <li><a href="#la-prueba" id="toc-la-prueba" class="nav-link" data-scroll-target="#la-prueba"><span class="header-section-number">6.2.3</span> La prueba</a></li>
-  <li><a href="#la-moraleja" id="toc-la-moraleja" class="nav-link" data-scroll-target="#la-moraleja"><span class="header-section-number">6.2.4</span> La moraleja</a></li>
+  <li><a href="#ejemplos-prácticos-de-interacciones-y-cómo-interpretar-b_3" id="toc-ejemplos-prácticos-de-interacciones-y-cómo-interpretar-b_3" class="nav-link" data-scroll-target="#ejemplos-prácticos-de-interacciones-y-cómo-interpretar-b_3"><span class="header-section-number">7.1.1</span> Ejemplos prácticos de interacciones (y cómo interpretar <span class="math inline">\(b_3\)</span>)</a></li>
+  <li><a href="#ejemplos-prácticos-de-interacciones" id="toc-ejemplos-prácticos-de-interacciones" class="nav-link" data-scroll-target="#ejemplos-prácticos-de-interacciones"><span class="header-section-number">7.1.2</span> 6.1.1 Ejemplos prácticos de interacciones</a></li>
   </ul></li>
-  <li><a href="#midiendo-qué-tan-bien-funciona-mi-regresión" id="toc-midiendo-qué-tan-bien-funciona-mi-regresión" class="nav-link" data-scroll-target="#midiendo-qué-tan-bien-funciona-mi-regresión"><span class="header-section-number">6.3</span> Midiendo qué tan bien funciona mi regresión</a></li>
-  <li><a href="#sumando-más-ingredientes-la-regresión-múltiple" id="toc-sumando-más-ingredientes-la-regresión-múltiple" class="nav-link" data-scroll-target="#sumando-más-ingredientes-la-regresión-múltiple"><span class="header-section-number">6.4</span> Sumando más ingredientes: la Regresión Múltiple</a>
-  <ul class="collapse">
-  <li><a href="#significancia-en-la-regresión-múltiple" id="toc-significancia-en-la-regresión-múltiple" class="nav-link" data-scroll-target="#significancia-en-la-regresión-múltiple"><span class="header-section-number">6.4.1</span> Significancia en la regresión múltiple</a></li>
-  </ul></li>
-  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">6.5</span> Conclusión</a></li>
-  <li><a href="#extensiones-del-modelo-de-regresión-lineal" id="toc-extensiones-del-modelo-de-regresión-lineal" class="nav-link" data-scroll-target="#extensiones-del-modelo-de-regresión-lineal"><span class="header-section-number">7</span> Extensiones del modelo de regresión lineal</a>
-  <ul class="collapse">
-  <li><a href="#cuando-los-ingredientes-se-combinan-interacciones" id="toc-cuando-los-ingredientes-se-combinan-interacciones" class="nav-link" data-scroll-target="#cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">7.1</span> 6.1 Cuando los ingredientes se combinan: Interacciones</a></li>
-  <li><a href="#relaciones-no-siempre-lineales" id="toc-relaciones-no-siempre-lineales" class="nav-link" data-scroll-target="#relaciones-no-siempre-lineales"><span class="header-section-number">7.2</span> 6.2 Relaciones no siempre lineales</a></li>
-  </ul></li>
+  <li><a href="#relaciones-no-siempre-lineales" id="toc-relaciones-no-siempre-lineales" class="nav-link" data-scroll-target="#relaciones-no-siempre-lineales"><span class="header-section-number">7.2</span> Relaciones no siempre lineales</a></li>
   </ul>
 </nav>
     </div>
@@ -402,7 +395,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Extensiones del modelo de regresión lineal</span></h1>
 </div>
 
 
@@ -419,194 +412,11 @@ window.Quarto = {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/reg_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-<p>Imagina que eres dueño de un restaurante 🍝.<br>
-Cada día recibes clientes, vendes platos y al final de la semana te preguntas:</p>
-<blockquote class="blockquote">
-<p><strong>¿Qué hace que mis ventas suban o bajen?</strong><br>
-¿Será el precio de los platos, la inversión en publicidad, o quizá los fines de semana festivos?</p>
-</blockquote>
-<p>Aquí entra en acción la <strong>regresión lineal</strong>, una herramienta que nos ayuda a descubrir patrones escondidos en los datos.</p>
-<section id="una-primera-pista-con-la-regresión-simple" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="una-primera-pista-con-la-regresión-simple"><span class="header-section-number">6.1</span> Una primera pista con la Regresión Simple</h2>
-<p>Empecemos simple: ¿qué pasa con tus ventas y el precio del menú?</p>
-<p>Si anotas tus datos semana a semana y los pones en un gráfico como el de abajo, notarás que cuando el precio sube, las ventas tienden a bajar. La regresión lineal traza la <strong>mejor línea recta</strong> que explica esa relación.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/reg_2.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>Gráfico de dispersión ventas vs.&nbsp;precio</figcaption>
-</figure>
-</div>
-<p>La ecuación que representa la línea roja de ese gráfico se ve así:</p>
-<p><span class="math display">\[
-Ventas = b_0 + b_1 \times Precio + \varepsilon
-\]</span></p>
-<ul>
-<li><strong><span class="math inline">\(b_0\)</span></strong>: el punto de partida (ventas cuando el precio es cero, aunque no sea realista vender gratis 🍕).<br>
-</li>
-<li><strong><span class="math inline">\(b_1\)</span></strong>: la <em>pendiente</em>; cuánto cambian las ventas si subes el precio en una unidad.<br>
-</li>
-<li><strong><span class="math inline">\(\varepsilon\)</span></strong>: el ruido que la línea no puede explicar (clima, humor del chef, partidos de fútbol, etc.).</li>
-</ul>
-<p>👉 Si el modelo encuentra que:</p>
-<p><span class="math display">\[
-\hat{Ventas} = 500 - 25 \times Precio
-\]</span></p>
-<p>significa que por cada $1 más en el precio, <strong>pierdes 25 platos vendidos en promedio</strong>. ¡Cuidado con pasarte de caro!</p>
-</section>
-<section id="es-realmente-importante-mi-coeficiente-significancia-estadística" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="es-realmente-importante-mi-coeficiente-significancia-estadística"><span class="header-section-number">6.2</span> ¿Es realmente importante mi coeficiente? (significancia estadística)</h2>
-<p>Hasta ahora vimos que un coeficiente <span class="math inline">\(b_1\)</span> nos dice cómo cambia <span class="math inline">\(Y\)</span> cuando <span class="math inline">\(X\)</span> sube una unidad.</p>
-<p>Pero la gran pregunta es: <strong>¿podemos confiar en que ese efecto no apareció solo por azar?</strong></p>
-<p>Aquí entran las <strong>pruebas de hipótesis</strong> que estudiamos el capítulo anterior.</p>
-<section id="el-planteamiento" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="el-planteamiento"><span class="header-section-number">6.2.1</span> El planteamiento</h3>
-<ul>
-<li><strong>Hipótesis nula (<span class="math inline">\(H_0\)</span>)</strong>: el coeficiente es igual a 0.<br>
-&gt; Es decir, que la variable no tiene efecto real en las ventas.<br>
-</li>
-<li><strong>Hipótesis alternativa (<span class="math inline">\(H_1\)</span>)</strong>: el coeficiente es diferente de 0.<br>
-&gt; Que sí existe un impacto real.</li>
-</ul>
-<p>Para saber si tu coeficiente es realmente significativo, puedes usar el valor p (p-value). Este valor te dice la probabilidad de que el coeficiente sea cero (es decir, que no tenga efecto).</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Prueba de significancia estadística
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Si el valor p es menor que 0.05, puedes decir que el coeficiente es <strong>significativo</strong>. Esto significa que hay evidencia suficiente para afirmar que el precio sí afecta las ventas.</li>
-<li>Si el valor p es mayor que 0.05, no puedes rechazar la hipótesis nula de que el coeficiente es cero. En otras palabras, no hay suficiente evidencia para afirmar que el precio afecta las ventas.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="ejemplo-de-restaurante" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="ejemplo-de-restaurante"><span class="header-section-number">6.2.2</span> Ejemplo de restaurante 🍝</h3>
-<p>Supongamos que obtienes un nuevo modelo al recoger más datos:</p>
-<p><span class="math display">\[
-\hat{Ventas} = 400 - 20 \times Precio + 60 \times Publicidad
-\]</span></p>
-<ul>
-<li>El coeficiente de <strong>Precio = -20</strong> sugiere que subir $1 reduce 20 platos vendidos.<br>
-</li>
-<li>Pero, ¿y si esa relación negativa se debe solo a la casualidad en tus datos?</li>
-</ul>
-</section>
-<section id="la-prueba" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="la-prueba"><span class="header-section-number">6.2.3</span> La prueba</h3>
-<p>El software (R, Excel, Stata, etc.) hace un <strong>test t</strong> que compara el valor del coeficiente con la variabilidad de los datos.<br>
-De ahí sale un número mágico: el <strong>p-valor</strong>.</p>
-<ul>
-<li>Si el <strong>p-valor &lt; 0.05</strong>, rechazamos la hipótesis nula.<br>
-&gt; Concluimos que el efecto es significativo: el precio <em>sí afecta</em> las ventas.<br>
-</li>
-<li>Si el <strong>p-valor ≥ 0.05</strong>, no tenemos suficiente evidencia.<br>
-&gt; No podemos asegurar que el precio influya: podría ser puro ruido.</li>
-</ul>
-</section>
-<section id="la-moraleja" class="level3" data-number="6.2.4">
-<h3 data-number="6.2.4" class="anchored" data-anchor-id="la-moraleja"><span class="header-section-number">6.2.4</span> La moraleja</h3>
-<p>Un coeficiente puede verse grande o pequeño, positivo o negativo, pero lo crucial es saber si es <strong>estadísticamente diferente de cero</strong>.<br>
-Solo así podemos decir con confianza que esa variable explica parte de la historia de nuestros datos.</p>
-<p>👉 En negocios, esto significa que antes de tomar decisiones (subir precios, invertir en publicidad, lanzar una promo) debemos asegurarnos de que los efectos que vemos no sean simplemente coincidencias.</p>
-</section>
-</section>
-<section id="midiendo-qué-tan-bien-funciona-mi-regresión" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="midiendo-qué-tan-bien-funciona-mi-regresión"><span class="header-section-number">6.3</span> Midiendo qué tan bien funciona mi regresión</h2>
-<p>No basta con tener la línea (regresión), también queremos saber <strong>qué tan buena es</strong>.</p>
-<p>Para eso usamos el famoso <strong><span class="math inline">\(R^2\)</span></strong>, también llamado coeficiente de determinación:</p>
-<ul>
-<li>Si <span class="math inline">\(R^2 = 0.8\)</span>, entonces el 80% de las variaciones en ventas se explican solo con el precio.<br>
-</li>
-<li>El 20% restante… bueno, puede ser el clima, la competencia, o ese influencer foodie que llegó sin avisar 📸.</li>
-</ul>
-<p>Si <span class="math inline">\(R^2 = 0\)</span>, tu modelo no explica nada: sería como decir que el precio no tiene relación alguna con las ventas, y que lo único que podrías hacer es mirar el promedio de todas las semanas.</p>
-<p>Si <span class="math inline">\(R^2 = 1\)</span>, tu modelo explica todo: las ventas estarían perfectamente determinadas por el precio, sin misterios, sin azar, sin sorpresas (lo cual rara vez pasa en la vida real).</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Piensa en <span class="math inline">\(R^2\)</span> como un termómetro de confianza: te dice qué tan buena es tu línea de regresión para capturar la historia detrás de tus datos. No es perfecto, pero sí es una brújula que te orienta sobre cuánto puedes fiarte de tu modelo para explicar lo que ves.</p>
-</div>
-</div>
-</section>
-<section id="sumando-más-ingredientes-la-regresión-múltiple" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="sumando-más-ingredientes-la-regresión-múltiple"><span class="header-section-number">6.4</span> Sumando más ingredientes: la Regresión Múltiple</h2>
-<p>En la vida real, tus ventas no dependen solo del precio.<br>
-En tu restaurante también influyen otros “ingredientes” del negocio:</p>
-<ul>
-<li>el <strong>precio</strong> del menú,<br>
-</li>
-<li>el <strong>dinero invertido en publicidad</strong>,<br>
-</li>
-<li>y si fue o no una <strong>semana festiva</strong>.</li>
-</ul>
-<p>La regresión múltiple nos permite poner todos esos factores en la misma receta estadística.Supongamos que tus datos arrojan:</p>
-<p><span class="math display">\[
-\hat{Ventas} = 400 - 20 \times Precio + 60 \times Publicidad + 15 \times Festivo
-\]</span></p>
-<p>Interpretación:<br>
-- Cada $1 más en el precio reduce en promedio 20 platos vendidos.<br>
-- Cada $100 en publicidad aumentan las ventas en 60 platos.<br>
-- Si es semana festiva, se venden 15 platos extra aunque no cambie nada más.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Plantilla de interpretación (ceteris paribus): significa que por cada unidad que aumente <strong>variable</strong>, la <strong>variable dependiente</strong> cambia en promedio <strong>coeficiente</strong> unidades, manteniendo constantes las demás variables.</p>
-<p>Ejemplo: por cada $1 que aumenta el precio, las ventas semanales disminuyen en promedio 20 platos, manteniendo la publicidad y la condición de semana festiva constantes.</p>
-</div>
-</div>
-<p>En otras palabras, la regresión múltiple te permite <strong>separar los efectos</strong>:<br>
-sabes qué parte de las ventas se debe al precio, qué parte a la publicidad y qué parte al calendario.</p>
-<section id="significancia-en-la-regresión-múltiple" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="significancia-en-la-regresión-múltiple"><span class="header-section-number">6.4.1</span> Significancia en la regresión múltiple</h3>
-<p>En regresión múltiple evaluamos la significancia de cada coeficiente de la misma manera que en la regresión simple: mediante un estadístico t y su p-valor. Cada coeficiente se interpreta <strong>ceteris paribus</strong> (manteniendo las demás variables constantes), por eso es importante no mezclar la interpretación de los efectos.</p>
-<p>Ejemplo (resumen):</p>
-<ul>
-<li><span class="math inline">\(\hat{Ventas} = 400 - 20\times Precio + 60\times Publicidad + 15\times Festivo\)</span></li>
-<li>p-valores (ej.): Precio <span class="math inline">\(p&lt;0.01\)</span> (significativo), Publicidad <span class="math inline">\(p=0.18\)</span> (no significativo), Festivo <span class="math inline">\(p=0.03\)</span> (significativo)</li>
-</ul>
-<p>Aunque el coeficiente de publicidad sea 60, su p-valor elevado (<span class="math inline">\(p=0.18\)</span>) indica que no hay suficiente evidencia para afirmar que la publicidad tiene un efecto sobre las ventas una vez controlamos por precio y festivo (ceteris paribus). Esto implica que aunque el coeficiente sea 60, en términos estadísticos es 0.</p>
-</section>
-</section>
-<section id="conclusión" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">6.5</span> Conclusión</h2>
-<p>La regresión lineal, ya sea simple o múltiple, funciona como una lupa 🔍:<br>
-te ayuda a <strong>distinguir qué factores realmente impulsan tus resultados</strong> y cuáles son solo ruido.</p>
-<p>En el restaurante esto significa tomar decisiones con más confianza:<br>
-¿bajo precios?, ¿aumento el presupuesto en publicidad?, ¿aprovecho mejor los festivos?</p>
-<p>👉 La magia está en que no tienes que adivinar. Los datos te cuentan la historia, y la regresión es el traductor.</p>
-</section>
-<section id="extensiones-del-modelo-de-regresión-lineal" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Extensiones del modelo de regresión lineal</h1>
 <p>Hasta ahora, hemos usado modelos de regresión lineal “simples” para predecir ventas en tu restaurante según precio, publicidad o si era semana festiva. Pero el mundo real es más complejo: las variables <strong>pueden interactuar</strong> entre sí y la relación con las ventas <strong>no siempre es lineal</strong>.</p>
 <p>Veamos cómo ampliar la receta de la regresión lineal para capturar estos matices.</p>
 <hr>
 <section id="cuando-los-ingredientes-se-combinan-interacciones" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">7.1</span> 6.1 Cuando los ingredientes se combinan: Interacciones</h2>
+<h2 data-number="7.1" class="anchored" data-anchor-id="cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">7.1</span> Cuando los ingredientes se combinan: Interacciones</h2>
 <p>Imagina que lanzas un nuevo plato y quieres saber cómo influye el <strong>precio</strong> en las ventas. Pero tal vez el impacto del precio depende de otra variable, por ejemplo, si hiciste o no <strong>publicidad</strong>.</p>
 <ul>
 <li>Si no hay publicidad, un descuento en el precio podría no atraer a muchos clientes.<br>
@@ -614,7 +424,9 @@ te ayuda a <strong>distinguir qué factores realmente impulsan tus resultados</s
 <li>Si sí hay publicidad, ese mismo descuento puede disparar las ventas.</li>
 </ul>
 <p>Esto se llama <strong>interacción</strong>: el efecto de una variable depende del valor de otra.</p>
-<p>[ Ventas = b_0 + b_1 Precio + b_2 Publicidad + b_3 (Precio Publicidad) + ]</p>
+<p><span class="math display">\[
+Ventas = b_0 + b_1 \times Precio + b_2 \times Publicidad + b_3 \times (Precio \times Publicidad) + \varepsilon
+\]</span></p>
 <p>El término <span class="math inline">\(b_3\)</span> mide cuánto cambia el efecto del precio cuando hay publicidad.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -629,10 +441,114 @@ Tip
 <p><strong>Intuición:</strong> no todos los ingredientes de tu receta funcionan igual por separado. A veces lo que importa es la mezcla.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cómo analizar (intuitivamente) el término de interacción
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Piensa que el modelo crea <strong>dos pendientes</strong> (sensibilidades) al precio: una cuando no hay publicidad y otra cuando sí la hay.</p>
+<p><em>Pasos prácticos:</em></p>
+<ol type="1">
+<li>Grupo base (Publicitad = 0): pendiente del precio = <span class="math inline">\(b_1\)</span>. Es cómo cambian las ventas por unidad de precio cuando no haces campaña.</li>
+<li>Grupo con campaña (Publicidad = 1): pendiente = <span class="math inline">\(b_1 + b_3\)</span>. Tomas la pendiente base y le sumas el ajuste que trae la interacción.</li>
+<li>Interpretación de <span class="math inline">\(b_3\)</span>: es <strong>el cambio en la sensibilidad</strong> al precio que introduce la publicidad. Si <span class="math inline">\(b_3 &gt; 0\)</span>, la publicidad “suaviza” el efecto negativo del precio (o lo hace más positivo). Si <span class="math inline">\(b_3 &lt; 0\)</span>, lo acentúa en sentido negativo.</li>
+<li>Frase plantilla: “Con publicidad, por cada unidad adicional en el precio las ventas cambian en promedio <span class="math inline">\((b_1 + b_3)\)</span> unidades; sin publicidad cambian <span class="math inline">\(b_1\)</span> unidades (ceteris paribus). El término de interacción <span class="math inline">\(b_3\)</span> indica que la publicidad modifica la sensibilidad al precio en <span class="math inline">\(b_3\)</span> unidades”.</li>
+<li>Significancia: mira el p-valor de <span class="math inline">\(b_3\)</span>. Si es &lt; 0.05, hay evidencia de que el efecto del precio <strong>depende</strong> de la publicidad; si no, el ajuste extra podría ser solo ruido.</li>
+</ol>
+<p>Visualmente: imagina dos rectas en el mismo gráfico (precio vs.&nbsp;ventas). <span class="math inline">\(b_3\)</span> es la diferencia entre sus pendientes. Sin dibujar, interpretar interacciones suele ser menos intuitivo.</p>
+<p><em>Precauciones:</em></p>
+<ul>
+<li>No repitas “<span class="math inline">\(b_1\)</span> es el efecto del precio” sin decir “cuando Publicidad = 0”.</li>
+<li>A veces el efecto combinado (pendiente con publicidad) es significativo aunque ninguno de los coeficientes individuales lo sea por separado; siempre revisa <span class="math inline">\(b_1 + b_3\)</span> con su intervalo de confianza si es relevante.</li>
+</ul>
+</div>
+</div>
+<section id="ejemplos-prácticos-de-interacciones-y-cómo-interpretar-b_3" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="ejemplos-prácticos-de-interacciones-y-cómo-interpretar-b_3"><span class="header-section-number">7.1.1</span> Ejemplos prácticos de interacciones (y cómo interpretar <span class="math inline">\(b_3\)</span>)</h3>
+<p><strong>Regla general (modelo con interacción):</strong><br>
+<span class="math display">\[
+Y = \beta_0 + \beta_1 X + \beta_2 Z + \beta_3(X \times Z) + \varepsilon
+\]</span></p>
+<ul>
+<li><span class="math inline">\(X\)</span>: variable continua (p.&nbsp;ej., precio, descuento, tiempo de espera)<br>
+</li>
+<li><span class="math inline">\(Z\)</span>: indicador binario (0/1), p.&nbsp;ej., hay publicidad (=1)<br>
+</li>
+<li><strong>Efecto marginal de <span class="math inline">\(X\)</span> cuando <span class="math inline">\(Z=0\)</span>: </strong> <span class="math inline">\(β_1\)</span><br>
+</li>
+<li><strong>Efecto marginal de <span class="math inline">\(X\)</span> cuando <span class="math inline">\(Z=1\)</span>: </strong> <span class="math inline">\(β_1 + β_3\)</span><br>
+</li>
+<li><strong>Interpretación de <span class="math inline">\(β_3\)</span>: </strong> cuánto <strong>cambia la pendiente de <span class="math inline">\(X\)</span></strong> cuando pasas de <span class="math inline">\(Z=0\)</span> a <span class="math inline">\(Z=1\)</span>.</li>
+</ul>
+<blockquote class="blockquote">
+<p>En dummies×dummies (dos binarias), <span class="math inline">\(β_3\)</span> es un <strong>“difference-in-differences”</strong>: el cambio adicional en el grupo con ambos = 1 sobre la suma de efectos individuales.</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>¿Qué es un efecto marginal?</strong></p>
+<p>Un efecto marginal es simplemente <em>cuánto cambia en promedio el resultado (ventas)</em> cuando una variable sube una unidad <em>y todo lo demás lo dejamos igual</em>.</p>
+<p>Piensa que congelas el resto de ingredientes y solo mueves uno: miras cuánto se mueve la salida. Eso es el efecto marginal.</p>
+<p>Ejemplos rápidos:</p>
+<ul>
+<li>“Por cada $1 más en el precio (manteniendo publicidad igual) las ventas bajan 12 platos.”</li>
+<li>“Con publicidad activa, ese efecto pasa a ser -6 porque la campaña amortigua el golpe del precio.”</li>
+</ul>
+<p>Clave: sin decir “manteniendo lo demás constante” la frase queda incompleta (puede confundir causalidad con simple correlación).</p>
+</div>
+</div>
+</section>
+<section id="ejemplos-prácticos-de-interacciones" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="ejemplos-prácticos-de-interacciones"><span class="header-section-number">7.1.2</span> 6.1.1 Ejemplos prácticos de interacciones</h3>
+<p>Para entender mejor, pensemos en distintos contextos donde el efecto de una variable depende de otra. La clave está en que el coeficiente de interacción ((_3)) nos dice <strong>cómo cambia la pendiente o el efecto de (X) cuando la condición (Z) pasa de 0 a 1</strong>.</p>
+<hr>
+<section id="ejemplo-1-precio-publicidad" class="level4" data-number="7.1.2.1">
+<h4 data-number="7.1.2.1" class="anchored" data-anchor-id="ejemplo-1-precio-publicidad"><span class="header-section-number">7.1.2.1</span> Ejemplo 1: Precio × Publicidad</h4>
+<p>En el restaurante, supongamos que queremos medir cómo influye el <strong>precio</strong> de un plato en las <strong>ventas</strong>. Sin publicidad, subir el precio en 1 dólar podría reducir las ventas en 12 unidades (<span class="math inline">\(\beta_1=-12\)</span>).<br>
+Pero si hay publicidad, ese efecto negativo se atenúa: la pendiente cambia en +6 (<span class="math inline">\(\beta_3=+6\)</span>), por lo que el efecto total es <span class="math inline">\(-12+6=-6\)</span>.<br>
+<strong>Interpretación:</strong> la publicidad “protege” al restaurante frente al efecto negativo de subir precios.</p>
 <hr>
 </section>
+<section id="ejemplo-2-descuento-fin-de-semana" class="level4" data-number="7.1.2.2">
+<h4 data-number="7.1.2.2" class="anchored" data-anchor-id="ejemplo-2-descuento-fin-de-semana"><span class="header-section-number">7.1.2.2</span> Ejemplo 2: Descuento × Fin de semana</h4>
+<p>Imagina que medimos el impacto de los <strong>descuentos</strong> en el número de clientes. Entre semana, cada 10% de descuento aumenta en 15 clientes las visitas (<span class="math inline">\(\beta_1=+15\)</span>).<br>
+En fin de semana, el efecto es aún mayor: el coeficiente de interacción suma +12 (<span class="math inline">\(\beta_3=+12\)</span>), de modo que el efecto total es 27.<br>
+<strong>Interpretación:</strong> el descuento funciona siempre, pero mucho mejor el fin de semana, cuando los clientes son más sensibles a promociones.</p>
+<hr>
+</section>
+<section id="ejemplo-3-promoción-fin-de-semana-dos-dummies" class="level4" data-number="7.1.2.3">
+<h4 data-number="7.1.2.3" class="anchored" data-anchor-id="ejemplo-3-promoción-fin-de-semana-dos-dummies"><span class="header-section-number">7.1.2.3</span> Ejemplo 3: Promoción × Fin de semana (dos dummies)</h4>
+<p>Supongamos que medimos ingresos con dos variables binarias:<br>
+- Promo = 1 si hay promoción.<br>
+- FinSemana = 1 si es sábado o domingo.</p>
+<p>El coeficiente de interacción (<span class="math inline">\(\beta_3\)</span>) captura cuánto <strong>extra</strong> se gana cuando coinciden ambas cosas.<br>
+Si la promoción sola sube ventas en 15, y el fin de semana solo sube en 20, pero la combinación sube en 50, entonces el extra de 15 que no se explica por los efectos individuales es precisamente la interacción.<br>
+<strong>Interpretación:</strong> la promoción es especialmente efectiva en fines de semana.</p>
+<hr>
+</section>
+<section id="ejemplo-4-tiempo-de-espera-servicio-a-domicilio" class="level4" data-number="7.1.2.4">
+<h4 data-number="7.1.2.4" class="anchored" data-anchor-id="ejemplo-4-tiempo-de-espera-servicio-a-domicilio"><span class="header-section-number">7.1.2.4</span> Ejemplo 4: Tiempo de espera × Servicio a domicilio</h4>
+<p>Podemos medir la <strong>satisfacción</strong> del cliente según el tiempo de espera. En salón, cada minuto extra reduce satisfacción en 0.03 puntos (<span class="math inline">\(\beta_1=-0.03\)</span>).<br>
+Con servicio a domicilio, la penalización es aún mayor: el coeficiente de interacción suma -0.02 (<span class="math inline">\(\beta_3=-0.02\)</span>), por lo que el efecto total es <span class="math inline">\(-0.05\)</span>.<br>
+<strong>Interpretación:</strong> esperar es malo en cualquier contexto, pero esperar un domicilio es mucho peor que esperar sentado en el restaurante.</p>
+<hr>
+</section>
+</section>
+</section>
 <section id="relaciones-no-siempre-lineales" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="relaciones-no-siempre-lineales"><span class="header-section-number">7.2</span> 6.2 Relaciones no siempre lineales</h2>
+<h2 data-number="7.2" class="anchored" data-anchor-id="relaciones-no-siempre-lineales"><span class="header-section-number">7.2</span> Relaciones no siempre lineales</h2>
 <p>No siempre el efecto de una variable es recto como una línea. Por ejemplo:</p>
 <ul>
 <li>Si el precio es muy bajo, las ventas suben (¡oferta irresistible!).<br>
@@ -641,7 +557,9 @@ Tip
 </ul>
 <p>Esto dibuja una <strong>curva</strong> en vez de una línea.</p>
 <p>Para capturar ese patrón podemos agregar un <strong>término cuadrático</strong> al modelo:</p>
-<p>[ Ventas = b_0 + b_1 Precio + b_2 Precio^2 + ]</p>
+<p><span class="math display">\[
+Ventas = b_0 + b_1 \times Precio + b_2 \times Precio^2 + \varepsilon
+\]</span></p>
 <ul>
 <li><span class="math inline">\(b_1\)</span> mide el efecto lineal del precio.<br>
 </li>
@@ -660,11 +578,18 @@ Tip
 <p><strong>Intuición:</strong> como en la cocina, no siempre más de un ingrediente mejora el plato. Hay un punto óptimo de sal o picante: demasiado poco o demasiado mucho arruina la receta.</p>
 </div>
 </div>
-<p>#| label: grafico-cuadratico #| fig-cap: “Relación cuadrática entre precio y ventas (ejemplo simulado)” #| echo: false</p>
-<p>set.seed(123) precio &lt;- seq(5, 30, 1) ventas &lt;- 200 - 10<em>precio + 0.3</em>precio^2 + rnorm(length(precio), 0, 15) plot(precio, ventas, pch=19, col=“darkred”, main=“Ejemplo relación cuadrática”, xlab=“Precio”, ylab=“Ventas”)</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="capitulo7_files/figure-html/grafico-cuadratico-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Relación cuadrática entre precio y ventas (ejemplo simulado)</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1082,8 +1007,8 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./capitulo5.html" class="pagination-link" aria-label="Intervalos de Confianza y Pruebas de Hipótesis">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intervalos de Confianza y Pruebas de Hipótesis</span></span>
+      <a href="./capitulo6.html" class="pagination-link" aria-label="Descubriendo Patrones con Regresión Lineal">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descubriendo Patrones con Regresión Lineal</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
