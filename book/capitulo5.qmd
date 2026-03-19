@@ -18,7 +18,9 @@ Imagina que lanzaste un nuevo plato al menú y quieres saber si a los clientes r
 
 En la mayoría de estudios sucede esto: se toma una muestra y se infiere información sobre la población total. Esto es porque es muy difícil o costoso preguntar a todos los clientes.
 
-![Población vs muestra](img/muestra.png){ width="40%" }
+<figure style="text-align: center;">
+   <img src="img/muestra.png" alt="Población vs muestra" style="width: 40%;">
+</figure>
 
 Un intervalo de confianza funciona igual para un parámetro (por ejemplo, el promedio de satisfacción): parte de la estimación obtenida en la muestra (la "degustación") y le añade y quita un margen de error para formar un rango plausible. Dos puntos clave para entenderlo intuitivamente:
 
@@ -34,6 +36,18 @@ Visualiza esto como elegir el tamaño de la degustación y el margen de segurida
 
 En resumen: un intervalo de confianza te ofrece un rango razonable para la media poblacional (por ejemplo, la satisfacción real de todos los clientes), acompañado de una medida explícita de cuánta confianza te da ese procedimiento si lo repitieras muchas veces.
 
+<figure style="text-align: center;">
+   <img src="img/meteo.png" alt="La lógica del intervalo de confianza se parece a un pronóstico: no promete exactitud absoluta, sino un rango razonable" style="width: 78%;">
+</figure>
+
+La intuición es muy parecida a un pronóstico del clima: no te promete la cifra exacta, pero sí un rango razonable para tomar decisiones.
+
+<figure style="text-align: center;">
+   <img src="img/IC.png" alt="Intervalo de confianza como estimación central con margen de error" style="width: 80%;">
+</figure>
+
+La intuición clave es simple: el dato más importante sigue siendo el promedio muestral, pero ahora lo acompañamos de una banda de incertidumbre.
+
 ### ¿Cómo se construye?
 
 El intervalo de confianza toma el promedio de tu muestra y le agrega un “margen de error”.  
@@ -45,13 +59,12 @@ Ese margen depende de dos cosas:
 ::: callout-tip
 ## Fórmula del intervalo
 $$
-IC_{95\%} = \bar{x} \pm Z \cdot \frac{s}{\sqrt{n}}
+   ext{estimación} \pm \text{margen de error}
 $$
 
-- \( $\bar{x}$ \): promedio de la muestra  
-- \( $s$ \): variabilidad de las opiniones  
-- \( $n$ \): número de clientes encuestados  
-- \( $Z$ \): un número fijo que depende del nivel de confianza (1.96 para 95%)  
+- Más variabilidad: margen más grande.  
+- Más observaciones: margen más pequeño.  
+- Más confianza: intervalo más ancho.  
 :::
 
 ### Ejemplo del restaurante
@@ -59,11 +72,9 @@ $$
 Encuestaste a **50 clientes**.  
 El promedio de satisfacción fue **4.2** y la desviación estándar **0.8**.
 
-$$
-IC_{95\%} = 4.2 \pm 1.96 \cdot \frac{0.8}{\sqrt{50}} \approx (4.0,\;4.4)
-$$
+Con esos datos, el intervalo de confianza al 95% es aproximadamente **de 4.0 a 4.4**.
 
-Esto significa que, aunque no hablamos con todos los clientes, podemos decir con un 95\% de confianza que la satisfacción promedio real de *todos* los comensales está entre **4.0 y 4.4**.
+Esto significa que, aunque no hablamos con todos los clientes, estimamos que la satisfacción promedio real de *todos* los comensales está en ese rango.
 
 ::: callout-tip
 **En otras palabras un intervalo de confianza dice:**
@@ -76,7 +87,7 @@ Esto significa que, aunque no hablamos con todos los clientes, podemos decir con
 
 ## Pruebas de Hipótesis
 
-Ahora imagina otra situación: tTu socio del restaurante es un poco escéptico y te dice:  
+Ahora imagina otra situación: tu socio del restaurante es un poco escéptico y te dice:  
 > “*Yo creo que los clientes nos califican, en promedio, con 4. Nada más*.”  
 
 Tú, viendo tus datos, sospechas que en realidad el promedio es **mayor** a 4.  
@@ -93,17 +104,17 @@ Aquí usamos una **prueba de hipótesis**. Es como un juicio estadístico:
 ### Pasos de la prueba
 
 1. **Plantear hipótesis**  
-   - H₀: $\mu = 4$ (los clientes en promedio califican con 4).  
-   - H₁: $\mu > 4$ (los clientes en promedio califican con más de 4).  
+   - H₀: el promedio es 4.  
+   - H₁: el promedio es mayor que 4.  
 
 2. **Elegir un nivel de significancia**  
    - Normalmente usamos 5% (α = 0.05).  
-   - Significa que aceptamos un 5% de riesgo de equivocarnos al rechazar H₀.  
+   - Esto quiere decir que toleramos un 5% de riesgo de equivocarnos al rechazar H₀.  
 
 3.  **Calcular el p-valor y tomar la decisión**
 
-- Usamos el sofware de preferencia para calcular la prueba t y obtener el p-valor.
-- Si $p < \alpha$ (por ejemplo $\alpha=0.05$) rechazamos H₀; si $p \ge \alpha$ no rechazamos H₀.
+- Usamos el software de preferencia para calcular la prueba t y obtener el p-valor.
+- Si el p-valor es menor que 0.05, rechazamos H₀; si no, no la rechazamos.
 
 ::: callout-note
 Nota práctica: no necesitas calcular el p-valor a mano
@@ -122,15 +133,18 @@ Lo importante es entender qué mide el p-valor y cómo interpretarlo, no hacer e
 
 ### Ejemplo del restaurante
 
-Con los datos de antes ($\bar{x}=4.2,\; s=0.8,\; n=50$) podemos usar el concepto de *p-valor* para decidir si rechazar H₀.
+Con los datos de antes (promedio 4.2, variabilidad 0.8 y 50 clientes) podemos usar el concepto de *p-valor* para decidir si rechazar H₀.
 
-Intuitivamente, el p-valor responde a la pregunta: si la hipótesis nula fuera cierta (es decir, si no hubiera diferencia real y el verdadero promedio fuera 4), ¿qué probabilidad hay de obtener un resultado igual o más extremo que el observado? Para explicarlo paso a paso:
+El **p-valor** es la probabilidad de obtener un resultado igual o más extremo que el observado, *asumiendo que H₀ es verdadera*. En otras palabras: **¿qué tan raro sería ver este dato si en realidad no hay diferencia?**
 
-1. Supón por un momento que estamos persiguiendo un golpe de suerte: la hipótesis nula es verdadera (p. ej. el nuevo plato no cambia la satisfacción, la media es 4).
-2. Imagina la distribución de todos los resultados posibles que podríamos haber obtenido al repetir el experimento muchas veces bajo H₀. La mayoría serían resultados modestos y no llamativos; unos pocos serían flukes (suertes raras) que parecen indicar un efecto.
-3. Ubica nuestro resultado real dentro de esa distribución: el p-valor es la fracción de resultados bajo H₀ que serían tan o más extremos que el nuestro.
+- p-valor pequeño (p. ej. 0.03) → resultado muy inusual bajo H₀ → hay evidencia para rechazarla.
+- p-valor grande (p. ej. 0.40) → resultado completamente compatible con H₀ → no hay evidencia suficiente para rechazarla.
 
-Un p-valor pequeño (por ejemplo, 0.03) significa que sólo un pequeño porcentaje de resultados falsos serían tan espectaculares; esa rareza sugiere que tal vez no sea un fluke y que haya un efecto real.
+<figure style="text-align: center;">
+   <img src="img/p_valor_comic.png" alt="Ilustración intuitiva del p-valor como evidencia rara bajo la hipótesis nula" style="width: 80%;">
+</figure>
+
+La idea visual sigue siendo la misma: si el resultado observado cae en una zona muy rara bajo H₀, empezamos a dudar de esa hipótesis.
 
 Aplicando esto a nuestros datos, el p-valor unilateral resultante es aproximadamente $p \approx 0.038$ (≈3.8\%). Es decir: si de verdad el promedio fuera 4, sólo en ~3.8\% de las muestras obtendríamos un resultado tan extremo por azar.
 
@@ -153,6 +167,13 @@ Piensa en un juicio: la ausencia de pruebas suficientes para condenar no es una 
 
 :::
 
+::: callout-warning
+## Errores frecuentes al interpretar pruebas
+- **"Aceptamos H₀"** → lo correcto es "no rechazamos H₀": no encontramos evidencia en contra, pero eso no la prueba verdadera.
+- **Elegir prueba unilateral después de ver los datos** para obtener un p-valor más pequeño distorsiona el análisis.
+- **Confundir significancia estadística con importancia práctica**: con muestras muy grandes, diferencias minúsculas pueden resultar "significativas" aunque sean irrelevantes para el negocio.
+:::
+
 ##  Comparando dos grupos: ¿de verdad son diferentes?
 
 > **Idea clave:** tener dos medias con valores distintos **no** implica automáticamente que sean **estadísticamente diferentes**.  
@@ -165,8 +186,8 @@ Imagina que tu restaurante tiene **dos sedes**:
 
 Encuestas la satisfacción (1 a 5) de clientes en ambas sedes y obtienes:
 
-- **Norte:** \($\bar{x}_N = 4.3$\), \($s_N = 0.7$\), \($n_N = 40$\)  
-- **Sur:** \($\bar{x}_S = 4.1$\), \($s_S = 0.9$\), \($n_S = 45$\)
+- **Norte:** promedio 4.3, variabilidad 0.7, 40 clientes  
+- **Sur:** promedio 4.1, variabilidad 0.9, 45 clientes
 
 A simple vista **4.3 vs 4.1** luce mejor en Norte, ¿pero alcanza para concluir que la capacitación **elevó** la satisfacción? Vamos paso a paso.
 
@@ -176,19 +197,13 @@ Cuando las personas encuestadas en un grupo **no** son las mismas del otro grupo
 
 **Hipótesis (bilateral):**
 
-- \($H_0:\ \mu_N - \mu_S = 0$\)  (no hay diferencia real)
+- H₀: no hay diferencia real entre las sedes.
+- H₁: sí hay diferencia real entre las sedes.
 
-- \($H_1:\ \mu_N - \mu_S \neq 0$\) (sí hay diferencia)
+Con un nivel de significancia de 5%,
+el **p-valor** bilateral es aproximadamente **0.25**: no hay evidencia suficiente para afirmar que las medias difieren. **No rechazamos H₀.**  
 
-
-Para un nivel de significancia \($\alpha=0.05$\) (bilateral),
-el **p-valor** bilateral es \($\approx 0.25$\): no hay evidencia suficiente para afirmar que las medias difieren. **No rechazamos \($H_0$\).**  
-
-**Intervalo de confianza (95%) para \($\mu_N - \mu_S$\):**
-$$
-(0.2) \pm 1.99 \times 0.174 \;\approx\; (-0.15,\; 0.55)
-$$
-Como el **0** está dentro del intervalo, la diferencia podría ser nula.
+Además, el intervalo de confianza para la diferencia va aproximadamente de **-0.15 a 0.55**. Como el **0** está dentro del intervalo, la diferencia podría ser nula.
 
 ::: callout-tip
 ## Lectura práctica
@@ -197,25 +212,24 @@ Como el **0** está dentro del intervalo, la diferencia podría ser nula.
 :::
 
 #### Decidir unilateral vs bilateral
-- **Bilateral (\($\neq$\))** cuando buscas *cualquier* diferencia.  
-- **Unilateral (> o <)** solo si **antes** de ver los datos** tienes una hipótesis direccional clara (p. ej., “la capacitación **aumenta** la satisfacción”).  
+- **Bilateral ($\neq$)** cuando buscas *cualquier* diferencia.  
+- **Unilateral (> o <)** solo si **antes de ver los datos** tienes una hipótesis direccional clara (p. ej., "la capacitación **aumenta** la satisfacción").  
  
 
 ### ¿Y si las muestras son las mismas personas? (Prueba pareada)
 
 Otra historia típica del restaurante: encuestas a **los mismos clientes** **antes** y **después** de la capacitación en la **Sede Norte**.  
 
-Aquí cada persona funciona como su **propio control** → usamos una prueba **pareada** (de medias de **diferencias**).
+Aquí cada persona funciona como su **propio control** → usamos una prueba **pareada** (de medias de **diferencias**). Al comparar a cada cliente consigo mismo, eliminamos la variabilidad entre personas y el test se vuelve más sensible para detectar cambios reales.
 
-- Define \($d_i = \text{(después)} - \text{(antes)}$\).  
 - Hipótesis:
-  - \($H_0: \mu_d = 0$\) (en promedio, no cambia)
-  - \($H_1: \mu_d > 0$\) (en promedio, mejora)
+   - H₀: en promedio, no cambia.
+   - H₁: en promedio, mejora.
 
 **Ejemplo:** 30 clientes habituales,  
-\($\bar{d} = 0.25$\) puntos, \($s_d = 0.50$\).  
+mejora promedio de **0.25 puntos**.  
 
-Con \($\alpha=0.05$\) unilateral, esto **sí** es significativo (p \($\approx 0.01$\)).  
+Con una prueba unilateral al 5%, esto **sí** es significativo ($p \approx 0.01$).  
 
 **Interpretación:** en la *misma* sede y *mismas* personas, la satisfacción **aumentó** tras la capacitación.
 
@@ -224,6 +238,12 @@ Con \($\alpha=0.05$\) unilateral, esto **sí** es significativo (p \($\approx 0.
 - **Independientes:** Norte vs Sur (clientes **distintos** en cada sede).  
 - **Pareadas:** Antes vs Después en **la misma** sede y **mismas** personas.
 :::
+
+<figure style="text-align: center;">
+   <img src="img/independent_vs_paired_samples_diagram.png" alt="Comparación entre muestras independientes y muestras pareadas" style="width: 80%;">
+</figure>
+
+Esta comparación evita uno de los errores más comunes del capítulo: elegir la prueba por costumbre y no por la estructura real de los datos.
 
 ---
 
@@ -244,8 +264,17 @@ En decisiones de negocio, combina el resultado estadístico con el **impacto rea
 
 ### En resumen
 
-- Los **intervalos de confianza** son como dar un rango plausible para la verdadera satisfacción de todos los clientes.  
+| Situación | Herramienta | Pregunta que responde |
+|-----------|-------------|----------------------|
+| Estimar el verdadero promedio | Intervalo de confianza | ¿En qué rango está la satisfacción real de todos los clientes? |
+| Evaluar una afirmación sobre una media | Prueba t (1 muestra) | ¿El promedio es distinto de X? |
+| Comparar dos grupos distintos | Prueba t independiente | ¿Hay diferencia real entre Sede Norte y Sede Sur? |
+| Comparar antes/después en las mismas personas | Prueba t pareada | ¿Hubo un cambio real en los mismos clientes? |
 
-- Las **pruebas de hipótesis** son como un juicio: partimos de una suposición y vemos si la evidencia la sostiene o la derrumba.  
+::: callout-tip
+**Para llevar:**
 
-Ambas herramientas permiten ir más allá de describir lo que vemos en los datos: nos ayudan a **inferir** sobre toda la población de clientes del restaurante.
+- Los **intervalos de confianza** te dan un rango plausible para el verdadero promedio de toda la población.
+- Las **pruebas de hipótesis** son como un juicio: partimos de H₀ y vemos si la evidencia la derrumba.
+- Siempre combina el resultado estadístico con el **impacto práctico**: que algo sea significativo no significa que sea importante para el negocio.
+:::
