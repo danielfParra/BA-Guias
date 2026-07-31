@@ -1,8 +1,8 @@
 # Notas de Clase Business Analytics
 
-Este repositorio contiene las notas de clase de **Business Analytics** para los posgrados de administración de la Pontificia Universidad Javeriana, desarrolladas como un libro interactivo utilizando Quarto.
+Este repositorio contiene las notas de clase de **Business Analytics** para los posgrados de administración de la Pontificia Universidad Javeriana, desarrolladas como una guía interactiva utilizando Quarto.
 
-## 📚 Contenido del Libro
+## 📚 Contenido de la Guía
 
 ### **Capítulo 1: Introducción**
 Fundamentos del Business Analytics y su rol en la toma de decisiones empresariales.
@@ -54,7 +54,7 @@ quarto render book --to pdf
 
 ### Estructura del proyecto
 ```
-├── book/                 # Archivos fuente del libro
+├── book/                 # Archivos fuente de la guía
 │   ├── _quarto.yml      # Configuración principal
 │   ├── index.qmd        # Página de inicio
 │   ├── capitulo2.qmd    # Capítulo de visualización
@@ -63,9 +63,9 @@ quarto render book --to pdf
 └── README.md            # Este archivo
 ```
 
-## 📖 Ver el Libro
+## 📖 Ver la Guía
 
-- **Versión web:** [Acceder al libro online](../docs/index.html) *(disponible después de compilar)*
+- **Versión web:** [Acceder a la guía online](../docs/index.html) *(disponible después de compilar)*
 - **Desarrollo local:** `quarto preview book` y navegar a `http://localhost:3000`
 
 ## 📝 Contribuciones

@@ -108,7 +108,7 @@ Lo esencial de forma muy simple:
 ¿Qué quiere decir eso en palabras?
 - Piensa que la regresión logística primero calcula una "puntuación" $(x \times β)$. Esa puntuación se transforma con la función logística para producir una probabilidad entre 0 y 1. El coeficiente $β_j$ dice cuánto cambia la puntuación (el log-odds), pero ese cambio no se traduce siempre en la misma variación de probabilidad: depende del punto donde estés.
 
-Efectos marginales — la forma práctica de leer resultados:
+Efectos marginales: la forma práctica de leer resultados:
 
 - Para saber cuánto cambia la probabilidad cuando $X_j$ aumenta en 1 unidad necesitamos calcular el *efecto marginal*, que combina $β_j$ con la probabilidad actual p:
 

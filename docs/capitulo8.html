@@ -534,7 +534,7 @@ Pr(\text{Regresa}=1) = \frac{1}{1 + e^{-(2 - 0.05 \times Precio + 0.01 \times Pu
 <li>En regresión logística NO se lee así. Los coeficientes actúan sobre los <em>log-odds</em> (el logaritmo de las odds), no sobre la probabilidad directa.</li>
 </ul>
 <p>¿Qué quiere decir eso en palabras? - Piensa que la regresión logística primero calcula una “puntuación” <span class="math inline">\((x \times β)\)</span>. Esa puntuación se transforma con la función logística para producir una probabilidad entre 0 y 1. El coeficiente <span class="math inline">\(β_j\)</span> dice cuánto cambia la puntuación (el log-odds), pero ese cambio no se traduce siempre en la misma variación de probabilidad: depende del punto donde estés.</p>
-<p>Efectos marginales — la forma práctica de leer resultados:</p>
+<p>Efectos marginales: la forma práctica de leer resultados:</p>
 <ul>
 <li><p>Para saber cuánto cambia la probabilidad cuando <span class="math inline">\(X_j\)</span> aumenta en 1 unidad necesitamos calcular el <em>efecto marginal</em>, que combina <span class="math inline">\(β_j\)</span> con la probabilidad actual p:</p>
 <p>cambio en probabilidad ≈ <span class="math display">\[ β_j × p × (1 - p)\]</span></p>

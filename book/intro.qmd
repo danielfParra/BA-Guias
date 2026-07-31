@@ -6,12 +6,12 @@ Imagina que acabas de asumir la gerencia de **Café Andino**, una cadena con 40 
 2. El área de mercadeo pide presupuesto para retener a los clientes que "se están yendo", pero no sabe cuáles son.
 3. El director financiero pregunta si subir el precio del café en $500 aumentaría o destruiría la utilidad.
 
-¿Cómo respondes? Durante muchos años la respuesta a estas preguntas la daba el **HiPPO** (*Highest Paid Person's Opinion*): la persona mejor pagada en la sala opinaba y esa opinión se convertía en decisión. El problema no es que los jefes tengan malas intuiciones —muchas veces son excelentes—, sino que **nadie puede verificar si la intuición estaba bien o mal**, ni aprender del error.
+¿Cómo respondes? Durante muchos años la respuesta a estas preguntas la daba el **HiPPO** (*Highest Paid Person's Opinion*): la persona mejor pagada en la sala opinaba y esa opinión se convertía en decisión. El problema no es que los jefes tengan malas intuiciones (muchas veces son excelentes), sino que **nadie puede verificar si la intuición estaba bien o mal**, ni aprender del error.
 
 La analítica de datos no reemplaza el criterio del gerente: lo pone a prueba.
 
 ::: {.callout-note}
-## La idea central de este libro
+## La idea central de esta guía
 
 La analítica no se trata de calcular cosas. Se trata de **convertir datos en decisiones que puedas defender frente a alguien que piensa distinto**.
 :::
@@ -90,10 +90,10 @@ Aquí no es necesaria la causalidad, sino una relación estadística sólida y e
 * ¿Cuál es la probabilidad de que un cliente deje de comprar?
 * ¿Qué tan probable es que una transacción sea fraudulenta?
 
-Este es el segundo correo. Mercadeo no necesita saber *por qué* un cliente se va; necesita saber **a quiénes llamar primero**. Si descubres que los clientes que dejan de venir los sábados tienen 4 veces más probabilidad de irse del todo en los próximos dos meses, tienes una lista de llamadas útil —aunque no tengas ni idea de por qué el sábado importa.
+Este es el segundo correo. Mercadeo no necesita saber *por qué* un cliente se va; necesita saber **a quiénes llamar primero**. Si descubres que los clientes que dejan de venir los sábados tienen 4 veces más probabilidad de irse del todo en los próximos dos meses, tienes una lista de llamadas útil, aunque no tengas ni idea de por qué el sábado importa.
 
 ::: {.callout-important}
-## "Correlación no implica causalidad" — pero para predecir, la correlación basta
+## "Correlación no implica causalidad", pero para predecir la correlación basta
 
 Un ejemplo clásico: las ventas de helado y los ahogamientos en piscinas suben juntas. El helado no ahoga a nadie; ambos suben porque hace calor.
 
@@ -165,6 +165,6 @@ Un modelo mediocre bien explicado cambia decisiones. Un modelo excelente mal exp
 
 ## Qué esperar de aquí en adelante
 
-Este libro sigue esa misma cadena. Empezaremos por entender los datos y describirlos bien (capítulos 2 y 3), luego aprenderemos a medir la incertidumbre de lo que observamos —porque casi siempre trabajamos con muestras, no con toda la población (capítulos 4 y 5)— y finalmente pasaremos a modelar relaciones entre variables para predecir y, con cuidado, para decidir.
+Esta guía sigue esa misma cadena. Empezaremos por entender los datos y describirlos bien (capítulos 2 y 3), luego aprenderemos a medir la incertidumbre de lo que observamos, porque casi siempre trabajamos con muestras y no con toda la población (capítulos 4 y 5), y finalmente pasaremos a modelar relaciones entre variables para predecir y, con cuidado, para decidir.
 
 En cada tema el objetivo es el mismo: que puedas mirar un resultado y decir **qué significa para el negocio**, y también **qué NO puedes concluir de él**. Esa segunda parte, saber dónde están los límites de tu evidencia, es lo que separa a un buen analista de uno peligroso.

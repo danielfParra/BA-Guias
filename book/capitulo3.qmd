@@ -71,7 +71,7 @@ knitr::include_graphics("img/media_3.png", dpi = 270)
 
 Volviendo a las calificaciones de tu restaurante, la **mediana** es el valor que está justo en el medio cuando ordenas todas las opiniones de menor a mayor. Esto significa que la mitad de los clientes dieron una calificación igual o menor que la mediana, y la otra mitad dio una calificación igual o mayor.
 
-Por ejemplo, si tus clientes calificaron así: 3, 4, 4, 5, 5, la mediana es 4 — porque es el valor que divide el grupo en dos partes iguales.
+Por ejemplo, si tus clientes calificaron así: 3, 4, 4, 5, 5, la mediana es 4, porque es el valor que divide el grupo en dos partes iguales.
 
 ::: {.callout-tip appearance="simple"}
 $$

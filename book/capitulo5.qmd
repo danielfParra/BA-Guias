@@ -28,9 +28,9 @@ Un intervalo de confianza funciona igual para un parámetro (por ejemplo, el pro
 
 - *¿Qué influye en el ancho del intervalo?*
 
-1. La dispersión de las calificaciones — más variabilidad → intervalos más anchos.
-2. El tamaño de la muestra — más clientes encuestados → intervalos más estrechos.
-3. El nivel de confianza elegido — mayor confianza → intervalos más amplios.
+1. La dispersión de las calificaciones: más variabilidad → intervalos más anchos.
+2. El tamaño de la muestra: más clientes encuestados → intervalos más estrechos.
+3. El nivel de confianza elegido: mayor confianza → intervalos más amplios.
 
 Visualiza esto como elegir el tamaño de la degustación y el margen de seguridad alrededor de tu estimación: si usas un margen muy amplio te aseguras de cubrir el valor verdadero pero pierdes precisión; si eliges un margen muy estrecho ganas precisión pero aumentas la probabilidad de equivocarte.
 
@@ -159,7 +159,7 @@ Podemos afirmar que, en promedio, tus clientes están **más satisfechos** que e
 ---
 
 ::: callout-note
-Importante — "rechazar" vs "aceptar" H₀
+Importante: "rechazar" vs "aceptar" H₀
 
 En estadística decimos que *rechazamos* la hipótesis nula o *no la rechazamos*, pero no la *aceptamos* como verdadera. Intuitivamente es así porque la prueba está diseñada para buscar evidencia en contra de H₀: si la evidencia es fuerte, la descartamos; si no lo es, simplemente no tenemos base para descartarla.
 
