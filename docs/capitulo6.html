@@ -49,6 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-ffc4c3fc79587ee79da4865b6a08975e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-acff971833d9769290026d534105daaa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-ffc4c3fc79587ee79da4865b6a08975e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +111,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="capitulo6.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -404,10 +408,10 @@ window.Quarto = {
   <li><a href="#significancia-en-la-regresión-múltiple" id="toc-significancia-en-la-regresión-múltiple" class="nav-link" data-scroll-target="#significancia-en-la-regresión-múltiple"><span class="header-section-number">6.4.1</span> Significancia en la regresión múltiple</a></li>
   </ul></li>
   <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">6.5</span> Conclusión</a></li>
-  <li><a href="#extensiones-del-modelo-de-regresión-lineal" id="toc-extensiones-del-modelo-de-regresión-lineal" class="nav-link" data-scroll-target="#extensiones-del-modelo-de-regresión-lineal"><span class="header-section-number">7</span> Extensiones del modelo de regresión lineal</a>
+  <li><a href="#extensiones-del-modelo-de-regresión-lineal" id="toc-extensiones-del-modelo-de-regresión-lineal" class="nav-link" data-scroll-target="#extensiones-del-modelo-de-regresión-lineal"><span class="header-section-number">6.6</span> Extensiones del modelo de regresión lineal</a>
   <ul class="collapse">
-  <li><a href="#cuando-los-ingredientes-se-combinan-interacciones" id="toc-cuando-los-ingredientes-se-combinan-interacciones" class="nav-link" data-scroll-target="#cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">7.1</span> 6.1 Cuando los ingredientes se combinan: Interacciones</a></li>
-  <li><a href="#relaciones-no-siempre-lineales" id="toc-relaciones-no-siempre-lineales" class="nav-link" data-scroll-target="#relaciones-no-siempre-lineales"><span class="header-section-number">7.2</span> 6.2 Relaciones no siempre lineales</a></li>
+  <li><a href="#cuando-los-ingredientes-se-combinan-interacciones" id="toc-cuando-los-ingredientes-se-combinan-interacciones" class="nav-link" data-scroll-target="#cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">6.6.1</span> Cuando los ingredientes se combinan: Interacciones</a></li>
+  <li><a href="#relaciones-no-siempre-lineales" id="toc-relaciones-no-siempre-lineales" class="nav-link" data-scroll-target="#relaciones-no-siempre-lineales"><span class="header-section-number">6.6.2</span> Relaciones no siempre lineales</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -437,7 +441,7 @@ window.Quarto = {
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/reg_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><a href="img/reg_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/reg_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></a></p>
 </figure>
 </div>
 <p>Imagina que eres dueño de un restaurante 🍝.<br>
@@ -450,21 +454,27 @@ Cada día recibes clientes, vendes platos y al final de la semana te preguntas:<
 <section id="una-primera-pista-con-la-regresión-simple" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="una-primera-pista-con-la-regresión-simple"><span class="header-section-number">6.1</span> Una primera pista con la Regresión Simple</h2>
 <p>Empecemos simple: ¿qué pasa con tus ventas y el precio del menú?</p>
+<p>En estos ejemplos, <strong>Ventas</strong> es el número de platos vendidos por semana, no el dinero recaudado. Es la variable que queremos explicar o predecir (<span class="math inline">\(Y\)</span>). <strong>Precio</strong> es el precio de un plato, medido en unidades monetarias, y es la variable que usamos como pista (<span class="math inline">\(X\)</span>). Cada punto del gráfico representa una semana.</p>
 <p>Si anotas tus datos semana a semana y los pones en un gráfico como el de abajo, notarás que cuando el precio sube, las ventas tienden a bajar. La regresión lineal traza la <strong>mejor línea recta</strong> que explica esa relación.</p>
+<p>¿Por qué una línea si los puntos están dispersos? Porque buscamos resumir la <strong>tendencia promedio</strong>: dos semanas con el mismo precio pueden tener ventas distintas. La línea da una predicción para ese precio; no promete acertar exactamente cada semana.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/reg_2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/reg_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Gráfico de dispersión ventas vs.&nbsp;precio"><img src="img/reg_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Gráfico de dispersión ventas vs.&nbsp;precio"></a></p>
+</figure>
+</div>
 <figcaption>Gráfico de dispersión ventas vs.&nbsp;precio</figcaption>
 </figure>
 </div>
-<p>La ecuación que representa la línea roja de ese gráfico se ve así:</p>
+<p>El modelo distingue la parte que representa la línea y lo que queda fuera de ella:</p>
 <p><span class="math display">\[
 Ventas = b_0 + b_1 \times Precio + \varepsilon
 \]</span></p>
 <ul>
-<li><strong><span class="math inline">\(b_0\)</span></strong>: el punto de partida (ventas cuando el precio es cero, aunque no sea realista vender gratis 🍕).<br>
+<li><strong><span class="math inline">\(b_0\)</span></strong>: el intercepto; ubica la altura de la recta. Corresponde a las ventas promedio cuando el precio es cero, aunque vender gratis esté fuera de los datos y esa interpretación no sea útil 🍕.<br>
 </li>
-<li><strong><span class="math inline">\(b_1\)</span></strong>: la <em>pendiente</em>; cuánto cambian las ventas si subes el precio en una unidad.<br>
+<li><strong><span class="math inline">\(b_1\)</span></strong>: la <em>pendiente</em>; cuánto cambian las ventas promedio según el modelo por cada unidad adicional de precio.<br>
 </li>
 <li><strong><span class="math inline">\(\varepsilon\)</span></strong>: el ruido que la línea no puede explicar (clima, humor del chef, partidos de fútbol, etc.).</li>
 </ul>
@@ -472,23 +482,79 @@ Ventas = b_0 + b_1 \times Precio + \varepsilon
 <p><span class="math display">\[
 \hat{Ventas} = 500 - 25 \times Precio
 \]</span></p>
-<p>significa que por cada $1 más en el precio, <strong>pierdes 25 platos vendidos en promedio</strong>. ¡Cuidado con pasarte de caro!</p>
+<p>El sombrero en <span class="math inline">\(\hat{Ventas}\)</span> significa <strong>ventas predichas</strong>. Para usar la ecuación, reemplazamos el precio y hacemos la cuenta:</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Precio</th>
+<th>Cálculo</th>
+<th>Platos predichos por semana</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td><span class="math inline">\(500 - 25\times 10\)</span></td>
+<td>250</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td><span class="math inline">\(500 - 25\times 11\)</span></td>
+<td>225</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td><span class="math inline">\(500 - 25\times 12\)</span></td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Al pasar de 10 a 11, la predicción baja de 250 a 225: <strong>25 platos menos</strong>. Si el precio aumenta dos unidades, baja <span class="math inline">\(25\times 2=50\)</span> platos. Esa variación constante es la intuición de la pendiente de una recta.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>De la predicción al error
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si con un precio de 10 se vendieron realmente 270 platos, el <strong>residuo</strong> es <span class="math inline">\(270-250=20\)</span>: el punto queda 20 platos por encima de la recta. Si se vendieron 230, el residuo es <span class="math inline">\(230-250=-20\)</span> y el punto queda por debajo. El residuo es la diferencia observable entre el dato y la predicción; <span class="math inline">\(\varepsilon\)</span> representa el error del modelo en la población.</p>
+<p>La «mejor» recta por <strong>mínimos cuadrados</strong> es la que hace más pequeña la suma de los residuos al cuadrado. Los elevamos al cuadrado para que errores positivos y negativos no se cancelen y para penalizar más los errores grandes. Así elegimos una línea que se acerque al conjunto de puntos.</p>
+</div>
+</div>
+<p>Esta relación describe los datos, pero por sí sola no demuestra que cambiar el precio cause esa caída: quizá las semanas con precios altos también tuvieron menos publicidad. Además, conviene predecir dentro del rango de precios observado; prolongar la recta demasiado puede producir resultados absurdos, como ventas negativas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pendiente-residuo" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Recta de ventas igual a 500 menos 25 por precio. De precio 10 a 11 la predicción baja de 250 a 225. A precio 10, una observación de 270 está 20 platos por encima de la predicción.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pendiente-residuo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="capitulo6_files/figure-html/fig-pendiente-residuo-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;6.1: La pendiente compara dos predicciones; el residuo compara una observación con su predicción."><img src="capitulo6_files/figure-html/fig-pendiente-residuo-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Recta de ventas igual a 500 menos 25 por precio. De precio 10 a 11 la predicción baja de 250 a 225. A precio 10, una observación de 270 está 20 platos por encima de la predicción."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pendiente-residuo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1: La pendiente compara dos predicciones; el residuo compara una observación con su predicción.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Lee el gráfico en dos direcciones: <strong>hacia la derecha</strong>, la pendiente indica cómo cambia la predicción al cambiar el precio; <strong>hacia arriba o abajo</strong>, el residuo indica cuánto se alejó una semana de lo predicho.</p>
 </section>
 <section id="es-realmente-importante-mi-coeficiente-significancia-estadística" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="es-realmente-importante-mi-coeficiente-significancia-estadística"><span class="header-section-number">6.2</span> ¿Es realmente importante mi coeficiente? (significancia estadística)</h2>
 <p>Hasta ahora vimos que un coeficiente <span class="math inline">\(b_1\)</span> nos dice cómo cambia <span class="math inline">\(Y\)</span> cuando <span class="math inline">\(X\)</span> sube una unidad.</p>
-<p>Pero la gran pregunta es: <strong>¿podemos confiar en que ese efecto no apareció solo por azar?</strong></p>
-<p>Aquí entran las <strong>pruebas de hipótesis</strong> que estudiamos el capítulo anterior.</p>
+<p>Pero la gran pregunta es: <strong>¿la pendiente observada es suficientemente clara para distinguirla de las fluctuaciones de una muestra?</strong></p>
+<p>Aquí entran las <strong>pruebas de hipótesis</strong> que estudiamos en el capítulo anterior. Con otras semanas obtendríamos una pendiente algo distinta; la prueba tiene en cuenta esa incertidumbre.</p>
 <section id="el-planteamiento" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="el-planteamiento"><span class="header-section-number">6.2.1</span> El planteamiento</h3>
 <ul>
-<li><strong>Hipótesis nula (<span class="math inline">\(H_0\)</span>)</strong>: el coeficiente es igual a 0.<br>
-&gt; Es decir, que la variable no tiene efecto real en las ventas.<br>
-</li>
-<li><strong>Hipótesis alternativa (<span class="math inline">\(H_1\)</span>)</strong>: el coeficiente es diferente de 0.<br>
-&gt; Que sí existe un impacto real.</li>
+<li><strong>Hipótesis nula (<span class="math inline">\(H_0\)</span>)</strong>: el coeficiente en la población es igual a 0. En el modelo simple, la recta de ventas promedio sería horizontal: conocer el precio no cambiaría la predicción.</li>
+<li><strong>Hipótesis alternativa (<span class="math inline">\(H_1\)</span>)</strong>: el coeficiente en la población es diferente de 0. La recta de ventas promedio tendría una pendiente positiva o negativa.</li>
 </ul>
-<p>Para saber si tu coeficiente es realmente significativo, puedes usar el valor p (p-value). Este valor te dice la probabilidad de que el coeficiente sea cero (es decir, que no tenga efecto).</p>
+<p>Para evaluar la evidencia, puedes usar el <strong>valor p (p-value)</strong>. Imagina que la pendiente poblacional fuera cero y recogiéramos muchas muestras similares: aun así, algunas mostrarían pendientes distintas de cero por azar. El valor p indica qué tan probable sería obtener un estadístico de prueba tan extremo como el observado, o más, <strong>si la hipótesis nula y los supuestos de la prueba fueran ciertos</strong>. No es la probabilidad de que el coeficiente sea cero.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -500,54 +566,73 @@ Ventas = b_0 + b_1 \times Precio + \varepsilon
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Si el valor p es menor que 0.05, puedes decir que el coeficiente es <strong>significativo</strong>. Esto significa que hay evidencia suficiente para afirmar que el precio sí afecta las ventas.</li>
-<li>Si el valor p es mayor que 0.05, no puedes rechazar la hipótesis nula de que el coeficiente es cero. En otras palabras, no hay suficiente evidencia para afirmar que el precio afecta las ventas.</li>
+<li>Si el valor p es menor que 0.05, el coeficiente es <strong>significativo al nivel del 5%</strong>: rechazamos <span class="math inline">\(H_0\)</span> y encontramos evidencia de una asociación lineal entre precio y ventas.</li>
+<li>Si el valor p es mayor o igual que 0.05, no rechazamos <span class="math inline">\(H_0\)</span>: los datos no ofrecen suficiente evidencia para distinguir el coeficiente de cero. Esto no demuestra que sea cero.</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="ejemplo-de-restaurante" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="ejemplo-de-restaurante"><span class="header-section-number">6.2.2</span> Ejemplo de restaurante 🍝</h3>
-<p>Supongamos que obtienes un nuevo modelo al recoger más datos:</p>
+<p>Supongamos que obtienes un nuevo modelo al recoger más datos e incluir publicidad (más adelante veremos cómo interpretar varias variables juntas). Aquí <strong>Publicidad</strong> se mide en centenas de unidades monetarias: gastar 200 se registra como <span class="math inline">\(Publicidad=2\)</span>.</p>
 <p><span class="math display">\[
 \hat{Ventas} = 400 - 20 \times Precio + 60 \times Publicidad
 \]</span></p>
 <ul>
-<li>El coeficiente de <strong>Precio = -20</strong> sugiere que subir $1 reduce 20 platos vendidos.<br>
+<li>El coeficiente de <strong>Precio = -20</strong> indica una predicción de 20 platos menos por cada unidad adicional de precio, manteniendo fija la publicidad.<br>
 </li>
 <li>Pero, ¿y si esa relación negativa se debe solo a la casualidad en tus datos?</li>
 </ul>
 </section>
 <section id="la-prueba" class="level3" data-number="6.2.3">
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="la-prueba"><span class="header-section-number">6.2.3</span> La prueba</h3>
-<p>El software (R, Excel, Stata, etc.) hace un <strong>test t</strong> que compara el valor del coeficiente con la variabilidad de los datos.<br>
-De ahí sale un número mágico: el <strong>p-valor</strong>.</p>
+<p>El software (R, Excel, Stata, etc.) hace un <strong>test t</strong> que compara el coeficiente con su <strong>error estándar</strong>, una medida de la incertidumbre con que lo estimamos. Para probar un coeficiente igual a cero, calcula <span class="math inline">\(t=\text{coeficiente estimado}/\text{error estándar}\)</span>.</p>
+<p>Por ejemplo, una pendiente de <span class="math inline">\(-20\)</span> con error estándar de 5 está a cuatro errores estándar de cero (<span class="math inline">\(t=-4\)</span>); con error estándar de 25 está a menos de uno (<span class="math inline">\(t=-0.8\)</span>). Aunque la pendiente es la misma, el primer caso ofrece evidencia más clara de una asociación. El p-valor se obtiene a partir de ese estadístico y de los grados de libertad del modelo.</p>
 <ul>
-<li>Si el <strong>p-valor &lt; 0.05</strong>, rechazamos la hipótesis nula.<br>
-&gt; Concluimos que el efecto es significativo: el precio <em>sí afecta</em> las ventas.<br>
-</li>
-<li>Si el <strong>p-valor ≥ 0.05</strong>, no tenemos suficiente evidencia.<br>
-&gt; No podemos asegurar que el precio influya: podría ser puro ruido.</li>
+<li>Si el <strong>p-valor &lt; 0.05</strong>, rechazamos la hipótesis nula. Encontramos evidencia de una asociación entre precio y ventas, controlando por publicidad.</li>
+<li>Si el <strong>p-valor ≥ 0.05</strong>, no tenemos suficiente evidencia. La estimación es compatible con un coeficiente poblacional de cero; también puede haber una relación que estos datos no permitan detectar con claridad.</li>
 </ul>
 </section>
 <section id="la-moraleja" class="level3" data-number="6.2.4">
 <h3 data-number="6.2.4" class="anchored" data-anchor-id="la-moraleja"><span class="header-section-number">6.2.4</span> La moraleja</h3>
-<p>Un coeficiente puede verse grande o pequeño, positivo o negativo, pero lo crucial es saber si es <strong>estadísticamente diferente de cero</strong>.<br>
-Solo así podemos decir con confianza que esa variable explica parte de la historia de nuestros datos.</p>
-<p>👉 En negocios, esto significa que antes de tomar decisiones (subir precios, invertir en publicidad, lanzar una promo) debemos asegurarnos de que los efectos que vemos no sean simplemente coincidencias.</p>
+<p>Conviene separar dos preguntas: <strong>¿de qué tamaño es la asociación estimada?</strong> (el coeficiente) y <strong>¿qué evidencia tenemos de que difiere de cero?</strong> (la prueba). Una asociación pequeña puede ser significativa con muchos datos, y una grande puede estimarse con mucha incertidumbre. La significancia estadística no garantiza importancia para el negocio ni demuestra causalidad.</p>
+<p>👉 En negocios, antes de tomar decisiones (subir precios, invertir en publicidad, lanzar una promo), debemos considerar el tamaño de la asociación, su incertidumbre y si la comparación permite atribuir los cambios a esa decisión.</p>
 </section>
 </section>
 <section id="midiendo-qué-tan-bien-funciona-mi-regresión" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="midiendo-qué-tan-bien-funciona-mi-regresión"><span class="header-section-number">6.3</span> Midiendo qué tan bien funciona mi regresión</h2>
 <p>No basta con tener la línea (regresión), también queremos saber <strong>qué tan buena es</strong>.</p>
-<p>Para eso usamos el famoso <strong><span class="math inline">\(R^2\)</span></strong>, también llamado coeficiente de determinación:</p>
+<p>Para eso usamos el famoso <strong><span class="math inline">\(R^2\)</span></strong>, también llamado coeficiente de determinación. La idea es comparar dos maneras de predecir las semanas que usamos para ajustar el modelo:</p>
+<ol type="1">
+<li><strong>Sin usar el precio:</strong> predecir siempre el promedio de ventas, como una línea horizontal.</li>
+<li><strong>Usando el precio:</strong> predecir con la recta de regresión.</li>
+</ol>
+<p>En una regresión por mínimos cuadrados con intercepto, <span class="math inline">\(R^2\)</span> mide cuánto se reduce la suma de errores al cuadrado al pasar de la primera opción a la segunda. Si era 10 000 al usar el promedio y queda en 2 000 al usar la recta:</p>
+<p><span class="math display">\[
+R^2=1-\frac{2\,000}{10\,000}=0.8
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-r2-promedio" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dos gráficos con las mismas cinco semanas. Arriba, una línea horizontal en 250 platos produce errores cuadrados que suman 10000. Abajo, una recta descendente reduce la suma a 2000: R cuadrado es 0.8.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r2-promedio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="capitulo6_files/figure-html/fig-r2-promedio-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;6.2: Los mismos datos, dos formas de predecir. Los segmentos verticales muestran los errores que elevamos al cuadrado y sumamos."><img src="capitulo6_files/figure-html/fig-r2-promedio-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Dos gráficos con las mismas cinco semanas. Arriba, una línea horizontal en 250 platos produce errores cuadrados que suman 10000. Abajo, una recta descendente reduce la suma a 2000: R cuadrado es 0.8."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r2-promedio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2: Los mismos datos, dos formas de predecir. Los segmentos verticales muestran los errores que elevamos al cuadrado y sumamos.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Los puntos no cambian entre los dos paneles: cambia la regla de predicción. Al usar el precio, la suma de errores al cuadrado baja de 10 000 a 2 000, una reducción del 80%.</p>
 <ul>
-<li>Si <span class="math inline">\(R^2 = 0.8\)</span>, entonces el 80% de las variaciones en ventas se explican solo con el precio.<br>
+<li>Si <span class="math inline">\(R^2 = 0.8\)</span> en el modelo simple, la recta con precio recoge el 80% de la variación de las ventas alrededor de su promedio <strong>en la muestra utilizada</strong>. En el modelo múltiple, ese porcentaje corresponde al conjunto de variables.<br>
 </li>
-<li>El 20% restante… bueno, puede ser el clima, la competencia, o ese influencer foodie que llegó sin avisar 📸.</li>
+<li>El 20% restante queda en los residuos: puede incluir clima, competencia, azar u otros patrones que el modelo no recoge. El <span class="math inline">\(R^2\)</span> no identifica cuál de estas razones lo explica.</li>
 </ul>
-<p>Si <span class="math inline">\(R^2 = 0\)</span>, tu modelo no explica nada: sería como decir que el precio no tiene relación alguna con las ventas, y que lo único que podrías hacer es mirar el promedio de todas las semanas.</p>
-<p>Si <span class="math inline">\(R^2 = 1\)</span>, tu modelo explica todo: las ventas estarían perfectamente determinadas por el precio, sin misterios, sin azar, sin sorpresas (lo cual rara vez pasa en la vida real).</p>
+<p>Si <span class="math inline">\(R^2 = 0\)</span>, la recta no mejora la predicción frente al promedio en esa muestra. Aun así, podría existir un patrón curvo que una recta no capture.</p>
+<p>Si <span class="math inline">\(R^2 = 1\)</span>, todas las observaciones de la muestra quedan sobre la línea: los residuos son cero. Eso no garantiza acertar en semanas futuras.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -558,7 +643,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Piensa en <span class="math inline">\(R^2\)</span> como un termómetro de confianza: te dice qué tan buena es tu línea de regresión para capturar la historia detrás de tus datos. No es perfecto, pero sí es una brújula que te orienta sobre cuánto puedes fiarte de tu modelo para explicar lo que ves.</p>
+<p>Piensa en <span class="math inline">\(R^2\)</span> como una medida de cuánto mejora el ajuste frente a usar solo el promedio. Un <span class="math inline">\(R^2=0.8\)</span> <strong>no significa acertar el 80% de las semanas</strong>, ni que el precio cause el 80% de las ventas. Para evaluar predicciones futuras necesitamos comprobar los errores en datos que no se usaron para ajustar el modelo.</p>
 </div>
 </div>
 </section>
@@ -573,14 +658,77 @@ En tu restaurante también influyen otros “ingredientes” del negocio:</p>
 </li>
 <li>y si fue o no una <strong>semana festiva</strong>.</li>
 </ul>
-<p>La regresión múltiple nos permite poner todos esos factores en la misma receta estadística.Supongamos que tus datos arrojan:</p>
+<p>La regresión múltiple nos permite poner todos esos factores en la misma receta estadística. Conservamos la publicidad en centenas de unidades monetarias y definimos <strong>Festivo = 1</strong> para una semana festiva y <strong>Festivo = 0</strong> para una que no lo es. Supongamos que tus datos arrojan:</p>
 <p><span class="math display">\[
-\hat{Ventas} = 400 - 20 \times Precio + 60 \times Publicidad + 15 \times Festivo
+\begin{aligned}
+\hat{Ventas} ={}&amp; 400 - 20 \times Precio \\
+&amp;+ 60 \times Publicidad + 15 \times Festivo
+\end{aligned}
 \]</span></p>
-<p>Interpretación:<br>
-- Cada $1 más en el precio reduce en promedio 20 platos vendidos.<br>
-- Cada $100 en publicidad aumentan las ventas en 60 platos.<br>
-- Si es semana festiva, se venden 15 platos extra aunque no cambie nada más.</p>
+<p>Interpretación, manteniendo constantes las demás variables del modelo:</p>
+<ul>
+<li>Cada unidad adicional de precio se asocia con 20 platos menos por semana.<br>
+</li>
+<li>Cada 100 unidades monetarias adicionales en publicidad se asocian con 60 platos más.<br>
+</li>
+<li>Una semana festiva tiene una predicción de 15 platos más que una no festiva.</li>
+</ul>
+<p>Para verlo, partamos de una semana con precio de 10, publicidad de 200 y sin festivo:</p>
+<p><span class="math display">\[
+\hat{Ventas}=400-20\times10+60\times2+15\times0=320
+\]</span></p>
+<p>Ahora cambiamos <strong>una sola característica cada vez</strong> respecto de esa semana:</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Escenario</th>
+<th>Precio</th>
+<th>Publicidad (centenas)</th>
+<th>Festivo</th>
+<th>Platos predichos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Semana de partida</td>
+<td>10</td>
+<td>2</td>
+<td>0</td>
+<td>320</td>
+</tr>
+<tr class="even">
+<td>Solo cambia el precio</td>
+<td>11</td>
+<td>2</td>
+<td>0</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td>Solo cambia la publicidad</td>
+<td>10</td>
+<td>3</td>
+<td>0</td>
+<td>380</td>
+</tr>
+<tr class="even">
+<td>Solo cambia el festivo</td>
+<td>10</td>
+<td>2</td>
+<td>1</td>
+<td>335</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las diferencias frente a 320 son precisamente <span class="math inline">\(-20\)</span>, <span class="math inline">\(+60\)</span> y <span class="math inline">\(+15\)</span>. Esto es lo que significa <strong>mantener lo demás constante</strong>: comparar las predicciones de dos semanas iguales en las otras variables del modelo.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -592,37 +740,36 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>Plantilla de interpretación (ceteris paribus): significa que por cada unidad que aumente <strong>variable</strong>, la <strong>variable dependiente</strong> cambia en promedio <strong>coeficiente</strong> unidades, manteniendo constantes las demás variables.</p>
-<p>Ejemplo: por cada $1 que aumenta el precio, las ventas semanales disminuyen en promedio 20 platos, manteniendo la publicidad y la condición de semana festiva constantes.</p>
+<p>Ejemplo: por cada unidad que aumenta el precio, las ventas semanales predichas disminuyen en promedio 20 platos, manteniendo la publicidad y la condición de semana festiva constantes.</p>
 </div>
 </div>
-<p>En otras palabras, la regresión múltiple te permite <strong>separar los efectos</strong>:<br>
-sabes qué parte de las ventas se debe al precio, qué parte a la publicidad y qué parte al calendario.</p>
+<p>En otras palabras, la regresión múltiple permite <strong>comparar teniendo en cuenta varias características a la vez</strong>. Si las semanas de precios bajos también tuvieron más publicidad, el modelo simple puede mezclar ambas asociaciones. Incluir publicidad ayuda a distinguirlas, pero no controla automáticamente factores que no medimos ni convierte la comparación en un experimento.</p>
 <section id="significancia-en-la-regresión-múltiple" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="significancia-en-la-regresión-múltiple"><span class="header-section-number">6.4.1</span> Significancia en la regresión múltiple</h3>
 <p>En regresión múltiple evaluamos la significancia de cada coeficiente de la misma manera que en la regresión simple: mediante un estadístico t y su p-valor. Cada coeficiente se interpreta <strong>ceteris paribus</strong> (manteniendo las demás variables constantes), por eso es importante no mezclar la interpretación de los efectos.</p>
 <p>Ejemplo (resumen):</p>
 <ul>
-<li><span class="math inline">\(\hat{Ventas} = 400 - 20\times Precio + 60\times Publicidad + 15\times Festivo\)</span></li>
+<li>Usamos el mismo modelo de precio, publicidad y festivo de la ecuación anterior.</li>
 <li>p-valores (ej.): Precio <span class="math inline">\(p&lt;0.01\)</span> (significativo), Publicidad <span class="math inline">\(p=0.18\)</span> (no significativo), Festivo <span class="math inline">\(p=0.03\)</span> (significativo)</li>
 </ul>
-<p>Aunque el coeficiente de publicidad sea 60, su p-valor elevado (<span class="math inline">\(p=0.18\)</span>) indica que no hay suficiente evidencia para afirmar que la publicidad tiene un efecto sobre las ventas una vez controlamos por precio y festivo (ceteris paribus). Esto implica que aunque el coeficiente sea 60, en términos estadísticos es 0.</p>
+<p>Aunque el coeficiente de publicidad sea 60, su p-valor (<span class="math inline">\(p=0.18\)</span>) indica que, al nivel del 5%, no hay suficiente evidencia para distinguir su coeficiente poblacional de cero una vez controlamos por precio y festivo. <strong>La estimación sigue siendo 60, no se convierte en 0</strong>, y sigue entrando en las predicciones del modelo ajustado. Podríamos necesitar más datos o mayor variación en publicidad para estimarla con precisión; no podemos concluir que la publicidad sea inútil.</p>
 </section>
 </section>
 <section id="conclusión" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">6.5</span> Conclusión</h2>
 <p>La regresión lineal, ya sea simple o múltiple, funciona como una lupa 🔍:<br>
-te ayuda a <strong>distinguir qué factores realmente impulsan tus resultados</strong> y cuáles son solo ruido.</p>
+te ayuda a <strong>resumir cómo se relacionan las variables con tus resultados</strong>, hacer predicciones y evaluar la incertidumbre de esas relaciones.</p>
 <p>En el restaurante esto significa tomar decisiones con más confianza:<br>
 ¿bajo precios?, ¿aumento el presupuesto en publicidad?, ¿aprovecho mejor los festivos?</p>
 <p>👉 La magia está en que no tienes que adivinar. Los datos te cuentan la historia, y la regresión es el traductor.</p>
 </section>
-<section id="extensiones-del-modelo-de-regresión-lineal" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Extensiones del modelo de regresión lineal</h1>
+<section id="extensiones-del-modelo-de-regresión-lineal" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="extensiones-del-modelo-de-regresión-lineal"><span class="header-section-number">6.6</span> Extensiones del modelo de regresión lineal</h2>
 <p>Hasta ahora, hemos usado modelos de regresión lineal “simples” para predecir ventas en tu restaurante según precio, publicidad o si era semana festiva. Pero el mundo real es más complejo: las variables <strong>pueden interactuar</strong> entre sí y la relación con las ventas <strong>no siempre es lineal</strong>.</p>
 <p>Veamos cómo ampliar la receta de la regresión lineal para capturar estos matices.</p>
 <hr>
-<section id="cuando-los-ingredientes-se-combinan-interacciones" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">7.1</span> 6.1 Cuando los ingredientes se combinan: Interacciones</h2>
+<section id="cuando-los-ingredientes-se-combinan-interacciones" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="cuando-los-ingredientes-se-combinan-interacciones"><span class="header-section-number">6.6.1</span> Cuando los ingredientes se combinan: Interacciones</h3>
 <p>Imagina que lanzas un nuevo plato y quieres saber cómo influye el <strong>precio</strong> en las ventas. Pero tal vez el impacto del precio depende de otra variable, por ejemplo, si hiciste o no <strong>publicidad</strong>.</p>
 <ul>
 <li>Si no hay publicidad, un descuento en el precio podría no atraer a muchos clientes.<br>
@@ -630,8 +777,41 @@ te ayuda a <strong>distinguir qué factores realmente impulsan tus resultados</s
 <li>Si sí hay publicidad, ese mismo descuento puede disparar las ventas.</li>
 </ul>
 <p>Esto se llama <strong>interacción</strong>: el efecto de una variable depende del valor de otra.</p>
-<p>[ Ventas = b_0 + b_1 Precio + b_2 Publicidad + b_3 (Precio Publicidad) + ]</p>
+<p>Para este ejemplo, cambiamos la forma de registrar <strong>Publicidad</strong>: ahora vale <strong>1 si hubo campaña y 0 si no la hubo</strong>, en lugar de medir el gasto en centenas. Así podemos comparar dos rectas, una para cada situación.</p>
+<p><span class="math display">\[
+\begin{aligned}
+Ventas ={}&amp; b_0 + b_1 \times Precio + b_2 \times Publicidad \\
+&amp;+ b_3 \times (Precio \times Publicidad) + \varepsilon
+\end{aligned}
+\]</span></p>
 <p>El término <span class="math inline">\(b_3\)</span> mide cuánto cambia el efecto del precio cuando hay publicidad.</p>
+<p>Supongamos que la ecuación estimada es:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{Ventas} ={}&amp; 400-10\times Precio+100\times Publicidad \\
+&amp;-10\times(Precio\times Publicidad)
+\end{aligned}
+\]</span></p>
+<p>Sustituimos el indicador:</p>
+<ul>
+<li><strong>Sin campaña (<span class="math inline">\(Publicidad=0\)</span>):</strong> los términos con publicidad desaparecen y queda <span class="math inline">\(\hat{Ventas}=400-10\times Precio\)</span>.</li>
+<li><strong>Con campaña (<span class="math inline">\(Publicidad=1\)</span>):</strong> queda <span class="math inline">\(\hat{Ventas}=500-20\times Precio\)</span>.</li>
+</ul>
+<p>Al bajar el precio de 10 a 9, la primera recta pasa de 300 a 310 platos y la segunda de 300 a 320. El mismo descuento se asocia con <strong>10 platos adicionales sin campaña y 20 con campaña</strong>. El coeficiente de interacción, <span class="math inline">\(-10\)</span>, es la diferencia entre las pendientes: <span class="math inline">\(-20-(-10)=-10\)</span>. Sin interacción, las dos rectas tendrían la misma pendiente.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-interaccion-publicidad" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A precio 10, ambas rectas predicen 300 platos. Al bajar a 9, la recta sin campaña predice 310 y la recta con campaña predice 320.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-interaccion-publicidad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="capitulo6_files/figure-html/fig-interaccion-publicidad-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;6.3: Con interacción, las rectas tienen pendientes distintas: el mismo descuento cambia la predicción en cantidades diferentes."><img src="capitulo6_files/figure-html/fig-interaccion-publicidad-1.png" class="img-fluid figure-img" style="width:100.0%" alt="A precio 10, ambas rectas predicen 300 platos. Al bajar a 9, la recta sin campaña predice 310 y la recta con campaña predice 320."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interaccion-publicidad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.3: Con interacción, las rectas tienen pendientes distintas: el mismo descuento cambia la predicción en cantidades diferentes.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -647,22 +827,26 @@ Tip
 </div>
 <hr>
 </section>
-<section id="relaciones-no-siempre-lineales" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="relaciones-no-siempre-lineales"><span class="header-section-number">7.2</span> 6.2 Relaciones no siempre lineales</h2>
-<p>No siempre el efecto de una variable es recto como una línea. Por ejemplo:</p>
+<section id="relaciones-no-siempre-lineales" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="relaciones-no-siempre-lineales"><span class="header-section-number">6.6.2</span> Relaciones no siempre lineales</h3>
+<p>Una recta supone que cada unidad adicional de precio cambia la predicción en la misma cantidad. Pero esa variación podría ser diferente según el precio de partida. Por ejemplo:</p>
 <ul>
-<li>Si el precio es muy bajo, las ventas suben (¡oferta irresistible!).<br>
+<li>Pasar de un precio de 5 a 6 podría reducir la predicción en unos 19 platos.<br>
 </li>
-<li>Si subes demasiado el precio, las ventas bajan (¡nadie quiere pagar tanto!).</li>
+<li>Pasar de 10 a 11 podría reducirla en unos 29 platos.</li>
 </ul>
-<p>Esto dibuja una <strong>curva</strong> en vez de una línea.</p>
+<p>En ambos casos el precio sube una unidad, pero la caída es distinta. Eso dibuja una <strong>curva</strong> en vez de una recta.</p>
 <p>Para capturar ese patrón podemos agregar un <strong>término cuadrático</strong> al modelo:</p>
-<p>[ Ventas = b_0 + b_1 Precio + b_2 Precio^2 + ]</p>
+<p><span class="math display">\[
+Ventas = b_0 + b_1 \times Precio + b_2 \times Precio^2 + \varepsilon
+\]</span></p>
 <ul>
-<li><span class="math inline">\(b_1\)</span> mide el efecto lineal del precio.<br>
+<li><span class="math inline">\(b_1\)</span> acompaña al precio, pero ya no se interpreta por sí solo como el cambio por una unidad: al cambiar el precio también cambia su cuadrado.<br>
 </li>
 <li><span class="math inline">\(b_2\)</span> permite que la curva se doble hacia arriba o hacia abajo.</li>
 </ul>
+<p>Por ejemplo, con <span class="math inline">\(\hat{Ventas}=500-8\times Precio-Precio^2\)</span>, un precio de 5 da <span class="math inline">\(500-40-25=435\)</span> platos y uno de 6 da <span class="math inline">\(500-48-36=416\)</span>: una caída de 19. De 10 a 11, las predicciones pasan de 320 a 291: una caída de 29. <strong>Para interpretar el cambio, evaluamos la ecuación completa en ambos precios y restamos.</strong></p>
+<p>Aunque la gráfica sea curva, seguimos hablando de regresión lineal porque los coeficientes <span class="math inline">\(b_0\)</span>, <span class="math inline">\(b_1\)</span> y <span class="math inline">\(b_2\)</span> entran sumando, cada uno multiplicado por una variable conocida (<span class="math inline">\(Precio\)</span> o <span class="math inline">\(Precio^2\)</span>).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -673,11 +857,24 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Intuición:</strong> como en la cocina, no siempre más de un ingrediente mejora el plato. Hay un punto óptimo de sal o picante: demasiado poco o demasiado mucho arruina la receta.</p>
+<p><strong>Intuición:</strong> en una recta, cada paso a la derecha implica el mismo cambio vertical. En una curva, ese cambio depende de dónde empezamos. Agregar <span class="math inline">\(Precio^2\)</span> permite representar esa diferencia; no garantiza que exista un precio óptimo dentro del rango observado.</p>
 </div>
 </div>
-<p>#| label: grafico-cuadratico #| fig-cap: “Relación cuadrática entre precio y ventas (ejemplo simulado)” #| echo: false</p>
-<p>set.seed(123) precio &lt;- seq(5, 30, 1) ventas &lt;- 200 - 10<em>precio + 0.3</em>precio^2 + rnorm(length(precio), 0, 15) plot(precio, ventas, pch=19, col=“darkred”, main=“Ejemplo relación cuadrática”, xlab=“Precio”, ylab=“Ventas”)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-grafico-cuadratico" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Semanas simuladas alrededor de una curva descendente. La curva es más inclinada a precios altos: de 5 a 6 se pierden 19 platos predichos y de 10 a 11 se pierden 29.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-grafico-cuadratico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="capitulo6_files/figure-html/fig-grafico-cuadratico-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;6.4: Relación cuadrática entre precio y ventas (ejemplo simulado)"><img src="capitulo6_files/figure-html/fig-grafico-cuadratico-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Semanas simuladas alrededor de una curva descendente. La curva es más inclinada a precios altos: de 5 a 6 se pierden 19 platos predichos y de 10 a 11 se pierden 29."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grafico-cuadratico-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.4: Relación cuadrática entre precio y ventas (ejemplo simulado)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Los puntos representan semanas con variación alrededor del promedio y la curva azul muestra la relación usada para simularlos. La curva se hace más inclinada hacia abajo conforme aumenta el precio: cada unidad adicional se asocia con una caída mayor en las ventas promedio, dentro del rango mostrado.</p>
 
 
 </section>
@@ -1110,6 +1307,38 @@ Tip
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

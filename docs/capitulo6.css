@@ -1,0 +1,32 @@
+/* Keep the chapter's equations and tables readable on narrow screens. */
+#quarto-document-content .math.display {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+}
+
+#quarto-document-content .cell-output-display img {
+  width: 100%;
+  height: auto;
+  background: white;
+}
+
+#quarto-document-content .cell-output-display {
+  max-width: 100%;
+}
+
+#quarto-document-content .quarto-float-caption {
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  #quarto-document-content .math.display {
+    font-size: 0.85em;
+  }
+
+  #quarto-document-content mjx-container[display="true"] {
+    text-align: left;
+  }
+}
